@@ -5,7 +5,7 @@ var Aggregate = require("./aggregate.js");
 var Mask = require("./mask.js");
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/green-registry';
 
-/*loadResources()
+loadResources()
     .then(function(res){
         return(aggregateData());
     })
@@ -19,8 +19,7 @@ var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/green-registry';
     .fail(function(error){
         console.log(error);
         process.exit(0);
-    });*/
-maskData();
+    });
 
 function loadResources(){
     var deferred = q.defer();
