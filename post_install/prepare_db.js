@@ -127,30 +127,6 @@ function maskData(){
 }
 
 
-function test(){
-    var deferred = q.defer();
-    var _disconnect;
-    var aggregate;
-    new Aggregate({'uri':mongoUri})
-        .then(function(obj) {
-            aggregate = obj;
-            var deferred = q.defer();
-            _disconnect = aggregate.disconnect;
-            console.log("BEGIN AGGREGATE OPERATION");
-            return(aggregate.assignVsCsas());
-        })
-        .then(function(results){
-            console.log("END AGGREGATE OPERATION");
-            _disconnect();
-            deferred.resolve(results);
-        })
-        .fail(function(error){
-            deferred.reject(new Error(error));
-        });
-    return deferred.promise;
-}
-
-
 
 
 
