@@ -50,6 +50,20 @@ git clone https://github.com/BNIA/green-pattern-map.git
 
 You need to edit the config.json file to match your own configuration.
 
+- *host.* Probably 127.0.0.1 or localhost.
+- *user.* Default would be postgres, whichever has acces to your db.
+- *port.* Default is 5432. May be different on different setups.
+- *database.* The database you want everything added to.
+ I recommend a clean database.
+- *password.* Your postgres user's password stored in plain text.
+ Need to work on this.
+
+### Data Sources
+
+- Neighborhood Statistical Areas 2010 boundaries taken from [Open Baltimore](https://data.baltimorecity.gov/Neighborhoods/Neighborhoods/5cni-ybar)
+- Community Statistical Areas 2010 boundaries taken from [Open Baltimore](https://data.baltimorecity.gov/Neighborhoods/Community-Statistical-Areas-Shape/uga5-5yms)
+- Subwatershed boundaries taken from [Maryland.gov Open Data Portal](https://data.maryland.gov/Energy-and-Environment/Maryland-s-8-Digit-Sub-Watersheds/e9j9-vuxg)
+
 ## TODO
 
 - set up different password authentication method for postgres
