@@ -10,7 +10,7 @@ set -x TMP_DIR $PROJ_ROOT"/tmp"
 
 ### SOURCES
 set -x NSA_BOUNDS_URL "https://data.baltimorecity.gov/download/6jyd-xzp7/application/zip"
-set -x CSA_BOUNDS_URL "https://data.baltimorecity.gov/download/6jyd-xzp7/application/zip"
+set -x CSA_BOUNDS_URL "https://data.baltimorecity.gov/download/uga5-5yms/application/zip"
 set -x SWS_BOUNDS_URL "https://data.maryland.gov/api/geospatial/e9j9-vuxg?method=export&format=Shapefile"
 
 ### SETTING UP

@@ -10,6 +10,7 @@ set -x TMP_DIR $PROJ_ROOT"/tmp"
 set -x CSA_SHP $BOUNDS_DIR"/csas/boundaries.shp"
 set -x NSA_SHP $BOUNDS_DIR"/nsas/boundaries.shp"
 set -x SWS_SHP $BOUNDS_DIR"/subwatersheds/boundaries.shp"
+set -x PRUNE_SWS_SCRIPT $PROJ_ROOT"/scripts/prune-subwatersheds.sql"
 
 ### CONFIG VARS
 set -x HOST (jq '.connection.host' $CONFIG | tr -d '"')		# gotta remove extra quotes
@@ -17,8 +18,6 @@ set -x USER (jq '.connection.user' $CONFIG | tr -d '"')
 set -x PORT (jq '.connection.port' $CONFIG | tr -d '"')
 set -x DB (jq '.connection.database' $CONFIG | tr -d '"')
 set -x PGPASSWORD (jq '.connection.password' $CONFIG | tr -d '"')
-
-echo $PGPASSWORD
 
 ### SETTING UP
 mkdir -p $TMP_DIR		# Make sure tmp dir exists
@@ -33,6 +32,9 @@ shp2pgsql -s 4326:4326 -g geometry $SWS_SHP boundaries.subwatersheds > $TMP_DIR"
 psql -h $HOST -U $USER -p $PORT -d $DB -w -f $TMP_DIR"/csas.sql"
 psql -h $HOST -U $USER -p $PORT -d $DB -w -f $TMP_DIR"/nsas.sql"
 psql -h $HOST -U $USER -p $PORT -d $DB -w -f $TMP_DIR"/subwatersheds.sql"
+
+### PRUNE SUBWATERSHEDS
+psql -h $HOST -U $USER -p $PORT -d $DB -w -f $PRUNE_SWS_SCRIPT
 
 ### CLEANING UP
 rm -rf $TMP_DIR			# Remove tmp dir and everything in it

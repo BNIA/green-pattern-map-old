@@ -34,6 +34,7 @@ Before trying to install make sure that you satisfy the requirements.
   - This is likely to be a requirement I remove
 - unzip
 - git
+- [jq](https://github.com/stedolan/jq)
 
 ## Installation
 
