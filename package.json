@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/BNIA/green-pattern-map/issues"
   },
-  "homepage": "https://github.com/BNIA/green-pattern-map#readme"
+  "homepage": "https://github.com/BNIA/green-pattern-map#readme",
+  "dependencies": {
+    "lodash": "^4.1.0"
+  }
 }
