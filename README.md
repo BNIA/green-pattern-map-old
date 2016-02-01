@@ -17,24 +17,22 @@ Hosted by BNIA-JFI.
 
 Before trying to install make sure that you satisfy the requirements.
 
+You can follow the guide [here](https://github.com/BNIA/green-pattern-map/wiki/Requirements).
+
 ### OS
 
 - As of now this is only tested (and made for) Ubuntu 14.04
 
 ### Software
 
-- Node.js V 5.5.0
-- npm V 3.3.12
-- Postgresql Server V 9.5
-  - See my section
- [here](https://github.com/apathinwalking/linode-config#postgresql)
- for help setting up proper user configuration etc.
-- PostGIS
-- Fish shell V 2.2.0
+- [Node.js V 5.5.0](https://github.com/BNIA/green-pattern-map/wiki/Requirements#nodejs-and-npm)
+- [npm V 3.3.12](https://github.com/BNIA/green-pattern-map/wiki/Requirements#nodejs-and-npm)
+- [Postgresql Server V 9.5](https://github.com/BNIA/green-pattern-map/wiki/Requirements#postgres)
+- [PostGIS](https://github.com/BNIA/green-pattern-map/wiki/Requirements#postgis)
+- [Fish shell V 2.2.0](https://github.com/BNIA/green-pattern-map/wiki/Requirements#fish-shell)
   - This is likely to be a requirement I remove
-- unzip
-- git
-- [jq](https://github.com/stedolan/jq)
+- [unzip, git](https://github.com/BNIA/green-pattern-map/wiki/Requirements#others)
+- [jq](https://github.com/BNIA/green-pattern-map/wiki/Requirements#jq)
 
 ## Installation
 
@@ -58,7 +56,11 @@ You need to edit the config.json file to match your own configuration.
 - *password.* Your postgres user's password stored in plain text.
  Need to work on this.
 
-### Data Sources
+## Notes on Sites/ Layer Data
+
+- filler
+
+## Data Sources
 
 - Neighborhood Statistical Areas 2010 boundaries taken from [Open Baltimore](https://data.baltimorecity.gov/Neighborhoods/Neighborhoods/5cni-ybar)
 - Community Statistical Areas 2010 boundaries taken from [Open Baltimore](https://data.baltimorecity.gov/Neighborhoods/Community-Statistical-Areas-Shape/uga5-5yms)
