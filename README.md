@@ -8,6 +8,10 @@ Hosted by BNIA-JFI.
 
 - A *boundary* is a geometric object overlay, e.g. neighborhoods.
 - A *layer* is a set of points.
+- Leaflet is all in WGS84, so I had to convert all boundaries
+ to WGS84
+  - NAD83_Maryland SRID is EPSG:2248
+  - WGS84 is EPSG:4326
 
 ## Requirements
 
