@@ -4,6 +4,11 @@ An interactive map for the baltimore green pattern book.
 
 Hosted by BNIA-JFI.
 
+## Quick Notes
+
+- A *boundary* is a geometric object overlay, e.g. neighborhoods.
+- A *layer* is a set of points.
+
 ## Requirements
 
 Before trying to install make sure that you satisfy the requirements.
