@@ -29,9 +29,8 @@ You can follow the guide [here](https://github.com/BNIA/green-pattern-map/wiki/R
 - [npm V 3.3.12](https://github.com/BNIA/green-pattern-map/wiki/Requirements#nodejs-and-npm)
 - [Postgresql Server V 9.5](https://github.com/BNIA/green-pattern-map/wiki/Requirements#postgres)
 - [PostGIS](https://github.com/BNIA/green-pattern-map/wiki/Requirements#postgis)
-- [Fish shell V 2.2.0](https://github.com/BNIA/green-pattern-map/wiki/Requirements#fish-shell)
-  - This is likely to be a requirement I remove
-- [unzip, git](https://github.com/BNIA/green-pattern-map/wiki/Requirements#others)
+- [Gulp](https://github.com/BNIA/green-pattern-map/wiki/Requirements#gulp)
+- [git](https://github.com/BNIA/green-pattern-map/wiki/Requirements#others)
 - [jq](https://github.com/BNIA/green-pattern-map/wiki/Requirements#jq)
 
 ## Installation
