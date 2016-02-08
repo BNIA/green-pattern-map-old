@@ -91,7 +91,7 @@ gulp.task('tidy_rp_csv', function(){
 			var firstLineRegex = /^ward.*/
 			// if its the first line, do something different
 			if (firstLineRegex.test(data)){
-				var neo = "block,lot,orig_address,address"
+				var neo = "block,lot,orig_address,address\n"
 				output.write(neo)
 			}
 			else{
