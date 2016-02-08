@@ -7,6 +7,12 @@ var chmod = require('gulp-chmod')								// For permissions
 var mkdirp = require('mkdirp')									// Make sure dir exists
 var rename = require('gulp-rename')								// For renaming files
 var exec = require('child-process-promise').exec
+var jedit = require('gulp-json-editor')
+var tidy = require('tidyaddr-js')
+var fs = require('fs')
+var csv = require('fast-csv')
+var byline = require('byline')
+var titleize = require('titleize')
 var knex = require('knex')								// For sql
 
 gulp.task('get_shape', ['get_nsa_shape','get_csa_shape','get_sws_shape'])
@@ -54,6 +60,66 @@ gulp.task('get_sws_shape', function(){
 		path.basename = "boundaries"
 	}))
 	.pipe(gulp.dest('data/boundaries/subwatersheds'))
+})
+
+/* download real property json */
+gulp.task('get_rp_csv', function(){
+	mkdirp.sync('data/other/raw')
+	return remoteSrc(['rows.csv?accessType=DOWNLOAD'],{
+		base:"https://data.baltimorecity.gov/api/views/27w9-urtv/",
+	})
+	.pipe(rename(function(path){
+		path.basename = "real-property"
+		path.extname = ".csv"
+	}))
+	.pipe(gulp.dest('data/other'))
+})
+
+/* standardize address field, remove unneeded fields from real property json */
+gulp.task('tidy_rp_csv', function(){
+	var p = Promise.defer()
+
+	var input = fs.createReadStream("data/other/raw/real-property.csv")
+	var output = fs.createWriteStream("data/other/real-property.csv")
+
+
+	input = byline.createStream(input)
+	input
+		.on("data", function(data){
+			//just grabe block, lot and address, create a tidied address column
+			data = data.toString()
+			var firstLineRegex = /^ward.*/
+			// if its the first line, do something different
+			if (firstLineRegex.test(data)){
+				var neo = "block,lot,orig_address,address"
+				output.write(neo)
+			}
+			else{
+				var orig = data.split(",")
+				// use tidyaddr and titleize
+				var tidyAddress = tidy.cleanLine(orig[4]).tidyaddress
+				if(tidyAddress === null || tidyAddress === undefined){
+					tidyAddress = ''
+				}
+				else{
+					tidyAddress = titleize(tidyAddress)
+				}
+				var block = orig[2].trim()
+				var lot = orig[3].trim()
+				var orig_address = orig[4]
+				var neo =  block + "," + lot + "," + orig_address +"," + tidyAddress + "\n"
+				output.write(neo)
+			}
+		})
+		.on("end",function(){
+			output.end()
+		})
+	
+	output
+		.on("finish",function(){
+			p.resolve()
+		})
+	return p.promise
 })
 
 /* load nsa shape to pg db */
