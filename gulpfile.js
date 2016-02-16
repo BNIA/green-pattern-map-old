@@ -62,6 +62,7 @@ gulp.task('get_sws_shape', function(){
 	.pipe(gulp.dest('data/boundaries/subwatersheds'))
 })
 
+
 /* download real property json */
 gulp.task('get_rp_csv', function(){
 	mkdirp.sync('data/other/raw')
@@ -75,7 +76,7 @@ gulp.task('get_rp_csv', function(){
 	.pipe(gulp.dest('data/other'))
 })
 
-/* standardize address field, remove unneeded fields from real property json */
+/* standardize address field, remove unneeded fields from real property csv */
 gulp.task('tidy_rp_csv', function(){
 	var p = Promise.defer()
 
@@ -107,6 +108,7 @@ gulp.task('tidy_rp_csv', function(){
 				var block = orig[2].trim()
 				var lot = orig[3].trim()
 				var orig_address = orig[4]
+				orig_address = orig_address.replace('"','') //breaks postgres
 				var neo =  block + "," + lot + "," + orig_address +"," + tidyAddress + "\n"
 				output.write(neo)
 			}
@@ -196,7 +198,7 @@ gulp.task('load_csa_shape', function(){
 gulp.task('load_sws_shape', function(){
 	var pg = knex({client:'pg',connection:config.connection})
 	// Make sure that boundaries schema exists
-	return pg.raw('CREATE SCHEMA IF NOT EXISTS "BOUNDARIES"').then(function(){
+	return pg.raw('CREATE SCHEMA IF NOT EXISTS "boundaries"').then(function(){
 		var filename = "data/boundaries/subwatersheds/boundaries.shp"
 		// convert ssid to 4326 from 4326
 		var execStr = "shp2pgsql -s 4326:4326"					
@@ -220,6 +222,27 @@ gulp.task('load_sws_shape', function(){
 		execStr+= " -d " + config.connection.database
 		execStr+= " -w -f data/boundaries/subwatersheds/boundaries.sql"
 		return exec(execStr)
+	})
+	.then(function(){
+		return pg.destroy()
+	})
+})
+
+/* load rp data into database */
+gulp.task('load_rp_csv', function(){
+	var pg = knex({client:'pg',connection:config.connection})
+	return pg.raw('CREATE SCHEMA IF NOT EXISTS "other"').then(function(){
+		return pg.schema.createTableIfNotExists("other.realproperty",function(table){
+			table.increments('id').primary()
+			table.text("block")
+			table.text("lot")
+			table.text("orig_address")
+			table.text("address")
+		})
+	})
+	.then(function(){
+		var location = process.cwd() + "/data/other/real-property.csv"
+		return pg.raw("COPY other.realproperty(block,lot,orig_address,address) FROM '" +location + "' (FORMAT CSV, HEADER, DELIMITER \',\')")
 	})
 	.then(function(){
 		return pg.destroy()
