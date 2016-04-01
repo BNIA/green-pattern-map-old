@@ -2,3 +2,5 @@
 ./data/boundaries
 ./tmp
 ./.config.json
+./app/config.json
+./public/components

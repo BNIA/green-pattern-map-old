@@ -1,0 +1,22 @@
+{
+  "name": "green-pattern-map",
+  "description": "An interactive map for then Baltimore Green Pattern Book",
+  "main": "app.js",
+  "authors": [
+    "Evan Mahone"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "leaflet",
+    "map"
+  ],
+  "homepage": "https://github.com/BNIA/green-pattern-map",
+  "moduleType": [],
+  "directory": "public/bower_components",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-material": "^1.0.5"
+  }
+}
