@@ -14,8 +14,6 @@ gulp.task('load_nsa_shape', function(){
 		// name geo column "geometry"
 		execStr += " -g geometry"
 		// read shp file
-		// where to put it in db
-		execStr += " " + boundaries.subwatersheds
 		execStr += " " + filename								
 		// where to put it in db
 		execStr += " boundaries.nsas"
