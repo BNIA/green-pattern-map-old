@@ -64,3 +64,7 @@ You need to edit the config.json file to match your own configuration.
 - Neighborhood Statistical Areas 2010 boundaries taken from [Open Baltimore](https://data.baltimorecity.gov/Neighborhoods/Neighborhoods/5cni-ybar)
 - Community Statistical Areas 2010 boundaries taken from [Open Baltimore](https://data.baltimorecity.gov/Neighborhoods/Community-Statistical-Areas-Shape/uga5-5yms)
 - Subwatershed boundaries taken from [Maryland.gov Open Data Portal](https://data.maryland.gov/Energy-and-Environment/Maryland-s-8-Digit-Sub-Watersheds/e9j9-vuxg)
+
+## TOFIX
+
+- boundaries not defined
