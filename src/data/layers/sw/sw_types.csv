@@ -1,0 +1,2 @@
+site_id,site_name,address,point_x,point_y,site_use,status,drain_acres,pct_imp,imp_acres,an_runoff,retrofit_type,bmp_type,feasibility,design_difficulty,watershed_benefit,priority,oldsiteid,source
+integer,text,text,float,float,text,text,float,float,float,float,text,text,text,text,text,text,text,text

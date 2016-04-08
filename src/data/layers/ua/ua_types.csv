@@ -1,0 +1,2 @@
+site_id,site_name,address,zip,block,lot,su_act_rec,su_aal,su_beauty,su_chi_act,su_scl_con,su_flw_bed,su_fg_coop,su_fg_ip,su_fg_org,su_inc_gen,su_mmrl,su_trees,su_wh_ak,su_cnt_gar,su_rn_gar,mg_type,src_bgs,src_bcmg,src_pp,src_pid,src_clf,src_pid_al,src_pid_rp,src_pid_g,src_pid_f,src_ggi,point_x,point_y,record
+integer,text,text,text,text,text,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,text,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean,float,float,text
