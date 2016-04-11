@@ -7,3 +7,4 @@ public/components
 src/data/boundaries/csas
 src/data/boundaries/nsas
 src/data/boundaries/subwatersheds
+.eslintrc
