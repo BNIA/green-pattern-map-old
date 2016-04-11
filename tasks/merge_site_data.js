@@ -35,7 +35,7 @@ gulp.task('merge_site_data', () => {
     var sites = _.union(cg_sites,sw_sites)
 
     mkdirp.sync('src/data/layers/gpb')
-    jsonfile.writeFileSync('src/data/layers/gpb/gpb_types',types)
-    jsonfile.writeFileSync('src/data/layers/gpb/gpb_sites',sites)
+    jsonfile.writeFileSync('src/data/layers/gpb/gpb_types.json',types)
+    jsonfile.writeFileSync('src/data/layers/gpb/gpb_sites.json',sites)
     return
 })

@@ -7,4 +7,8 @@ public/components
 src/data/boundaries/csas
 src/data/boundaries/nsas
 src/data/boundaries/subwatersheds
+src/data/layers/sw/*.json
+src/data/layers/cg/*.json
+src/data/layers/ua/*.json
+src/data/layers/gpb
 .eslintrc
