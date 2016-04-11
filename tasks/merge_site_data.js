@@ -2,12 +2,17 @@ var gulp = require('gulp')
 var mkdirp = require('mkdirp')
 var _ = require('lodash')
 var jsonfile = require('jsonfile')
-var cg_sites = require('../src/data/layers/cg/cg_sites.json')
-var cg_types = require('../src/data/layers/cg/cg_types.json')
-var sw_sites = require('../src/data/layers/sw/sw_sites.json')
-var sw_types = require('../src/data/layers/sw/sw_types.json')
+var cg_sites = null
+var cg_types = null
+var sw_sites = null
+var sw_types = null
 
 gulp.task('merge_site_data', () => {
+    cg_sites = require('../src/data/layers/cg/cg_sites.json')
+    cg_types = require('../src/data/layers/cg/cg_types.json')
+    sw_sites = require('../src/data/layers/sw/sw_sites.json')
+    sw_types = require('../src/data/layers/sw/sw_types.json')
+
     var types = {}
     types = _.assign(types,sw_types)
     types = _.assign(types,cg_types)
