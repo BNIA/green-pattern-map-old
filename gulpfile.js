@@ -13,7 +13,7 @@ gulp.task('uninstall', (cb) => {
 })
 
 gulp.task('setup_layers_and_boundaries', (cb) => {
-	return runSequence(['setup_csa_boundary','setup_nsa_boundary','setup_sws_boundary','setup_gpb_layer'],cb)
+	return runSequence('setup_csa_boundary','setup_nsa_boundary','setup_sws_boundary','setup_gpb_layer',cb)
 })
 
 gulp.task('setup_csa_boundary', (cb) => {
