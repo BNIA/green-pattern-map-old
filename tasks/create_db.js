@@ -1,4 +1,5 @@
 var gulp = require('gulp')
+var knex = require('knex')
 var exec = require('child-process-promise').exec
 var config = require('../config.json')
 
@@ -12,4 +13,8 @@ gulp.task('create_db',() => {
     execStr+= " -O " + config.connection.user
     execStr+= " -p " + config.connection.port
     return exec(execStr)
-	})
+        .then(() => {
+            var pg = knex({client:'pg',connection:config.connection})
+            return pg.raw('CREATE EXTENSION postgis')
+        })
+})
