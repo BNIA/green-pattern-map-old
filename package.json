@@ -7,8 +7,7 @@
     "start": "node index.js",
     "start:w": "node index.js & gulp asset_watcher",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typings": "typings",
-    "postinstall": "typings install && gulp",
+    "postinstall": "gulp",
     "uninstall": "gulp uninstall"
   },
   "repository": {
