@@ -2,6 +2,7 @@ var gulp = require('gulp')
 var knex = require('knex')
 var exec = require('child-process-promise').exec
 var config = require('../config.json')
+var pg = null
 
 gulp.task('create_db',() => {
     var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
@@ -14,7 +15,9 @@ gulp.task('create_db',() => {
     execStr+= " -p " + config.connection.port
     return exec(execStr)
         .then(() => {
-            var pg = knex({client:'pg',connection:config.connection})
+            pg = knex({client:'pg',connection:config.connection})
             return pg.raw('CREATE EXTENSION postgis')
+        }).then(() => {
+            return pg.destroy()
         })
 })
