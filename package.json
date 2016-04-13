@@ -4,7 +4,10 @@
   "description": "An interactive map for then Baltimore Green Pattern Book",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typings": "typings",
+    "postinstall": "typings install && gulp"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,15 @@
     "url": "https://github.com/BNIA/green-pattern-map/issues"
   },
   "homepage": "https://github.com/BNIA/green-pattern-map#readme",
-  "dependencies": {},
+  "dependencies": {
+    "angular2": "^2.0.0-beta.14",
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "systemjs": "^0.19.25",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.6.6"
+  },
   "devDependencies": {
     "bluebird": "3.2.1",
     "bower": "1.7.7",
@@ -40,6 +51,7 @@
     "gulp-less": "3.0.5",
     "gulp-remote-src": "0.4.0",
     "gulp-rename": "1.2.2",
+    "gulp-typescript": "^2.13.0",
     "inflection": "1.8.0",
     "jade": "1.11.0",
     "jsonfile": "^2.2.3",
@@ -49,6 +61,7 @@
     "path": "0.12.7",
     "pg": "4.4.4",
     "require-dir": "0.3.0",
-    "tidyaddr-js": "1.0.1"
+    "tidyaddr-js": "1.0.1",
+    "typings": "^0.7.12"
   }
 }

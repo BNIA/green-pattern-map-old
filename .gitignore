@@ -12,3 +12,4 @@ src/data/layers/cg/*.json
 src/data/layers/ua/*.json
 src/data/layers/gpb
 .eslintrc
+app/public/components
