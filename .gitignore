@@ -2,7 +2,7 @@ node_modules
 data/boundaries
 tmp
 config.json
-app/config.json
+app
 public/components
 src/data/boundaries/csas
 src/data/boundaries/nsas

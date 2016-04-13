@@ -38,8 +38,8 @@ gulp.task('link_layers_and_boundaries', (cb) => {
 
 gulp.task('get_shape', ['get_nsa_shape','get_csa_shape','get_sws_shape'])
 
-gulp.task('asset_watcher', ['compile_less','compile_ts','compile_jade'], function(){
-	gulp.watch('src/css/*.less', ['compile_less'])
-	gulp.watch('src/**/*.ts', ['compile_ts'])
-	gulp.watch('src/**/*.jade', ['compile_jade'])
+gulp.task('asset_watcher', ['compile_less','compile_jade','copy_js'], () => {
+	gulp.watch('src/css/*.less', ['compile_less']);
+	gulp.watch('src/**/*.jade', ['compile_jade']);
+	gulp.watch('src/**/*.js', ['copy_js']);
 })
