@@ -1,9 +1,9 @@
+tmp
 node_modules
 data/boundaries
-tmp
+typings
 config.json
-app
-public/components
+client/app
 src/data/boundaries/csas
 src/data/boundaries/nsas
 src/data/boundaries/subwatersheds
