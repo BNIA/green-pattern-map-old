@@ -8,7 +8,15 @@ gulp.task('make_sws_geojson', function(){
         table.specificType('geojson','jsonb').defaultTo(null)
     })
     .then(() => {
-        return pg.raw('UPDATE boundaries.subwatersheds set geojson = ST_AsGeoJSON(geometry)::jsonb')
+        return pg.raw(
+            'UPDATE boundaries.subwatersheds set geojson = ' +
+            'jsonb_set(' +
+                'ST_AsGeoJSON(geometry)::jsonb,' +
+                "'{properties}'," +
+                "('{\"name\":\"'||mde8name||'\"}')::jsonb," +
+                "true" +
+            ')'
+        )
     })
     .then(function(){
 		return pg.destroy()

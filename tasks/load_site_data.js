@@ -33,35 +33,35 @@ gulp.task('load_site_data', () => {
     }).then(() => {
         return pg.raw('CREATE INDEX gpb_bmp_type ON layers.gpb(bmp_type)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_act_rec ON layers.gpb(su_act_rec)')
+        return pg.raw('CREATE INDEX gpb_cgsu_act_rec ON layers.gpb(cgsu_act_rec)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_aal ON layers.gpb(su_aal)')
+        return pg.raw('CREATE INDEX gpb_cgsu_aal ON layers.gpb(cgsu_aal)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_beauty ON layers.gpb(su_beauty)')
+        return pg.raw('CREATE INDEX gpb_cgsu_beauty ON layers.gpb(cgsu_beauty)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_chi_act ON layers.gpb(su_chi_act)')
+        return pg.raw('CREATE INDEX gpb_cgsu_chi_act ON layers.gpb(cgsu_chi_act)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_scl_con ON layers.gpb(su_scl_con)')
+        return pg.raw('CREATE INDEX gpb_cgsu_scl_con ON layers.gpb(cgsu_scl_con)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_flw_bed ON layers.gpb(su_flw_bed)')
+        return pg.raw('CREATE INDEX gpb_cgsu_flw_bed ON layers.gpb(cgsu_flw_bed)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_fg_coop ON layers.gpb(su_fg_coop)')
+        return pg.raw('CREATE INDEX gpb_cgsu_fg_coop ON layers.gpb(cgsu_fg_coop)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_fg_ip ON layers.gpb(su_fg_ip)')
+        return pg.raw('CREATE INDEX gpb_cgsu_fg_ip ON layers.gpb(cgsu_fg_ip)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_fg_org ON layers.gpb(su_fg_org)')
+        return pg.raw('CREATE INDEX gpb_cgsu_fg_org ON layers.gpb(cgsu_fg_org)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_inc_gen ON layers.gpb(su_inc_gen)')
+        return pg.raw('CREATE INDEX gpb_cgsu_inc_gen ON layers.gpb(cgsu_inc_gen)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_mmrl ON layers.gpb(su_mmrl)')
+        return pg.raw('CREATE INDEX gpb_cgsu_mmrl ON layers.gpb(cgsu_mmrl)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_trees ON layers.gpb(su_trees)')
+        return pg.raw('CREATE INDEX gpb_cgsu_trees ON layers.gpb(cgsu_trees)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_wh_ak ON layers.gpb(su_wh_ak)')
+        return pg.raw('CREATE INDEX gpb_cgsu_wh_ak ON layers.gpb(cgsu_wh_ak)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_cnt_gar ON layers.gpb(su_cnt_gar)')
+        return pg.raw('CREATE INDEX gpb_cgsu_cnt_gar ON layers.gpb(cgsu_cnt_gar)')
     }).then(() => {
-        return pg.raw('CREATE INDEX gpb_su_rn_gar ON layers.gpb(su_rn_gar)')
+        return pg.raw('CREATE INDEX gpb_cgsu_rn_gar ON layers.gpb(cgsu_rn_gar)')
     }).then(() => {
         return pg.raw('CREATE INDEX gpb_mg_type ON layers.gpb(mg_type)')
     }).then(() => {

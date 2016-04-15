@@ -8,7 +8,15 @@ gulp.task('make_nsa_geojson', function(){
         table.specificType('geojson','jsonb').defaultTo(null)
     })
     .then(() => {
-        return pg.raw('UPDATE boundaries.nsas set geojson = ST_AsGeoJSON(geometry)::jsonb')
+        return pg.raw(
+            'UPDATE boundaries.nsas set geojson = ' +
+            'jsonb_set(' +
+                'ST_AsGeoJSON(geometry)::jsonb,' +
+                "'{properties}'," +
+                "('{\"name\":\"'||name||'\"}')::jsonb," +
+                "true" +
+            ')'
+        )
     })
     .then(function(){
 		return pg.destroy()

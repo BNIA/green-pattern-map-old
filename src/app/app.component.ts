@@ -1,7 +1,9 @@
 import {Component} from 'angular2/core';
-import L from 'leaflet'
+//import {Http} from 'angular2/';
 @Component({
     selector: 'app',
     templateUrl: 'app/templates/app.component.html'
 })
-export class AppComponent { }
+export class AppComponent {
+    title = 'Green Pattern Map';
+}
