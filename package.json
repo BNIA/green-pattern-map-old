@@ -4,8 +4,8 @@
   "description": "An interactive map for then Baltimore Green Pattern Book",
   "main": "index.js",
   "scripts": {
-    "start": "node srv/index.js",
-    "start:w": "node srv/index.js & gulp asset_watcher",
+    "start": "node server/index.js",
+    "start:w": "node server/index.js & gulp asset_watcher",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
