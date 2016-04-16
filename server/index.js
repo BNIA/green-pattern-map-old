@@ -44,70 +44,69 @@ app.get('/boundaries/:type', (req,res) => {
 })
 
 app.get('/layers', (req,res) => {
-	var sw_query = pg.select(['gid','geojson']).from('layers.gpb').where('gpb_type','sw')
-	var cg_query = pg.select(['gid','geojson']).from('layers.gpb').where('gpb_type','cg')
+	var sw_query = pg.select('gid').from('layers.gpb').where('gpb_type','sw')
+	var cg_query = pg.select('gid').from('layers.gpb').where('gpb_type','cg')
 	var query = pg.select(['gid','geojson']).from('layers.gpb')
 	if(req.query){
-		if(req.query.gpb_type){
-			if(req.query.gpb_type.indexOf('sw') < 0){sw_query = sw_query.where(false)}
-			if(req.query.gpb_type.indexOf('cg') < 0){cg_query = cg_query.where(false)}
-		}
+			sw_query = sw_query.where(false)
+			cg_query = cg_query.where(false)
 		if(req.query.cg_siteuse){
-			if(req.query.cg_siteuse.indexOf('cgsu_act_rec') >= 0){cg_query = cg_query.where('cgsu_act_rec',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_aal') >= 0){cg_query = cg_query.where('cgsu_aal',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_beauty') >= 0){cg_query = cg_query.where('cgsu_beauty',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_chi_act') >= 0){cg_query = cg_query.where('cgsu_chi_act',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_scl_con') >= 0){cg_query = cg_query.where('cgsu_scl_con',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_flw_bed') >= 0){cg_query = cg_query.where('cgsu_flw_bed',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_fg_coop') >= 0){cg_query = cg_query.where('cgsu_fg_coop',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_fg_ip') >= 0){cg_query = cg_query.where('cgsu_fg_ip',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_fg_org') >= 0){cg_query = cg_query.where('cgsu_fg_org',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_inc_gen') >= 0){cg_query = cg_query.where('cgsu_inc_gen',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_mmrl') >= 0){cg_query = cg_query.where('cgsu_mmrl',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_trees') >= 0){cg_query = cg_query.where('cgsu_trees',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_wh_ak') >= 0){cg_query = cg_query.where('cgsu_wh_ak',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_cnt_gar') >= 0){cg_query = cg_query.where('cgsu_cnt_gar',true)}
-			if(req.query.cg_siteuse.indexOf('cgsu_rn_gar') >= 0){cg_query = cg_query.where('cgsu_rn_gar',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_act_rec') >= 0){cg_query = cg_query.orWhere('cgsu_act_rec',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_aal') >= 0){cg_query = cg_query.orWhere('cgsu_aal',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_beauty') >= 0){cg_query = cg_query.orWhere('cgsu_beauty',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_chi_act') >= 0){cg_query = cg_query.orWhere('cgsu_chi_act',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_scl_con') >= 0){cg_query = cg_query.orWhere('cgsu_scl_con',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_flw_bed') >= 0){cg_query = cg_query.orWhere('cgsu_flw_bed',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_fg_coop') >= 0){cg_query = cg_query.orWhere('cgsu_fg_coop',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_fg_ip') >= 0){cg_query = cg_query.orWhere('cgsu_fg_ip',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_fg_org') >= 0){cg_query = cg_query.orWhere('cgsu_fg_org',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_inc_gen') >= 0){cg_query = cg_query.orWhere('cgsu_inc_gen',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_mmrl') >= 0){cg_query = cg_query.orWhere('cgsu_mmrl',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_trees') >= 0){cg_query = cg_query.orWhere('cgsu_trees',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_wh_ak') >= 0){cg_query = cg_query.orWhere('cgsu_wh_ak',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_cnt_gar') >= 0){cg_query = cg_query.orWhere('cgsu_cnt_gar',true)}
+			if(req.query.cg_siteuse.indexOf('cgsu_rn_gar') >= 0){cg_query = cg_query.orWhere('cgsu_rn_gar',true)}
 		}
 		if(req.query.cg_src){
-			if (req.query.cg_src.indexOf('src_bgs') >= 0){cg_query = cg_query.where('src_bgs',true)}
-			if (req.query.cg_src.indexOf('src_bcmg') >= 0){cg_query = cg_query.where('src_bcmg',true)}
-			if (req.query.cg_src.indexOf('src_pp') >= 0){cg_query = cg_query.where('src_pp',true)}
-			if (req.query.cg_src.indexOf('src_pid_any') >= 0){cg_query = cg_query.where('src_pid_any',true)}
-			if (req.query.cg_src.indexOf('src_clf') >= 0){cg_query = cg_query.where('src_clf',true)}
-			if (req.query.cg_src.indexOf('src_ggi') >= 0){cg_query = cg_query.where('src_ggi',true)}
+			if (req.query.cg_src.indexOf('src_bgs') >= 0){cg_query = cg_query.orWhere('src_bgs',true)}
+			if (req.query.cg_src.indexOf('src_bcmg') >= 0){cg_query = cg_query.orWhere('src_bcmg',true)}
+			if (req.query.cg_src.indexOf('src_pp') >= 0){cg_query = cg_query.orWhere('src_pp',true)}
+			if (req.query.cg_src.indexOf('src_pid_any') >= 0){cg_query = cg_query.orWhere('src_pid_any',true)}
+			if (req.query.cg_src.indexOf('src_clf') >= 0){cg_query = cg_query.orWhere('src_clf',true)}
+			if (req.query.cg_src.indexOf('src_ggi') >= 0){cg_query = cg_query.orWhere('src_ggi',true)}
 		}
 		if(req.query.sw_src){
-			if (req.query.sw_src.indexOf('src_dpwms4') >= 0){sw_query = sw_query.where('src_dpwms4',true)}
+			if (req.query.sw_src.indexOf('src_dpwms4') >= 0){sw_query = sw_query.orWhere('src_dpwms4',true)}
 		}
 		if(req.query.status){
-			sw_query = sw_query.whereIn('status',req.query.status)
+			sw_query = sw_query.orWhereIn('status',req.query.status)
 		}
 		if(req.query.retrofit_type){
-			sw_query = sw_query.whereIn('retrofit_type',req.query.retrofit_type)
+			sw_query = sw_query.orWhereIn('retrofit_type',req.query.retrofit_type)
 		}
 		if(req.query.bmp_type){
-			if (req.query.bmp_type.indexOf('bmp_icr') >= 0){sw_query = sw_query.where('bmp_icr',true)}
-			if (req.query.bmp_type.indexOf('bmp_sw') >= 0){sw_query = sw_query.where('bmp_sw',true)}
-			if (req.query.bmp_type.indexOf('bmp_ba') >= 0){sw_query = sw_query.where('bmp_ba',true)}
-			if (req.query.bmp_type.indexOf('bmp_wet') >= 0){sw_query = sw_query.where('bmp_wet',true)}
-			if (req.query.bmp_type.indexOf('bmp_under') >= 0){sw_query = sw_query.where('bmp_under',true)}
-			if (req.query.bmp_type.indexOf('bmp_dc') >= 0){sw_query = sw_query.where('bmp_dc',true)}
-			if (req.query.bmp_type.indexOf('bmp_land') >= 0){sw_query = sw_query.where('bmp_land',true)}
-			if (req.query.bmp_type.indexOf('bmp_sedw') >= 0){sw_query = sw_query.where('bmp_sedw',true)}
-			if (req.query.bmp_type.indexOf('bmp_ibh') >= 0){sw_query = sw_query.where('bmp_ibh',true)}
-			if (req.query.bmp_type.indexOf('bmp_srr') >= 0){sw_query = sw_query.where('bmp_srr',true)}
-			if (req.query.bmp_type.indexOf('bmp_sr') >= 0){sw_query = sw_query.where('bmp_sr',true)}
-			if (req.query.bmp_type.indexOf('bmp_ds') >= 0){sw_query = sw_query.where('bmp_ds',true)}
-			if (req.query.bmp_type.indexOf('bmp_up') >= 0){sw_query = sw_query.where('bmp_up',true)}
-			if (req.query.bmp_type.indexOf('bmp_uds') >= 0){sw_query = sw_query.where('bmp_uds',true)}
-			if (req.query.bmp_type.indexOf('bmp_spws') >= 0){sw_query = sw_query.where('bmp_spws',true)}
-			if (req.query.bmp_type.indexOf('bmp_edb') >= 0){sw_query = sw_query.where('bmp_edb',true)}
-			if (req.query.bmp_type.indexOf('bmp_pp') >= 0){sw_query = sw_query.where('bmp_pp',true)}
-			if (req.query.bmp_type.indexOf('bmp_cr') >= 0){sw_query = sw_query.where('bmp_cr',true)}
-			if (req.query.bmp_type.indexOf('bmp_or') >= 0){sw_query = sw_query.where('bmp_or',true)}
+			if (req.query.bmp_type.indexOf('bmp_icr') >= 0){sw_query = sw_query.orWhere('bmp_icr',true)}
+			if (req.query.bmp_type.indexOf('bmp_sw') >= 0){sw_query = sw_query.orWhere('bmp_sw',true)}
+			if (req.query.bmp_type.indexOf('bmp_ba') >= 0){sw_query = sw_query.orWhere('bmp_ba',true)}
+			if (req.query.bmp_type.indexOf('bmp_wet') >= 0){sw_query = sw_query.orWhere('bmp_wet',true)}
+			if (req.query.bmp_type.indexOf('bmp_under') >= 0){sw_query = sw_query.orWhere('bmp_under',true)}
+			if (req.query.bmp_type.indexOf('bmp_dc') >= 0){sw_query = sw_query.orWhere('bmp_dc',true)}
+			if (req.query.bmp_type.indexOf('bmp_land') >= 0){sw_query = sw_query.orWhere('bmp_land',true)}
+			if (req.query.bmp_type.indexOf('bmp_sedw') >= 0){sw_query = sw_query.orWhere('bmp_sedw',true)}
+			if (req.query.bmp_type.indexOf('bmp_ibh') >= 0){sw_query = sw_query.orWhere('bmp_ibh',true)}
+			if (req.query.bmp_type.indexOf('bmp_srr') >= 0){sw_query = sw_query.orWhere('bmp_srr',true)}
+			if (req.query.bmp_type.indexOf('bmp_sr') >= 0){sw_query = sw_query.orWhere('bmp_sr',true)}
+			if (req.query.bmp_type.indexOf('bmp_ds') >= 0){sw_query = sw_query.orWhere('bmp_ds',true)}
+			if (req.query.bmp_type.indexOf('bmp_up') >= 0){sw_query = sw_query.orWhere('bmp_up',true)}
+			if (req.query.bmp_type.indexOf('bmp_uds') >= 0){sw_query = sw_query.orWhere('bmp_uds',true)}
+			if (req.query.bmp_type.indexOf('bmp_spws') >= 0){sw_query = sw_query.orWhere('bmp_spws',true)}
+			if (req.query.bmp_type.indexOf('bmp_edb') >= 0){sw_query = sw_query.orWhere('bmp_edb',true)}
+			if (req.query.bmp_type.indexOf('bmp_pp') >= 0){sw_query = sw_query.orWhere('bmp_pp',true)}
+			if (req.query.bmp_type.indexOf('bmp_cr') >= 0){sw_query = sw_query.orWhere('bmp_cr',true)}
+			if (req.query.bmp_type.indexOf('bmp_or') >= 0){sw_query = sw_query.orWhere('bmp_or',true)}
 		}
-		query = sw_query.unionAll(cg_query)
+		query = query.where('gid','in',sw_query)
+		query = query.orWhere('gid','in',cg_query)
 		if(req.query.csa_id){
 			query = query.whereIn('csa_id',req.query.csa_id)
 		}
@@ -120,7 +119,12 @@ app.get('/layers', (req,res) => {
 		if(req.query.data_year){
 			query = query.whereIn('data_year',req.query.data_year)
 		}
+		if(req.query.gpb_type){
+			if(req.query.gpb_type.indexOf('sw') < 0){sw_query = sw_query.where(false)}
+			if(req.query.gpb_type.indexOf('cg') < 0){cg_query = cg_query.where(false)}
+		}
 	}
+	console.log(query.toString())
 	return query.then((data) => {
 		return res.json(data)
 	})
