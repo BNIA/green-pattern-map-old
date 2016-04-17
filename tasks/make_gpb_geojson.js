@@ -1,8 +1,9 @@
 var gulp = require('gulp')
 var knex = require('knex')
+var _ = require('lodash')
 var config = require('../config.json')
 
-gulp.task('make_gpb_geojson', function(){
+gulp.task('make_gpb_geojson',() => {
     var pg =  knex({client:'pg',connection:config.connection})
     return pg.schema.table('layers.gpb', (table) => {
         table.specificType('geojson','jsonb').defaultTo(null)
@@ -10,7 +11,38 @@ gulp.task('make_gpb_geojson', function(){
     .then(() => {
         return pg.raw('UPDATE layers.gpb set geojson = ST_AsGeoJSON(geometry)::jsonb')
     })
-    .then(function(){
+    .then(() => {
+        return pg.select().from('layers.gpb')
+    })
+    .map((row) => {
+        if(_.isNil(row.geojson)){return null} 
+        var nRow = row.geojson
+        var properties = _.pick(row,
+            ['gid',
+            'site_id',
+            'gpb_type',
+            'site_name',
+            'site_address',
+            'sw_siteuse',
+            'cg_siteuse',
+            'status',
+            'pct_imp',
+            'imp_acres',
+            'retrofit_type',
+            'bmp_type',
+            'src',
+            'block',
+            'lot',
+            'mg_type',
+            'cg_siteuse',
+            'data_year']
+        )
+        nRow['properties'] = properties
+        return pg('layers.gpb')
+            .where('gid',row.gid)
+            .update({geojson:JSON.stringify(nRow)})
+    })
+    .then(() => {
 		return pg.destroy()
 	})
 })
