@@ -4,5 +4,5 @@ var jade = require('gulp-jade')
 gulp.task('compile_jade', () => {
 	return gulp.src('./src/app/**/*.jade')
 		.pipe(jade())
-		.pipe(gulp.dest('./client/app/'))
+		.pipe(gulp.dest('./app/'))
 })

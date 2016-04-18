@@ -1,21 +1,17 @@
-var config = require('../config.json')
+var config = require('./config.json')
+var options = require('./options.json')
 var pg = require('knex')({client:'pg',connection:config.connection})
 var _ = require('lodash')
 
 var express = require('express')
 var app = express()
 
-
-
 //set it to use jade
 app.set('view engine', 'jade')
 
-app.set('views','server/views')
+app.set('views','views')
 
-//app.use('/static', express.static('public'))
-app.use(express.static('client/app'))
-app.use('/libs',express.static('node_modules'))
-app.use('/app',express.static('client/app')) // Is this right?
+app.use('/app',express.static('/app')) // Is this right?
 
 app.get('/', (req,res) => {
 	res.render('index')
@@ -47,7 +43,7 @@ app.get('/layers', (req,res) => {
 	//client query
 	var cq = req.query
 	//db query
-	var pgq = pg.select(['gid','geojson'])
+	var pgq = pg.select('geojson')
 		.from('layers.gpb')
 		.where((qh) => {
 			//Stomwater Points
@@ -120,6 +116,9 @@ app.get('/layers', (req,res) => {
 					if(_(cq.cg_siteuse).includes('cgsu_wh_ak')){qj.orWhere('cgsu_wh_ak',true)}
 					if(_(cq.cg_siteuse).includes('cgsu_cnt_gar')){qj.orWhere('cgsu_cnt_gar',true)}
 					if(_(cq.cg_siteuse).includes('cgsu_rn_gar')){qj.orWhere('cgsu_rn_gar',true)}
+
+					//mg_type
+					if(cq.mg_type){qj.orWhereIn('mg_type',cq.mg_type)}
 				})
 			})
 		})
@@ -145,41 +144,6 @@ app.get('/layers', (req,res) => {
 		})
 })
 
-
-app.get('/layers2', (req,res) => {
-	var sw_query = pg.select('gid').from('layers.gpb').where('gpb_type','sw')
-	var cg_query = pg.select('gid').from('layers.gpb').where('gpb_type','cg')
-	var query = pg.select(['gid','geojson']).from('layers.gpb')
-	if(req.query){
-			sw_query = sw_query.where(false)
-			cg_query = cg_query.where(false)
-
-
-
-		query = query.where('gid','in',sw_query)
-		query = query.orWhere('gid','in',cg_query)
-		if(req.query.csa_id){
-			query = query.whereIn('csa_id',req.query.csa_id)
-		}
-		if(req.query.nsa_id){
-			query = query.whereIn('nsa_id',req.query.nsa_id)
-		}
-		if(req.query.sws_id){
-			query = query.whereIn('sws_id',req.query.sws_id)
-		}
-		if(req.query.data_year){
-			query = query.whereIn('data_year',req.query.data_year)
-		}
-		if(req.query.gpb_type){
-			if(req.query.gpb_type.indexOf('sw') < 0){sw_query = sw_query.where(false)}
-			if(req.query.gpb_type.indexOf('cg') < 0){cg_query = cg_query.where(false)}
-		}
-	}
-	console.log(query.toString())
-	return query.then((data) => {
-		return res.json(data)
-	})
-})
 
 app.listen(8080,() => {
 	console.log("Listening on port 8080")

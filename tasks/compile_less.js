@@ -7,5 +7,5 @@ gulp.task('compile_less', () => {
 	.pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./client/app/'));
+    .pipe(gulp.dest('./app/'));
 })

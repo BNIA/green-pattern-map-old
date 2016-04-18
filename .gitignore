@@ -1,9 +1,9 @@
 tmp
 node_modules
-data/boundaries
+jspm_packages
 typings
 config.json
-client/app
+app
 src/data/boundaries/csas
 src/data/boundaries/nsas
 src/data/boundaries/subwatersheds
@@ -11,5 +11,7 @@ src/data/layers/sw/*.json
 src/data/layers/cg/*.json
 src/data/layers/ua/*.json
 src/data/layers/gpb
+src/app/**/*.js
+options.json
 .eslintrc
-app/public/components
+package.json.backup
