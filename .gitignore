@@ -11,7 +11,10 @@ src/data/layers/sw/*.json
 src/data/layers/cg/*.json
 src/data/layers/ua/*.json
 src/data/layers/gpb
-src/app/**/*.js
+src/app/components/*.js
+src/app/core/*.js
+src/app/services/*.js
+src/app/*.js
 options.json
 .eslintrc
 package.json.backup
