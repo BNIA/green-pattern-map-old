@@ -15,7 +15,7 @@ gulp.task('make_gpb_geojson',() => {
         return pg.select().from('layers.gpb')
     })
     .map((row) => {
-        if(_.isNil(row.geojson)){return null} 
+        if(_.isNil(row.geojson)){return null}
         var nRow = row.geojson
         var properties = _.pick(row,
             ['gid',

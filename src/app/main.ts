@@ -1,25 +1,5 @@
 import {bootstrap}    from 'angular2/platform/browser';
 import {AppComponent} from './components/app.component';
-import {Filter} from './core/filter';
-
-var a = new Filter({
-    'key':'1',
-    'val':'One',
-    'allOn':false,
-    'opt':[
-        {
-            'key':'a',
-            'val':'Hey',
-            'on':true
-        },
-        {
-            'key':'b',
-            'val':'Hi',
-            'on':false
-        }
-    ]
-})
-
-console.log(a)
-
-bootstrap(AppComponent);
+import {HTTP_PROVIDERS} from 'angular2/http';
+import 'rxjs/Rx';
+bootstrap(AppComponent,[HTTP_PROVIDERS]);
