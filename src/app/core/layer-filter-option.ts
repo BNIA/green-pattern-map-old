@@ -1,16 +1,18 @@
-export class FilterOption{
+export class LayerFilterOption{
     key: string;    //name for server
     val: string;    //name to display
-    on: boolean;    //whether this option is selected
+    isOn: boolean;    //whether this option is selected
+    active: boolean;    //whether to gray out this option
     constructor(private _jsonObj: any) {
         this.key = _jsonObj.key;
         this.val = _jsonObj.val;
-        this.on = _jsonObj.on;
+        this.isOn = _jsonObj.isOn;
+        this.active = _jsonObj.active;
     }
     toJSON() {
         return {
             key: this.key,
-            on: this.on
+            isOn: this.isOn
         }
     }
 }

@@ -1,4 +1,4 @@
-export class BoundariesOption{
+export class BoundaryChoice{
     key:string;
     val:string;
     on:boolean;

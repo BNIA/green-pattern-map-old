@@ -43,4 +43,5 @@ gulp.task('asset_watcher', ['compile_less','compile_jade','copy_js','compile_ts'
 	gulp.watch('src/**/*.jade', ['compile_jade']);
 	gulp.watch(['src/**/*.js','src/**/*.js.map'], ['copy_js']);
 	gulp.watch('src/**/*.ts', ['compile_ts']);
+	gulp.watch('src/**/*.html',['copy_html'])
 })

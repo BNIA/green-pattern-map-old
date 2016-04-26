@@ -1,11 +1,11 @@
-import {Filters} from './filters';
-import {Boundaries} from './boundaries';
+import {LayerFilters} from './layer-filters';
+import {BoundaryChoices} from './boundary-choices';
 
 export class Options{
-    filters:Filters
-    boundaries:Boundaries
-    constructor(private _jsonObj){
-        this.filters = new Filters(_jsonObj.filters)
-        this.boundaries = new Boundaries(_jsonObj.boundaries)
+    layerFilters:LayerFilters
+    boundaryChoices:BoundaryChoices
+    constructor(private _jsonObj?:any){
+        this.layerFilters = new LayerFilters(_jsonObj.layer_filters)
+        this.boundaryChoices = new BoundaryChoices(_jsonObj.boundary_choices)
     }
 }

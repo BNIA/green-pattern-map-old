@@ -1,47 +1,68 @@
-import {Component,Renderer,ElementRef} from 'angular2/core';
+import {Component,Renderer,ElementRef,OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import {MDL} from '../directives/mdl.directive';
 
 import {MapComponent} from './map.component'
-import {OptionsComponent} from './options.component';
 import {OptionsService} from '../services/options.service';
-import {FilterComponent} from './filter.component';
+import {LayersService} from '../services/layers.service';
+import {LayerFiltersComponent} from './layer-filters.component';
 import {Options} from '../core/options';
-import {OnInit} from 'angular2/core';
+import {LayerFilters} from '../core/layer-filters';
 
 @Component({
     selector:'app',
     template:`
-    <map [layers]=layers></map>
-    <filter *ngFor="#filter of options.filters"></filter>
+    <div mdl class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+        <div class="mdl-layout__drawer">
+            <layer-filters mdl [layerFilters] = "layerFilters" (layerFiltersChange) = getLayers() ></layer-filters>
+        </div>
+        <main mdl id="mymain" class="mdl-layout__content">
+            <map [layers] = "layers"></map>
+        </main>
+    </div>
+
     `,
-    providers: [HTTP_PROVIDERS,OptionsService],
-    directives:[MapComponent,FilterComponent],
+    styles:[`
+        .map{
+            width:100%;
+            height:100%;
+        }
+        #mymain{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:98;
+        }
+    `],
+    providers: [HTTP_PROVIDERS,OptionsService,LayersService],
+    directives:[MapComponent,LayerFiltersComponent,MDL],
 })
 
 export class AppComponent implements OnInit{
     map:MapComponent
-    options:Options
-    layers:L.GeoJSON
-    listenFunc:Function
-    constructor(private _optionsService: OptionsService,elementRef: ElementRef, renderer: Renderer){
-        // this.listenFunc = renderer.listen(elementRef.nativeElement, 'click', (event) => {
-        //     console.log(this.foc)
-        // });
-        // this.foc = new Filter({
-        //     'key':'filter',
-        //     'val':'MyFilter',
-        //     'allon':false,
-        //     'opt':[
-        //         {'key':'hi','val':"HI",on:false},
-        //         {'key':'hello','val':"HELLO",on:false}
-        //     ]
-        // })
-        // console.log(this.foc)
+    layerFilters:LayerFilters
+    layerFiltersError:any
+    layers:L.GeoJSON[]
+    layersError:any
+    constructor(private _optionsService: OptionsService,private _layersService: LayersService){}
+    getOptions(){
+        this._optionsService.getLayerFilters()
+            .subscribe(
+                layerFilters => this.layerFilters = layerFilters,
+                error => this.layerFiltersError = error
+            )
+    }
+    getLayers(){
+        this._layersService.getLayers(this.layerFilters)
+            .subscribe(
+                layers => this.layers = layers,
+                error => this.layersError = error
+            )
     }
     ngOnInit(){
-        this._optionsService.getOptions()
-            .then((options) => {
-                this.options = options
-            })
+        this.getOptions()
     }
 }

@@ -4,4 +4,5 @@ var exec = require('child-process-promise').exec
 
 gulp.task('compile_ts', () => {
 	return exec('tsc')
+		.then(() => {},(error) => {console.log(error.stdout)})
 })

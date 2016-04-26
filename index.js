@@ -1,12 +1,16 @@
 var config = require('./config.json')
 var pg = require('knex')({client:'pg',connection:config.connection})
+var bodyParser = require('body-parser')
 var express = require('express')
 var landing = require('./lib/landing')
 var map = require('./lib/map')
 var app = express()
 
+
 //set it to use jade
 app.set('view engine', 'jade')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) //?
 
 app.use('/app',express.static('./app'))
 app.use('/node_modules',express.static('./node_modules'))
