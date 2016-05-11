@@ -10,7 +10,7 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "postinstall": "",
+    "postinstall": "npm run typings install & gulp",
     "preuninstall": "gulp uninstall"
   },
   "repository": {
