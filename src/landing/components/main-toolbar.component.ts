@@ -4,7 +4,7 @@ import {UpgradeMDL} from '../directives/upgrade-mdl'
 @Component({
     selector:'main-toolbar',
     templateUrl:'app/templates/main-toolbar.html',
-    styles:[``],
+    styleUrls:['app/styles/main-toolbar.css'],
     providers: [],
     directives:[UpgradeMDL],
 })
