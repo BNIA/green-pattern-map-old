@@ -1,3 +1,12 @@
 .my-card{
-    width:auto;
+  width: auto;
+  margin: 0 0 1em 0;
+  padding: 1em;
+}
+
+h3 {
+  color: #007db6;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0 0 .5em 0;
 }
