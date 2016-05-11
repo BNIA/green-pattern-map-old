@@ -1,3 +1,28 @@
 .my-card{
-    width:auto;
+  width:auto;
+}
+
+.mdl-list {
+  margin: 0;
+}
+
+.mdl-list__item {
+  border-bottom: solid 1px #ccc;
+}
+
+.mdl-list__item:last-of-type {
+  border-bottom: none;
+}
+
+.my-list-item {
+  height: auto;
+}
+
+.my-list-item > span {
+  height: auto;
+}
+
+.my-list-item > span ul {
+  list-style: none;
+  padding: 0 0 0 4em;
 }
