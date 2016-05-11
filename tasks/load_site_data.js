@@ -9,8 +9,8 @@ var gpb_sites = null
 gulp.task('load_site_data', () => {
     var pg = knex({client:'pg',connection:config.connection})
     // Make sure that boundaries schema exists
-    gpb_types = require('../src/data/layers/gpb/gpb_types.json')
-    gpb_sites = require('../src/data/layers/gpb/gpb_sites.json')
+    gpb_types = require('../data/layers/gpb/gpb_types.json')
+    gpb_sites = require('../data/layers/gpb/gpb_sites.json')
     return pg.raw('CREATE SCHEMA IF NOT EXISTS "layers"').then(() => {
         return pg.schema.createTableIfNotExists('layers.gpb',(table) => {
                 table.increments('gid').primary().unique()

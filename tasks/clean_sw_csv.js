@@ -8,7 +8,7 @@ var tidy = require('tidyaddr-js')
 var jsonfile = require('jsonfile')
 
 gulp.task('clean_sw_csv', () => {
-var filename = "src/data/layers/sw/sw_types.csv"
+var filename = "data/layers/sw/sw_types.csv"
 var arr = []
 var p = Promise.defer()
 var stream = fs.createReadStream(filename)
@@ -21,7 +21,7 @@ var csvStream = csv().on("data", (data) => {
 })
 stream.pipe(csvStream)
 return p.promise.then((types) => {
-        var filename = "src/data/layers/sw/sw13.csv"
+        var filename = "data/layers/sw/sw13.csv"
         var arr = []
         var p = Promise.defer()
         var stream = fs.createReadStream(filename)
@@ -127,8 +127,8 @@ return p.promise.then((types) => {
         })
         return {types:obj.types,sw:sw}
     }).then((obj) => {
-        jsonfile.writeFileSync('src/data/layers/sw/sw_types.json',obj.types)
-        jsonfile.writeFileSync('src/data/layers/sw/sw_sites.json',obj.sw)
+        jsonfile.writeFileSync('data/layers/sw/sw_types.json',obj.types)
+        jsonfile.writeFileSync('data/layers/sw/sw_sites.json',obj.sw)
         return
     })
 })

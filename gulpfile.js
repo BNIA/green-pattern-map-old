@@ -5,7 +5,7 @@ var runSequence = require('run-sequence')
 requireDir('./tasks')
 
 gulp.task('default', (cb) => {
-	return runSequence('create_db','setup_layers_and_boundaries','link_layers_and_boundaries','get_pics','compile_less','compile_jade','compile_ts','copy_js',cb)
+	return runSequence('create_db','setup_layers_and_boundaries','link_layers_and_boundaries','get_pics','compile_less','compile_jade','compile_ts','copy_js','make_options','make_mdl_scheme','copy_css','copy_assets',cb)
 })
 
 gulp.task('uninstall', (cb) => {
@@ -38,10 +38,10 @@ gulp.task('link_layers_and_boundaries', (cb) => {
 
 gulp.task('get_shape', ['get_nsa_shape','get_csa_shape','get_sws_shape'])
 
-gulp.task('asset_watcher', ['compile_less','compile_jade','copy_js','compile_ts'], () => {
-	gulp.watch('src/**/*.less', ['compile_less']);
-	gulp.watch('src/**/*.jade', ['compile_jade']);
-	gulp.watch(['src/**/*.js','src/**/*.js.map'], ['copy_js']);
-	gulp.watch('src/**/*.ts', ['compile_ts']);
+gulp.task('asset_watcher', ['compile_ts','copy_js','copy_html','copy_css','copy_assets'], () => {
+	gulp.watch('src/**/*.ts', ['compile_ts'])
+	gulp.watch(['src/**/*.js'], ['copy_js'])
 	gulp.watch('src/**/*.html',['copy_html'])
+	gulp.watch(['./src/**/*.css'],['copy_css'])
+	gulp.watch(['./src/landing/assets/*', './src/map/assets/*'],['copy_assets'])
 })

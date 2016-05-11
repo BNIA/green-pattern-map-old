@@ -8,10 +8,10 @@ var sw_sites = null
 var sw_types = null
 
 gulp.task('merge_site_data', () => {
-    cg_sites = require('../src/data/layers/cg/cg_sites.json')
-    cg_types = require('../src/data/layers/cg/cg_types.json')
-    sw_sites = require('../src/data/layers/sw/sw_sites.json')
-    sw_types = require('../src/data/layers/sw/sw_types.json')
+    cg_sites = require('../data/layers/cg/cg_sites.json')
+    cg_types = require('../data/layers/cg/cg_types.json')
+    sw_sites = require('../data/layers/sw/sw_sites.json')
+    sw_types = require('../data/layers/sw/sw_types.json')
 
     var types = {}
     types = _.assign(types,sw_types)
@@ -39,8 +39,8 @@ gulp.task('merge_site_data', () => {
 
     var sites = _.union(cg_sites,sw_sites)
 
-    mkdirp.sync('src/data/layers/gpb')
-    jsonfile.writeFileSync('src/data/layers/gpb/gpb_types.json',types)
-    jsonfile.writeFileSync('src/data/layers/gpb/gpb_sites.json',sites)
+    mkdirp.sync('data/layers/gpb')
+    jsonfile.writeFileSync('data/layers/gpb/gpb_types.json',types)
+    jsonfile.writeFileSync('data/layers/gpb/gpb_sites.json',sites)
     return
 })

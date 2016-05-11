@@ -6,7 +6,7 @@ var mkdirp = require('mkdirp')									// Make sure dir exists
 
 /* download & unzip csa shape */
 gulp.task('get_pics', () => {
-	mkdirp.sync('client/app/pics/cg')
+	mkdirp.sync('client/map/pics/cg')
 	remoteSrc(['uc?export=download&id=0B9Vu5l7KieLJWEUtb29SOGljRmM'],{
 		base:'https://drive.google.com/',
 		followAllRedirects:true

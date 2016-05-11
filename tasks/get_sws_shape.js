@@ -7,7 +7,7 @@ var rename = require('gulp-rename')
 
 /* download & unzip subwatershed shape */
 gulp.task('get_sws_shape', function(){
-	mkdirp.sync('src/data/boundaries/subwatersheds')
+	mkdirp.sync('data/boundaries/subwatersheds')
 	remoteSrc(['e9j9-vuxg?method=export&format=Shapefile'],{
 		base:"https://data.maryland.gov/api/geospatial/",
 		followAllRedirects:true
@@ -17,5 +17,5 @@ gulp.task('get_sws_shape', function(){
 	.pipe(rename(function(path){
 		path.basename = "boundaries"
 	}))
-	.pipe(gulp.dest('src/data/boundaries/subwatersheds'))
+	.pipe(gulp.dest('data/boundaries/subwatersheds'))
 })

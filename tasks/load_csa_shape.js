@@ -8,7 +8,7 @@ gulp.task('load_csa_shape', () => {
 	var pg = knex({client:'pg',connection:config.connection})
 	// Make sure that boundaries schema exists
 	return pg.raw('CREATE SCHEMA IF NOT EXISTS "boundaries"').then(function(){
-		var filename = "src/data/boundaries/csas/boundaries.shp"
+		var filename = "data/boundaries/csas/boundaries.shp"
 		// convert ssid to 4326 from 2248
 		var execStr = "shp2pgsql -s 2248:4326"
 		// name geo column "geometry"
@@ -18,7 +18,7 @@ gulp.task('load_csa_shape', () => {
 		// where to put it in db
 		execStr += " boundaries.csas"
 		// put it in sql file
-		execStr += " > src/data/boundaries/csas/boundaries.sql"
+		execStr += " > data/boundaries/csas/boundaries.sql"
 		// increase buffer to allow whole stdout read
 		return exec(execStr)
 	})
@@ -29,7 +29,7 @@ gulp.task('load_csa_shape', () => {
 		execStr+= " -U " + config.connection.user
 		execStr+= " -p " + config.connection.port
 		execStr+= " -d " + config.connection.database
-		execStr+= " -w -f src/data/boundaries/csas/boundaries.sql"
+		execStr+= " -w -f data/boundaries/csas/boundaries.sql"
 		return exec(execStr)
 	})
 	.then(() => {

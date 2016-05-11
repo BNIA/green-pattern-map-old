@@ -37,7 +37,11 @@ gulp.task('make_gpb_geojson',() => {
             'cg_siteuse',
             'data_year']
         )
-        nRow['properties'] = properties
+        nRow = {
+            type:"Feature",
+            geometry:nRow,
+            properties:properties
+        }
         return pg('layers.gpb')
             .where('gid',row.gid)
             .update({geojson:JSON.stringify(nRow)})

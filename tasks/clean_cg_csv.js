@@ -8,7 +8,7 @@ var tidy = require('tidyaddr-js')
 var jsonfile = require('jsonfile')
 
 gulp.task('clean_cg_csv', () => {
-var filename = "src/data/layers/cg/cg_types.csv"
+var filename = "data/layers/cg/cg_types.csv"
 var arr = []
 var p = Promise.defer()
 var stream = fs.createReadStream(filename)
@@ -21,7 +21,7 @@ var csvStream = csv().on("data", (data) => {
 })
 stream.pipe(csvStream)
 return p.promise.then((types) => {
-        var filename = "src/data/layers/cg/cg11.csv"
+        var filename = "data/layers/cg/cg11.csv"
         var arr = []
         var p = Promise.defer()
         var stream = fs.createReadStream(filename)
@@ -52,7 +52,7 @@ return p.promise.then((types) => {
         return p.promise
     })
     .then((obj) => {
-        var filename = "src/data/layers/cg/cg15.csv"
+        var filename = "data/layers/cg/cg15.csv"
         var arr = []
         var p = Promise.defer()
         var stream = fs.createReadStream(filename)
@@ -153,8 +153,8 @@ return p.promise.then((types) => {
         })
         return {types:obj.types,cg:ungrpd}
     }).then((obj) => {
-        jsonfile.writeFileSync('src/data/layers/cg/cg_types.json',obj.types)
-        jsonfile.writeFileSync('src/data/layers/cg/cg_sites.json',obj.cg)
+        jsonfile.writeFileSync('data/layers/cg/cg_types.json',obj.types)
+        jsonfile.writeFileSync('data/layers/cg/cg_sites.json',obj.cg)
         return
     })
 })

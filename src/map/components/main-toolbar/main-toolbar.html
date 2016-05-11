@@ -1,0 +1,17 @@
+<div materialize>
+<div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue darken-3">
+        <ul class="left">
+          <li><a><i class="material-icons" (click)=fireMenuClicked()>menu</i></a></li>
+          <li [class.active]="layersActive"><a>Layers</a></li>
+          <li [class.active]="boundariesActive"><a>Boundaries</a></li>
+          <li [class.active]="vitalSignsActive"><a>Vital Signs</a></li>
+        </ul>
+        <ul class="right">
+          <li><a><i class="material-icons">more_vert</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

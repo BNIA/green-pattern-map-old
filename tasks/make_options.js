@@ -117,7 +117,7 @@ gulp.task('make_options',() => {
         return opt
     })
     .then(() => {
-        jsonfile.writeFileSync('./lib/options.json',opt)
+        jsonfile.writeFileSync('./server/options.json',opt)
         return pg.destroy()
     })
 })

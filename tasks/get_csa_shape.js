@@ -7,7 +7,7 @@ var rename = require('gulp-rename')
 
 /* download & unzip csa shape */
 gulp.task('get_csa_shape', function(){
-	mkdirp.sync('src/data/boundaries/csas')
+	mkdirp.sync('data/boundaries/csas')
 	remoteSrc(['uc?export=download&id=0B9Vu5l7KieLJamUwQU5YdHljU2s'],{
 		base:'https://drive.google.com/',
 		followAllRedirects:true
@@ -17,5 +17,5 @@ gulp.task('get_csa_shape', function(){
 	.pipe(rename(function(path){
 		path.basename = "boundaries"
 	}))
-	.pipe(gulp.dest('src/data/boundaries/csas'))
+	.pipe(gulp.dest('data/boundaries/csas'))
 })
