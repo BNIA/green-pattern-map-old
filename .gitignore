@@ -25,3 +25,4 @@ jsconfig.json
 .vscode
 .eslintrc.json
 .htmlhintrc
+/*.eslintrc.json
