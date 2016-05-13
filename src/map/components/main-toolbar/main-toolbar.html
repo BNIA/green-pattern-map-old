@@ -16,9 +16,13 @@
   </div>
 </div> -->
 
-<md-toolbar>
-    <button class="mdl-button mdl-js-button mdl-button--icon my-menu-button" (click)=fireMenuButtonClicked()>
+<md-toolbar class="mdl-shadow--2dp">
+    <button upgrade-mdl class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon my-menu-button" (click)=fireMenuButtonClicked()>
         <i class="material-icons">menu</i>
     </button>
     <span class="my-toolbar-title">Baltimore Green Registry</span>
+    <span class="my-filler"></span>
+    <button upgrade-mdl class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon my-config-button">
+        <i class="material-icons">more_vert</i>
+    </button>
 </md-toolbar>

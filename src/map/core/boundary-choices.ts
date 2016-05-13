@@ -1,5 +1,5 @@
 import {BoundaryChoice} from './boundary-choice';
-
+import {map} from 'lodash'
 export class BoundaryChoices{
     opt:BoundaryChoice[] = []
     constructor(_jsonObjs?:any[]){
@@ -8,5 +8,11 @@ export class BoundaryChoices{
             let b = new BoundaryChoice(j);
             return b;
         })
+    }
+    selectBoundary(key:string){
+        
+    }
+    toJSON():any{
+        return map(this.opt,(o) => {return o.toJSON()})
     }
 }

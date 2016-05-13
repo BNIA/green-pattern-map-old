@@ -118,9 +118,9 @@ gulp.task('make_options',() => {
         opt.layerFilters['allSW'] = false
         opt.layerFilters['allCG'] = false
         opt.boundaryChoices = []
-        opt.boundaryChoices.push({'key':'csas','val':'Community Statistical Areas',isOn:false,active:false})
-        opt.boundaryChoices.push({'key':'nsas','val':'Neighborhoods',isOn:false,active:false})
-        opt.boundaryChoices.push({'key':'subwatersheds','val':'Subwatersheds',isOn:false,active:false})
+        opt.boundaryChoices.push({'key':'csas','val':'Community Statistical Areas',isOn:false,active:true})
+        opt.boundaryChoices.push({'key':'nsas','val':'Neighborhoods',isOn:false,active:true})
+        opt.boundaryChoices.push({'key':'subwatersheds','val':'Subwatersheds',isOn:false,active:true})
         return opt
     })
     .then(() => {

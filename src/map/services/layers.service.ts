@@ -4,6 +4,7 @@ import {Observable}     from 'rxjs/Observable';
 import {LayerFilters} from '../core/layer-filters';
 import {GeoJSON,geoJson,circleMarker,FeatureGroup,featureGroup} from 'leaflet'
 import {map, chunk} from 'lodash'
+
 @Injectable()
 export class LayersService{
     private _layersUrl:string = '/map/layers'

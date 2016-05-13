@@ -32,7 +32,9 @@ export class OptionsService{
             throw new Error('Bad response status: ' + res.status);
         }
         let body = res.json();
+        console.log(body)
         let options = new BoundaryChoices(body)
+        console.log(options)
         return options || { };
     }
     private handleError(error: any){
