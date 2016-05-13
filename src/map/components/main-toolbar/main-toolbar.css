@@ -1,12 +1,9 @@
 md-toolbar{
     background:#007DB6;
 }
-.my-title, .my-menu, .my-config{
+.my-toolbar-title, .my-menu-button, .my-config{
     color:#E9F3F9;
 }
 .my-filler{
     flex: 1 1 auto;
-}
-.my-tab-bar{
-    height:48px;
 }

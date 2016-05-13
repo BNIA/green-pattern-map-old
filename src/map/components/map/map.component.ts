@@ -1,4 +1,4 @@
-import {Component,OnInit,OnChanges,SimpleChange} from '@angular/core';
+import {Component,AfterViewInit,OnChanges,SimpleChange} from '@angular/core';
 import {Input} from '@angular/core';
 import {GeoJSON,Map,FeatureGroup,LatLng} from 'leaflet'
 import * as myTileLayers from '../../core/tile-layers';
@@ -6,24 +6,25 @@ import * as myTileLayers from '../../core/tile-layers';
 @Component({
     selector:'map',
     template:`
-    <div id="mymap">
+    <div class="my-map" id="my-map">
     </div>
     `,
     styles:[`
-    #mymap{
-        height:100%;
-        width:100%;
+        #my-map{
+            width:100%;
+            height:100%;
+        }
     `],
     directives:[]
 })
 
-export class MapComponent implements OnChanges, OnInit{
+export class MapComponent implements OnChanges, AfterViewInit{
     @Input() boundary:GeoJSON
     @Input() layers:FeatureGroup<any>[]
     map:Map
     currentLayers:FeatureGroup<any>[]
     initialize(){
-        this.map = new Map('mymap',{
+        this.map = new Map('my-map',{
             'center': new LatLng(39.2854197594374, -76.61796569824219),
             'zoom' : 12,
             minZoom: 0,
@@ -32,7 +33,7 @@ export class MapComponent implements OnChanges, OnInit{
             layers:[myTileLayers.cartodbPositron]
         })
     }
-    ngOnInit(){
+    ngAfterViewInit(){
         //this is called when the component initializes
         this.initialize()
     }

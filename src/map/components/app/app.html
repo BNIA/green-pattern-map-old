@@ -1,7 +1,18 @@
-<main-toolbar (menuClicked)=toggleShowLayerFilters()></main-toolbar>
-        <md-sidenav-layout>
+    <md-sidenav-layout class="my-sidenav-layout">
+        <main-toolbar class="my-main-toolbar" (menuButtonClicked)=toggleShowSidenav()></main-toolbar>
+        <md-sidenav class="my-sidenav" align="start" mode="side" [opened]="showSidenav" (close)=toggleShowSidenav(false)>
+            <layer-filters [layerFilters]="layerFilters" (layerFiltersChange)=getLayers()></layer-filters>
+        </md-sidenav>
+        <map [layers]="layers"></map>
+    </md-sidenav-layout>
+
+
+
+
+
+        <!-- <md-sidenav-layout>
             <md-sidenav [opened]="showLayerFilters" (close)=toggleShowLayerFilters(false) mode="push">
                 <layer-filters [layerFilters]="layerFilters" (layerFiltersChange)=getLayers()></layer-filters>
             </md-sidenav>
             <map [layers]="layers"></map>
-        </md-sidenav-layout>
+        </md-sidenav-layout> -->

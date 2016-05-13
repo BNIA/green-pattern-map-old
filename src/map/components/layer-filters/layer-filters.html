@@ -1,0 +1,6 @@
+<h4>Community Managed Open Spaces</h4>
+<hr>
+<layer-filter *ngFor="#c of layerFilters?.cg" [layerFilter]=c (layerFilterChange)=fireLayerFiltersChange()></layer-filter>
+<h4>Stormwater Management</h4>
+<hr>
+<layer-filter *ngFor="#s of layerFilters?.sw" [layerFilter]=s (layerFilterChange)=fireLayerFiltersChange()></layer-filter>

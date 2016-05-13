@@ -19,7 +19,8 @@ gulp.task('make_options',() => {
         opt.layerFilters.global.push({
             'key':'csa_id',
             'val':'Community Statistical Areas',
-            'opt':_.sortBy(rows,'key')
+            'opt':_.sortBy(rows,'key'),
+            'active':true
         })
         return pg.distinct('gid','name').from('boundaries.nsas')
     })
@@ -31,7 +32,7 @@ gulp.task('make_options',() => {
             'key':'nsa_id',
             'val':'Neighborhoods',
             'opt':_.sortBy(rows,'key'),
-            'actibe':false
+            'active':true
         })
         return pg.distinct('gid','mde8name').from('boundaries.subwatersheds')
     })
@@ -43,7 +44,7 @@ gulp.task('make_options',() => {
             'key':'sws_id',
             'val':'Subwatersheds',
             'opt':_.sortBy(rows,'key'),
-            'active':false
+            'active':true
         })
         return pg.distinct('status').from('layers.gpb').whereNotNull('status')
     })
@@ -51,11 +52,12 @@ gulp.task('make_options',() => {
         return {key:row.status,val:row.status,isOn:false,active:false}
     })
     .then((rows) => {
+        rows.push({key:'status_none',val:'<None>',isOn:false,active:false})
         opt.layerFilters.sw.push({
             'key':'status',
             'val':'Status',
             'opt':_.sortBy(rows,'key'),
-            'active':false
+            'active':true
         })
         var tmp = [
             {isOn:false,active:false,val:"Impervious Cover Removal", key:"bmp_icr"},
@@ -78,11 +80,13 @@ gulp.task('make_options',() => {
             {isOn:false,active:false,val:"Culvert Repair", key:"bmp_cr"},
             {isOn:false,active:false,val:"Outfall (retrofit)", key:"bmp_or"}
         ]
+        tmp = _.sortBy(tmp,'val')
+        tmp.push({isOn:false,active:false,val:"<None>", key:"bmp_none"})
         opt.layerFilters.sw.push({
             'key':'bmp_type',
             'val':'Best Management Practices',
-            'opt':_.sortBy(tmp,'val'),
-            'active':false})
+            'opt':tmp,
+            'active':true})
 
         tmp = [
             {key:'cgsu_act_rec',val:'Active/Recreational',isOn:false,active:false},
@@ -102,11 +106,14 @@ gulp.task('make_options',() => {
             {key:'cgsu_cnt_gar',val:'Container Garden',isOn:false,active:false},
             {key:'cgsu_rn_gar',val:'Rain Garden',isOn:false,active:false}
         ]
+
+        tmp = _.sortBy(tmp,'val')
+        tmp.push({key:'cgsu_none',val:'<None>',isOn:false,active:false})
         opt.layerFilters.cg.push({
             'key':'cg_siteuse',
             'val':'Site Use',
-            'opt':_.sortBy(tmp,'val'),
-            'active':false
+            'opt':tmp,
+            'active':true
         })
         opt.layerFilters['allSW'] = false
         opt.layerFilters['allCG'] = false

@@ -1,5 +1,6 @@
 .my-card{
   width:auto;
+  margin: 0 0 1em 0;
 }
 .my-card > .mdl-card__title {
   background: url('app/assets/gpb.jpg') bottom right 15% no-repeat #46B6AC;

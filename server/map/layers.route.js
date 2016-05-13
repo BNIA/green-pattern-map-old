@@ -19,6 +19,9 @@ var filterLayers = function(pg,filters){
                     if(_.find(status.opt,{key:'Identified'}).isOn == true){
                         qj.orWhere('status','Identified')
                     }
+                    if(_.find(status.opt,{key:'status_none'}).isOn == true){
+                        qj.orWhereNull('status')
+                    }
                 }
                 //bmp_type
                 var bmp_type = _(filters.sw).find({'key':'bmp_type'})
@@ -80,6 +83,29 @@ var filterLayers = function(pg,filters){
                     if(_.find(bmp_type.opt,{key:'bmp_or'}).isOn === true){
                         qj.orWhere('bmp_or',true)
                     }
+                    if(_.find(bmp_type.opt,{key:'bmp_none'}).isOn === true){
+                        qj.orWhere((qh) => {
+                            qh.where('bmp_icr',false)
+                            qh.where('bmp_sw',false)
+                            qh.where('bmp_ba',false)
+                            qh.where('bmp_wet',false)
+                            qh.where('bmp_under',false)
+                            qh.where('bmp_dc',false)
+                            qh.where('bmp_land',false)
+                            qh.where('bmp_sedw',false)
+                            qh.where('bmp_ibh',false)
+                            qh.where('bmp_srr',false)
+                            qh.where('bmp_sr',false)
+                            qh.where('bmp_ds',false)
+                            qh.where('bmp_up',false)
+                            qh.where('bmp_uds',false)
+                            qh.where('bmp_spws',false)
+                            qh.where('bmp_edb',false)
+                            qh.where('bmp_pp',false)
+                            qh.where('bmp_cr',false)
+                            qh.where('bmp_or',false)
+                        })
+                    }
                 }
             })
         }).orWhere((qi) => {
@@ -108,6 +134,24 @@ var filterLayers = function(pg,filters){
                     if(_.find(cg_siteuse.opt,{key:'cgsu_wh_ak'}).isOn === true){qj.orWhere('cgsu_wh_ak',true)}
                     if(_.find(cg_siteuse.opt,{key:'cgsu_cnt_gar'}).isOn === true){qj.orWhere('cgsu_cnt_gar',true)}
                     if(_.find(cg_siteuse.opt,{key:'cgsu_rn_gar'}).isOn === true){qj.orWhere('cgsu_rn_gar',true)}
+                    if(_.find(cg_siteuse.opt,{key:'cgsu_none'}).isOn === true){qj.orWhere((qh) => {
+                        qh.where('cgsu_act_rec',false)
+                        qh.where('cgsu_aal',false)
+                        qh.where('cgsu_beauty',false)
+                        qh.where('cgsu_chi_act',false)
+                        qh.where('cgsu_scl_con',false)
+                        qh.where('cgsu_flw_bed',false)
+                        qh.where('cgsu_fg_coop',false)
+                        qh.where('cgsu_fg_ip',false)
+                        qh.where('cgsu_fg_org',false)
+                        qh.where('cgsu_inc_gen',false)
+                        qh.where('cgsu_mmrl',false)
+                        qh.where('cgsu_trees',false)
+                        qh.where('cgsu_wh_ak',false)
+                        qh.where('cgsu_cnt_gar',false)
+                        qh.where('cgsu_rn_gar',false)
+                        qh.where('cgsu_rn_gar',false)
+                    })}
                 }
             })
         })
@@ -119,17 +163,23 @@ var filterLayers = function(pg,filters){
     var csa_id = _(filters.global).find('key','csa_id')
     if(csa_id.active === true){
         var on_csa_ids = _(csa_id.opt).filter({'isOn':true}).map('key')
-        query = query.whereIn('csa_id',on_csa_ids)
+        if(on_csa_ids.length > 0){
+            query = query.whereIn('csa_id',on_csa_ids)
+        }
     }
     var nsa_id = _(filters.global).find('key','nsa_id')
     if(nsa_id.active === true){
         var on_nsa_ids = _(nsa_id.opt).filter({'isOn':true}).map('key')
-        query = query.whereIn('nsa_id',on_nsa_ids)
+        if(on_nsa_ids.length > 0){
+            query = query.whereIn('nsa_id',on_nsa_ids)
+        }
     }
     var sws_id = _(filters.global).find('key','sws_id')
     if(sws_id.active === true){
         var on_sws_ids = _(sws_id.opt).filter({'isOn':true}).map('key')
-        query = query.whereIn('sws_id',on_sws_ids)
+        if(on_sws_ids.length > 0){
+            query = query.whereIn('sws_id',on_sws_ids)
+        }
     }
     console.log(query.toString())
     return query.map((row) => {

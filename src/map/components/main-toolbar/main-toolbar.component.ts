@@ -1,20 +1,18 @@
-import {Component,Output,EventEmitter} from '@angular/core';
-import {MaterializeDirective} from "angular2-materialize";
+import {Component,Input,Output,EventEmitter} from '@angular/core';
+import {MdToolbar} from '@angular2-material/toolbar'
+import {UpgradeMDL} from '../../directives/upgrade-mdl'
 
 @Component({
     selector:'main-toolbar',
     templateUrl:'app/components/main-toolbar/main-toolbar.html',
     styleUrls:['app/components/main-toolbar/main-toolbar.css'],
-    directives:[MaterializeDirective],
+    directives:[MdToolbar,UpgradeMDL],
     providers:[]
 })
 
 export class MainToolbarComponent{
-    layersActive:boolean = true
-    boundariesActive:boolean = false
-    vitalSignsActive:boolean = false
-    @Output() menuClicked:EventEmitter<any> = new EventEmitter()
-    fireMenuClicked(){
-        this.menuClicked.emit(null)
+    @Output() menuButtonClicked:EventEmitter<any> = new EventEmitter()
+    fireMenuButtonClicked(){
+        this.menuButtonClicked.emit(null)
     }
 }

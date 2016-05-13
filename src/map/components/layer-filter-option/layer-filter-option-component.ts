@@ -1,21 +1,12 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {LayerFilterOption} from '../../core/layer-filter-option';
-import {MdCheckbox} from '@angular2-material/checkbox/checkbox'
+import {UpgradeMDL} from '../../directives/upgrade-mdl'
 
 @Component({
     selector:'layer-filter-option',
-    template:`
-        <li class="collection-item">
-            <md-checkbox [class.black-text]=layerFilterOption.active [checked]="layerFilterOption.isOn" (click)="fireIsOnChange()"
-            [disabled]="!layerFilterOption.active">
-                {{layerFilterOption.val}}
-            </md-checkbox>
-        </li>
-    `,
-    styles:[`
-    `],
-    directives:[MdCheckbox]
-    //changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl:'app/components/layer-filter-option/layer-filter-option.html',
+    styles:[],
+    directives:[UpgradeMDL]
 })
 export class LayerFilterOptionComponent{
     @Input() layerFilterOption:LayerFilterOption
