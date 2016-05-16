@@ -1,5 +1,5 @@
 <h2>Boundary Choices</h2>
-<label *ngFor="#o of boundaryChoices?.opt" upgrade-mdl class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-  <input type="radio" class="mdl-radio__button" name="options" [class.checked]=o.isOn (click) =>
+<label *ngFor="#o of boundaryChoices?.opt" upgrade-mdl class="mdl-radio mdl-js-radio mdl-js-ripple-effect my-radio-label" (click)=fireBoundaryChoicesChange(o.key)>
+  <input type="radio" class="mdl-radio__button" name="boundary-choices">
   <span class="mdl-radio__label">{{o.val}}</span>
 </label>

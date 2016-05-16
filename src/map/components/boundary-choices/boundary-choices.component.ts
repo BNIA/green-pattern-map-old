@@ -7,17 +7,18 @@ import {UpgradeMDL} from '../../directives/upgrade-mdl'
 @Component({
     selector:'boundary-choices',
     templateUrl:'app/components/boundary-choices/boundary-choices.html',
-    styles:[``],
+    styleUrls:['app/components/boundary-choices/boundary-choices.css'],
     directives:[LayerFilterComponent,UpgradeMDL],
     //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoundaryChoicesComponent implements OnChanges{
     @Input() boundaryChoices:BoundaryChoices
     @Output() boundaryChoicesChange:EventEmitter<any> = new EventEmitter();
-    fireBoundaryChoicesChange(){
+    fireBoundaryChoicesChange(key:string){
+        this.boundaryChoices.selectBoundary(key)
         this.boundaryChoicesChange.emit(null)
     }
     ngOnChanges(){
-        console.log("changed")
+
     }
 }

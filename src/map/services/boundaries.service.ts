@@ -22,9 +22,11 @@ export class BoundariesService{
             throw new Error('Bad response status: ' + res.status);
         }
         let body = res.json()
+        if (body.length === 0){return null}
         let boundaries:GeoJSON[] = map(body,(o) => {
-            return geoJson(body)
+            return geoJson(o)
         })
+        console.log(boundaries[0])
         //boundaries.setStyle(this._circleMarkerOptions)
         return boundaries || null;
     }
