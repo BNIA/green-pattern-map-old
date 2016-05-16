@@ -1,7 +1,18 @@
 .my-card{
-  width:auto;
+  width: auto;
+  background-color: #007db6;
   margin: 0 0 1em 0;
 }
+
 .my-card > .mdl-card__title {
-  background: url('app/assets/map.jpg') bottom right 15% no-repeat #46B6AC;
+  min-height: 16em;
+  background: url('app/assets/map.jpg') bottom right 15% no-repeat #007db6;;
+}
+
+.my-card h2 {
+  color: #fff;
+}
+
+.my-card .mdl-button {
+  color: #fff;
 }
