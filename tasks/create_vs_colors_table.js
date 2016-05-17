@@ -12,7 +12,7 @@ gulp.task('create_vs_colors_table', () => {
         .whereNotIn('column_name',['csa_id','csa','id'])
         .map(row => row.column_name)
         .then(data => pg.schema.createTable('vital_signs.colors', table => {
-            table.increments('id').primary()
+            table.increments('id')
             table.string('csa')
             table.integer('csa_id')
             _.forIn(data,d => table.string(d).defaultTo(null))
