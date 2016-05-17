@@ -5,7 +5,21 @@ var runSequence = require('run-sequence')
 requireDir('./tasks')
 
 gulp.task('default', (cb) => {
-	return runSequence('create_db','setup_layers_and_boundaries','link_layers_and_boundaries','get_pics','compile_less','compile_jade','compile_ts','copy_js','make_options','make_mdl_scheme','copy_css','copy_assets',cb)
+	return runSequence(
+		'create_db',
+		'setup_layers_and_boundaries',
+		'link_layers_and_boundaries',
+		'setup_vs_data',
+		'get_pics',
+		'compile_jade',
+		'compile_ts',
+		'copy_js',
+		'make_options',
+		'make_mdl_scheme',
+		'copy_css',
+		'copy_assets'
+		,cb
+	)
 })
 
 gulp.task('uninstall', (cb) => {
@@ -37,6 +51,15 @@ gulp.task('link_layers_and_boundaries', (cb) => {
 })
 
 gulp.task('get_shape', ['get_nsa_shape','get_csa_shape','get_sws_shape'])
+
+gulp.task('setup_vs_data', (cb) => {
+	return runSequence(
+		['load_vs_data','load_vs_indicators','load_vs_meta','load_vs_sections'],
+		'create_vs_colors_table',
+		'colorize_vs',
+		cb
+	)
+})
 
 gulp.task('asset_watcher', ['compile_ts','copy_js','copy_html','copy_css','copy_assets'], () => {
 	gulp.watch('src/**/*.ts', ['compile_ts'])

@@ -24,7 +24,18 @@ export class BoundariesService{
         let body = res.json()
         if (body.length === 0){return null}
         let boundaries:GeoJSON[] = map(body,(o) => {
-            return geoJson(o)
+            let myStyle = {
+                weight:2,
+                opacity:0.8
+            }
+            myStyle['color'] = o['properties'].color || "rgb(250,167,50)"
+            let geo = geoJson(o,myStyle)
+            var popup = "<span>Name: " + o['properties'].name + "</span>"
+            if(o['properties'].val){
+                popup += "<span>Value: " + o['properties'].val + "</span>"
+            }
+            geo.bindPopup(popup)
+            return geo
         })
         console.log(boundaries[0])
         //boundaries.setStyle(this._circleMarkerOptions)

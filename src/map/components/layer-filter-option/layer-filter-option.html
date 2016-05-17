@@ -7,5 +7,5 @@
 
 <label upgrade-mdl class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
   <input type="checkbox" class="mdl-checkbox__input" [class.checked]="layerFilterOption.isOn" (click)="fireIsOnChange()" [class.disabled]="!layerFilterOption.active">
-  <span class="mdl-checkbox__label">{{layerFilterOption.val}}</span>
+  <span class="mdl-checkbox__label mdl-badge">{{layerFilterOption.val}}</span>
 </label>
