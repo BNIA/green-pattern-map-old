@@ -1,10 +1,10 @@
 import {BoundaryChoice} from './boundary-choice';
-import {map,partition,forEach} from 'lodash'
+import {map,partition,forEach,find} from 'lodash'
 export class BoundaryChoices{
     opt:BoundaryChoice[] = []
     constructor(_jsonObjs?:any[]){
         if(typeof _jsonObjs === "undefined") {return}
-        this.opt = _.map(_jsonObjs,(j)=>{
+        this.opt = map(_jsonObjs,(j)=>{
             let b = new BoundaryChoice(j);
             return b;
         })
@@ -17,6 +17,10 @@ export class BoundaryChoices{
         forEach(notSelected,(n) => {
             n.isOn = false
         })
+    }
+    selectBoundaryConfigsOpt(bcKey:string,configsKey:string,optKey:string){
+        var bc = _.find(this.opt,{key:bcKey})
+        bc.selectConfigsOpt(configsKey,optKey)
     }
     toJSON():any{
         return map(this.opt,(o) => {return o.toJSON()})

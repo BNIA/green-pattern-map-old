@@ -18,6 +18,11 @@ export class BoundaryChoicesComponent implements OnChanges{
         this.boundaryChoices.selectBoundary(key)
         this.boundaryChoicesChange.emit(null)
     }
+    fireBoundaryConfigsOptChange(bcKey:string,configsKey:string,optKey:string){
+        console.log("HI")
+        this.boundaryChoices.selectBoundaryConfigsOpt(bcKey,configsKey,optKey)
+        this.boundaryChoicesChange.emit(null)
+    }
     ngOnChanges(){
 
     }
