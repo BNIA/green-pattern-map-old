@@ -2,8 +2,9 @@
         <main-toolbar class="my-main-toolbar" (menuButtonClicked)=toggleShowSidenav()></main-toolbar>
         <md-sidenav class="my-sidenav" align="start" mode="side" [opened]="showSidenav" (close)=toggleShowSidenav(false)>
             <layer-filters [layerFilters]="layerFilters" (layerFiltersChange)=getLayers()></layer-filters>
+            <boundary-choices [boundaryChoices]="boundaryChoices" (boundaryChoicesChange)=getBoundaries()></boundary-choices>
         </md-sidenav>
-        <map [layers]="layers"></map>
+        <map [layers]="layers" [boundaries]="boundaries"></map>
     </md-sidenav-layout>
 
 

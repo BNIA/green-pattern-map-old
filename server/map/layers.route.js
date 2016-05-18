@@ -160,23 +160,24 @@ var filterLayers = function(pg,filters){
     //GLOBAL FILTERS
     //TODO: data_year
 
-    var csa_id = _(filters.global).find('key','csa_id')
+    var csa_id = _.find(filters.global,{'key':'csa_id'})
     if(csa_id.active === true){
-        var on_csa_ids = _(csa_id.opt).filter({'isOn':true}).map('key')
+        var on_csa_ids = _.filter(csa_id.opt,{'isOn':true}).map((k) => {return k.key})
+        console.log(on_csa_ids)
         if(on_csa_ids.length > 0){
             query = query.whereIn('csa_id',on_csa_ids)
         }
     }
-    var nsa_id = _(filters.global).find('key','nsa_id')
+    var nsa_id = _.find(filters.global,{'key':'nsa_id'})
     if(nsa_id.active === true){
-        var on_nsa_ids = _(nsa_id.opt).filter({'isOn':true}).map('key')
+        var on_nsa_ids = _.filter(nsa_id.opt,{'isOn':true}).map((k) => {return k.key})
         if(on_nsa_ids.length > 0){
             query = query.whereIn('nsa_id',on_nsa_ids)
         }
     }
-    var sws_id = _(filters.global).find('key','sws_id')
+    var sws_id = _.find(filters.global,{'key':'sws_id'})
     if(sws_id.active === true){
-        var on_sws_ids = _(sws_id.opt).filter({'isOn':true}).map('key')
+        var on_sws_ids = _.filter(sws_id.opt,{'isOn':true}).map((k) => {return k.key})
         if(on_sws_ids.length > 0){
             query = query.whereIn('sws_id',on_sws_ids)
         }

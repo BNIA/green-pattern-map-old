@@ -1,9 +1,82 @@
-md-toolbar{
-    background:#007DB6;
+.mdl-layout--fixed-header {
+  height: auto;
+  overflow: visible;
 }
-.my-toolbar-title, .my-menu-button, .my-config{
-    color:#E9F3F9;
+
+.mdl-layout__header-row {
+  padding: 0 16px;
 }
-.my-filler{
-    flex: 1 1 auto;
+
+.my-toolbar-title,
+.my-menu-button,
+.my-config-button{
+  color: #fff;
+}
+
+.my-toolbar-title {
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
+.search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: #007db6;
+}
+
+.search form {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.search form .mdl-textfield {
+  width: 100%;
+  padding: .5em 0;
+}
+
+.search form .mdl-textfield input {
+  color: rgba(0, 0, 0, .85);
+  background-color: #fff;
+  border: none;
+  border-radius: .25em;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .25);
+  padding: 1em;
+}
+
+.search .md-icon-button {
+  position: absolute;
+  top: 50%;
+  right: .5em;
+  z-index: 101;
+  margin-top: -12px;
+  cursor: pointer;
+}
+
+.search .md-icon-button i {
+  color: rgba(0, 0, 0, .38);
+}
+
+.menu {
+  width: 100%;
+  padding: 0 0 8px 0;
+}
+
+.menu button {
+  color: rgba(255, 255, 255, .7);
+  font-weight: normal;
+  border-right: solid 1px rgba(0, 0, 0, .25);
+  padding: 0 1em;
+}
+.menu button:last-of-type {
+  border-right: none;
+}
+
+.menu button i {
+  color: rgba(255, 255, 255, .7);
+  margin: 0 0 0 16px;
 }

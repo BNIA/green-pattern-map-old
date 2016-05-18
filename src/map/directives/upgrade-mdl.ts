@@ -12,7 +12,6 @@ export class UpgradeMDL implements OnChanges,AfterViewInit{
     ngOnChanges(){this.upgrade()}
     ngAfterViewInit(){this.upgrade()}
     upgrade(){
-        console.log(this.elementRef.nativeElement)
         componentHandler.upgradeElement(this.elementRef.nativeElement)
         this.upgradedMDL.emit(null)
     }
