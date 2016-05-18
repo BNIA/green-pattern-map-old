@@ -61,6 +61,36 @@ gulp.task('setup_vs_data', (cb) => {
 	)
 })
 
+gulp.task('compile',() => {
+	return runSequence([
+		'compile_ts',
+		'copy_js',
+		'copy_html',
+		'copy_css',
+		'copy_assets'
+	])
+})
+
+gulp.task('watch_js', () => {
+	gulp.watch(['src/**/*.js'], ['copy_js'])
+})
+
+gulp.task('watch_ts', () => {
+	gulp.watch('src/**/*.ts', ['compile_ts','copy_js'])
+})
+
+gulp.task('watch_html',() => {
+	gulp.watch('src/**/*.html',['copy_html'])
+})
+
+gulp.task('watch_css', 	() => {
+	gulp.watch(['./src/**/*.css'],['copy_css'])
+})
+
+gulp.task('watch_assets', () => {
+	gulp.watch(['./src/landing/assets/*', './src/map/assets/*'],['copy_assets'])
+})
+
 gulp.task('asset_watcher', ['compile_ts','copy_js','copy_html','copy_css','copy_assets'], () => {
 	gulp.watch('src/**/*.ts', ['compile_ts'])
 	gulp.watch(['src/**/*.js'], ['copy_js'])

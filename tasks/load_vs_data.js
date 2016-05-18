@@ -2,10 +2,10 @@ var gulp = require('gulp')
 var knex = require('knex')
 var exec = require('child-process-promise').exec
 var config = require('../config.json')
-var pg = knex({client:'pg',connection:config.connection})
 
 /* load nsa shape to pg db */
 gulp.task('load_vs_data', () => {
+	var pg = knex({client:'pg',connection:config.connection})
 	// Make sure that boundaries schema exists
 	return pg.raw('CREATE SCHEMA IF NOT EXISTS "vital_signs"')
 	.then(() => {
