@@ -1,19 +1,6 @@
-    <md-sidenav-layout class="my-sidenav-layout">
-        <main-toolbar class="my-main-toolbar" (menuButtonClicked)=toggleShowSidenav()></main-toolbar>
-        <md-sidenav class="my-sidenav" align="start" mode="side" [opened]="showSidenav" (close)=toggleShowSidenav(false)>
-            <layer-filters [layerFilters]="layerFilters" (layerFiltersChange)=getLayers()></layer-filters>
-            <boundary-choices [boundaryChoices]="boundaryChoices" (boundaryChoicesChange)=getBoundaries()></boundary-choices>
-        </md-sidenav>
-        <map [layers]="layers" [boundaries]="boundaries"></map>
-    </md-sidenav-layout>
-
-
-
-
-
-        <!-- <md-sidenav-layout>
-            <md-sidenav [opened]="showLayerFilters" (close)=toggleShowLayerFilters(false) mode="push">
-                <layer-filters [layerFilters]="layerFilters" (layerFiltersChange)=getLayers()></layer-filters>
-            </md-sidenav>
-            <map [layers]="layers"></map>
-        </md-sidenav-layout> -->
+<div ng-cloak>
+  <md-toolbar class="md-primary">
+    <h2 class="md-toolbar-tools">
+      <span>{{$ctrl.title}}</span>
+    </h2>
+  </md-toolbar>
