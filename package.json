@@ -1,96 +1,103 @@
 {
-    "name": "green-pattern-map",
-    "version": "1.0.1",
-    "description": "An interactive map for then Baltimore Green Pattern Book",
-    "main": "server/index.js",
-    "scripts": {
-        "start": "node server/index.js",
-        "start:w": "concurrently \"node server/index.js\" \"gulp asset_watcher\" ",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "gulp",
-        "preuninstall": "gulp uninstall"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/BNIA/green-pattern-map.git"
-    },
-    "keywords": [
-        "leaflet",
-        "map"
-    ],
-    "author": "Evan Mahone",
-    "license": "GPL-3.0",
-    "bugs": {
-        "url": "https://github.com/BNIA/green-pattern-map/issues"
-    },
-    "homepage": "https://github.com/BNIA/green-pattern-map#readme",
-    "devDependencies": {
-        "bluebird": "3.4.0",
-        "case": "^1.4.1",
-        "child-process-promise": "^2.0.1",
-        "concurrently": "^2.0.0",
-        "del": "^2.2.0",
-        "eslint": "2.10.2",
-        "eslint-config-google": "0.5.0",
-        "fast-csv": "^1.1.0",
-        "gulp": "^3.9.1",
-        "gulp-chmod": "^1.3.0",
-        "gulp-cli": "^1.2.1",
-        "gulp-concat": "2.6.0",
-        "gulp-decompress": "^1.2.0",
-        "gulp-env": "0.4.0",
-        "gulp-jade": "^1.1.0",
-        "gulp-less": "^3.0.5",
-        "gulp-remote-src": "^0.4.1",
-        "gulp-rename": "^1.2.2",
-        "inflection": "^1.9.0",
-        "jsonfile": "^2.3.0",
-        "jspm": "0.16.34",
-        "leaflet": "^0.7.7",
-        "lodash": "^4.11.1",
-        "merge-stream": "1.0.0",
-        "mkdirp": "^0.5.1",
-        "require-dir": "^0.3.0",
-        "run-sequence": "1.1.5",
-        "simple-statistics": "2.0.0-beta1",
-        "tidyaddr-js": "^1.0.1"
+  "name": "green-pattern-map",
+  "version": "1.0.1",
+  "description": "An interactive map for then Baltimore Green Pattern Book",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "start:w": "concurrently \"node server/index.js\" \"gulp asset_watcher\" ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "gulp",
+    "preuninstall": "gulp uninstall",
+    "build": "jspm bundle src/map public/build.js --skip-source-maps --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BNIA/green-pattern-map.git"
+  },
+  "keywords": [
+    "leaflet",
+    "map"
+  ],
+  "author": "Evan Mahone",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/BNIA/green-pattern-map/issues"
+  },
+  "homepage": "https://github.com/BNIA/green-pattern-map#readme",
+  "devDependencies": {
+    "bluebird": "3.4.0",
+    "case": "^1.4.1",
+    "child-process-promise": "^2.0.1",
+    "concurrently": "^2.0.0",
+    "del": "^2.2.0",
+    "eslint": "2.10.2",
+    "eslint-config-google": "0.5.0",
+    "fast-csv": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-chmod": "^1.3.0",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "2.6.0",
+    "gulp-decompress": "^1.2.0",
+    "gulp-env": "0.4.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.0.5",
+    "gulp-remote-src": "^0.4.1",
+    "gulp-rename": "^1.2.2",
+    "inflection": "^1.9.0",
+    "jsonfile": "^2.3.0",
+    "jspm": "0.16.34",
+    "leaflet": "^0.7.7",
+    "lodash": "^4.11.1",
+    "merge-stream": "1.0.0",
+    "mkdirp": "^0.5.1",
+    "require-dir": "^0.3.0",
+    "run-sequence": "1.1.5",
+    "simple-statistics": "2.0.0-beta1",
+    "tidyaddr-js": "^1.0.1"
+  },
+  "dependencies": {
+    "angular": "1.5.5",
+    "angular-animate": "1.5.5",
+    "angular-aria": "1.5.5",
+    "angular-material": "1.0.8",
+    "angular-messages": "1.5.5",
+    "angular-mocks": "1.5.5",
+    "angular-route": "1.5.5",
+    "angular-sanitize": "1.5.5",
+    "body-parser": "1.15.0",
+    "express": "4.13.4",
+    "knex": "0.11.3",
+    "leaflet": "1.0.0-rc.1",
+    "leaflet.markercluster": "1.0.0-rc.1.0",
+    "lodash": "^4.11.1",
+    "pg": "^4.5.3",
+    "pug": "2.0.0-alpha7"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "app"
     },
     "dependencies": {
-        "angular": "1.5.5",
-        "angular-animate": "1.5.5",
-        "angular-aria": "1.5.5",
-        "angular-material": "1.0.8",
-        "angular-messages": "1.5.5",
-        "angular-mocks": "1.5.5",
-        "angular-route": "1.5.5",
-        "angular-sanitize": "1.5.5",
-        "body-parser": "1.15.0",
-        "express": "4.13.4",
-        "knex": "0.11.3",
-        "leaflet": "1.0.0-rc.1",
-        "leaflet.markercluster": "1.0.0-rc.1.0",
-        "lodash": "^4.11.1",
-        "pg": "^4.5.3",
-        "pug": "2.0.0-alpha7"
+      "angular": "github:angular/bower-angular@^1.5.5",
+      "angular-animate": "github:angular/bower-angular-animate@^1.5.5",
+      "angular-material": "github:angular/bower-material@^1.0.9",
+      "angular-messages": "github:angular/bower-angular-messages@^1.5.5",
+      "angular-mocks": "github:angular/bower-angular-mocks@^1.5.5",
+      "angular-route": "github:angular/bower-angular-route@^1.5.5",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.5.5",
+      "angular-simple-logger": "npm:angular-simple-logger@^0.1.7",
+      "css": "github:systemjs/plugin-css@^0.1.21",
+      "leaflet": "github:Leaflet/Leaflet@^0.7.7",
+      "leaflet.markercluster": "npm:leaflet.markercluster@^0.5.0",
+      "lodash": "npm:lodash@^4.12.0",
+      "text": "github:systemjs/plugin-text@^0.0.8",
+      "ui-leaflet": "npm:ui-leaflet@^1.0.0"
     },
-    "jspm": {
-        "configFile": "src/config.js",
-        "dependencies": {
-            "angular": "github:angular/bower-angular@^1.5.5",
-            "angular-animate": "github:angular/bower-angular-animate@^1.5.5",
-            "angular-material": "github:angular/bower-material@^1.0.8",
-            "angular-messages": "github:angular/bower-angular-messages@^1.5.5",
-            "angular-mocks": "github:angular/bower-angular-mocks@^1.5.5",
-            "angular-route": "github:angular/bower-angular-route@^1.5.5",
-            "angular-sanitize": "github:angular/bower-angular-sanitize@^1.5.5",
-            "leaflet": "github:Leaflet/Leaflet@^0.7.7",
-            "leaflet.markercluster": "npm:leaflet.markercluster@^0.5.0",
-            "lodash": "npm:lodash@^4.12.0"
-        },
-        "devDependencies": {
-            "babel": "npm:babel-core@^5.8.24",
-            "babel-runtime": "npm:babel-runtime@^5.8.24",
-            "core-js": "npm:core-js@^1.1.4"
-        }
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
     }
+  }
 }

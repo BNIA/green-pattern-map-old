@@ -1,7 +1,12 @@
+import 'angular-material/angular-material.css!';
+import 'leaflet/dist/leaflet.css!';
 import angular from 'angular';
 import 'angular-animate';
 import 'angular-messages';
 import 'angular-material';
+import 'angular-simple-logger/dist/index.light.js';
+import 'leaflet';
+import 'ui-leaflet';
 import {
   primary,
   accent,
@@ -9,9 +14,7 @@ import {
 } from './core/colors';
 import AppComponent from './map/components/app/app.js';
 
-console.log(AppComponent);
-
-let app = angular.module('app', ['ngMaterial'])
+let app = angular.module('app', ['ngMaterial'/* 'ui-leaflet'*/])
   .controller('AppController', ['$scope', function(/* $scope*/) {}]);
 
 app.component('myApp', AppComponent);

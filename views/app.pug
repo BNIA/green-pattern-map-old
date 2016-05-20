@@ -1,0 +1,17 @@
+html(lang='en', ng-app='app')
+  head
+    title Green Pattern Map
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+  body
+    // Angular App Main Entry
+    if dev
+      script(src='jspm_packages/system.js')
+    if prod
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.28/system-csp-production.js')
+    script(src='config.js')
+    //if dev
+    if prod
+      script(src="build.js")
+    script.
+      System.import('app').catch(console.error.bind(console));
+    my-app
