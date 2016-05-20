@@ -2,7 +2,9 @@ var gulp = require('gulp')
 var knex = require('knex')
 var _ = require('lodash')
 var Promise = require('bluebird')
-var config = require('../config.json')
+var path = require('path');
+var configPath = path.join(process.env.PWD,'config/config.json');
+var config = require(configPath);
 var gpb_types = null
 var gpb_sites = null
 

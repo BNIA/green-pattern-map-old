@@ -1,6 +1,8 @@
 var gulp = require('gulp')
 var exec = require('child-process-promise').exec
-var config = require('../config.json')
+var path = require('path');
+var configPath = path.join(process.env.PWD,'config/config.json');
+var config = require(configPath);
 
 gulp.task('undo_create_db',() => {
     var execStr = "export PGPASSWORD='" + config.connection.password + "'; "

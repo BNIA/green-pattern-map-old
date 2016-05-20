@@ -2,7 +2,9 @@ var gulp = require('gulp')
 var knex = require('knex')
 var tidy = require('tidyaddr-js')
 var titleize = require('inflection').titleize
-var config = require('../config.json')
+var path = require('path');
+var configPath = path.join(process.env.PWD,'config/config.json');
+var config = require(configPath);
 
 
 gulp.task('tidy_mdp_table', function(){

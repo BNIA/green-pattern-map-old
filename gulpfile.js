@@ -1,6 +1,8 @@
 var gulp = require('gulp')
 var requireDir = require('require-dir')
 var runSequence = require('run-sequence')
+var path = require('path');
+var paths = require(path.join(process.env.PWD, 'config/paths.js'));
 
 requireDir('./tasks')
 
@@ -89,6 +91,10 @@ gulp.task('watch_css', 	() => {
 
 gulp.task('watch_assets', () => {
 	gulp.watch(['./src/landing/assets/*', './src/map/assets/*'],['copy_assets'])
+})
+
+gulp.task('watch_less', () => {
+	gulp.watch([paths.lessSrc], ['compile_less']);
 })
 
 gulp.task('asset_watcher', ['compile_ts','copy_js','copy_html','copy_css','copy_assets'], () => {

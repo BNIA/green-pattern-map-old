@@ -1,0 +1,32 @@
+<md-toolbar class="md-primary">
+    <h2 class="md-toolbar-tools">
+  <span>{{$ctrl.title}}</span>
+</h2>
+</md-toolbar>
+<md-menu-bar class="md-primary md-hue-1">
+    <md-menu>
+        <button ng-click="$mdOpenMenu()">
+            File
+        </button>
+        <md-menu-content>
+            <md-menu-item>
+                <md-button ng-click="ctrl.sampleAction('share', $event)">
+                    Share...
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+    <md-menu>
+        <button ng-click="$mdOpenMenu()">
+            File
+        </button>
+        <md-menu-content>
+            <md-menu-item>
+                <md-button ng-click="ctrl.sampleAction('share', $event)">
+                    Share...
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</md-menu-bar>
+</div>

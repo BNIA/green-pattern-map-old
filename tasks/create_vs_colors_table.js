@@ -1,7 +1,9 @@
 var gulp = require('gulp')
 var _ = require('lodash')
 var knex = require('knex')
-var config = require('../config.json')
+var path = require('path');
+var configPath = path.join(process.env.PWD,'config/config.json');
+var config = require(configPath);
 
 gulp.task('create_vs_colors_table', () => {
     var pg = knex({client:'pg',connection:config.connection,pool:{min:0,max:7}})

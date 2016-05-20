@@ -7,7 +7,7 @@
     "start": "node server/index.js",
     "start:w": "concurrently \"node server/index.js\" \"gulp asset_watcher\" ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "gulp",
+    "postinstall": "",
     "preuninstall": "gulp uninstall",
     "build": "jspm bundle src/map public/build.js --skip-source-maps --minify"
   },
@@ -29,6 +29,7 @@
     "bluebird": "3.4.0",
     "case": "^1.4.1",
     "child-process-promise": "^2.0.1",
+    "clean-css": "3.4.12",
     "concurrently": "^2.0.0",
     "del": "^2.2.0",
     "eslint": "2.10.2",
@@ -39,8 +40,6 @@
     "gulp-cli": "^1.2.1",
     "gulp-concat": "2.6.0",
     "gulp-decompress": "^1.2.0",
-    "gulp-env": "0.4.0",
-    "gulp-jade": "^1.1.0",
     "gulp-less": "^3.0.5",
     "gulp-remote-src": "^0.4.1",
     "gulp-rename": "^1.2.2",
@@ -48,6 +47,7 @@
     "jsonfile": "^2.3.0",
     "jspm": "0.16.34",
     "leaflet": "^0.7.7",
+    "less": "2.7.1",
     "lodash": "^4.11.1",
     "merge-stream": "1.0.0",
     "mkdirp": "^0.5.1",
@@ -57,14 +57,6 @@
     "tidyaddr-js": "^1.0.1"
   },
   "dependencies": {
-    "angular": "1.5.5",
-    "angular-animate": "1.5.5",
-    "angular-aria": "1.5.5",
-    "angular-material": "1.0.8",
-    "angular-messages": "1.5.5",
-    "angular-mocks": "1.5.5",
-    "angular-route": "1.5.5",
-    "angular-sanitize": "1.5.5",
     "body-parser": "1.15.0",
     "express": "4.13.4",
     "knex": "0.11.3",
@@ -76,7 +68,7 @@
   },
   "jspm": {
     "directories": {
-      "baseURL": "app"
+      "baseURL": "src"
     },
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.5.5",

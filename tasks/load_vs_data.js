@@ -1,7 +1,9 @@
 var gulp = require('gulp')
 var knex = require('knex')
 var exec = require('child-process-promise').exec
-var config = require('../config.json')
+var path = require('path');
+var configPath = path.join(process.env.PWD,'config/config.json');
+var config = require(configPath);
 
 /* load nsa shape to pg db */
 gulp.task('load_vs_data', () => {

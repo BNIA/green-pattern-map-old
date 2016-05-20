@@ -3,7 +3,9 @@ var ss = require('simple-statistics')
 var _ = require('lodash')
 var knex = require('knex')
 var Promise = require('bluebird')
-var config = require('../config.json')
+var path = require('path');
+var configPath = path.join(process.env.PWD,'config/config.json');
+var config = require(configPath);
 
 gulp.task('colorize_vs', () => {
     var pg = knex({
