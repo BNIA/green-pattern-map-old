@@ -11,7 +11,11 @@ import 'angular-simple-logger/dist/index.light.js';
 // Leaflet
 import 'leaflet';
 import 'ui-leaflet';
-import {primary, accent, background} from './core/colors';
+import {
+  primary,
+  accent,
+  background
+} from './core/colors';
 
 import AppComponent from './map/components/app/app.js';
 import HeaderComponent from './map/components/header/header.js';
@@ -19,7 +23,6 @@ import MapComponent from './map/components/map/map.js';
 import FooterComponent from './map/components/footer/footer.js';
 
 var AppController = function($scope) {
-  console.log($scope);
 };
 AppController.$inject = ["$scope"];
 
@@ -48,4 +51,6 @@ app.component('myFooter', FooterComponent);
 
 // app.component('myMap', MapComponent);
 
-export {app};
+export {
+  app
+};
