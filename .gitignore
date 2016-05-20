@@ -1,6 +1,5 @@
 /node_modules
 /jspm_packages
-/public
 /src/config.js
 /config.json
 /data/boundaries/csas
@@ -10,3 +9,10 @@
 /data/layers/cg/*.json
 /data/layers/ua/*.json
 /data/layers/gpb
+/build.js
+/build.js.map
+/app/build.js
+/app/build.js.map
+/app/jspm_packages
+/.tern-project
+/.eslintrc.json
