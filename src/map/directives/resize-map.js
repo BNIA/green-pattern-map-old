@@ -19,7 +19,6 @@ var ResizeMapController = function($scope, $timeout, $element, leafletData) {
   $scope.resetMap = function() {
     if ($scope.mapLoaded) {
       var newHeight = $element[0].parentElement.offsetHeight;
-      console.log("maploaded");
       if (newHeight !== 0) {
         var mapElement = angular.element(
           $element[0].parentElement.querySelector('.angular-leaflet-map')
@@ -34,6 +33,7 @@ var ResizeMapController = function($scope, $timeout, $element, leafletData) {
       }
     }
   };
+  $scope.$watch($scope.watchFunc, $scope.resetMap);
 };
 
 ResizeMapController.$inject = ["$scope", "$timeout", "$element", "leafletData"];
