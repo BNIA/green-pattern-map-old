@@ -1,56 +1,38 @@
-// Styles
-import 'angular-material/angular-material.css!';
-import 'leaflet/dist/leaflet.css!';
-import './styles/app.css!';
-// Angular
 import angular from 'angular';
-import 'angular-animate';
-import 'angular-messages';
-import 'angular-material';
-import 'angular-simple-logger/dist/index.light.js';
-// Leaflet
-import 'leaflet';
-import 'ui-leaflet';
-import {
-  primary,
-  accent,
-  background
-} from './core/colors';
+import './globals.js';
 
+// Controller
+import AppController from './app.controller.js';
+
+// Configs
+import {AppMdThemeConfig} from './app.config.js';
+
+// My Components
 import AppComponent from './map/components/app/app.js';
 import HeaderComponent from './map/components/header/header.js';
 import MapComponent from './map/components/map/map.js';
 import FooterComponent from './map/components/footer/footer.js';
 
-var AppController = function($scope) {
-};
-AppController.$inject = ["$scope"];
+// My Directives
+import ResizeMapDirective from './map/directives/resize-map.js';
 
-var AppMdThemeConfig = function($mdThemingProvider) {
-  $mdThemingProvider.definePalette('customPrimary', primary);
-  $mdThemingProvider.definePalette('customAccent', accent);
-  $mdThemingProvider.definePalette('customBackground', background);
+let app = angular.module('app',
+  ['ngMaterial', 'ui-leaflet']
+);
 
-  $mdThemingProvider
-    .theme('default')
-    .primaryPalette('customPrimary')
-    .accentPalette('customAccent')
-    .backgroundPalette('customBackground');
-};
-AppMdThemeConfig.$inject = ["$mdThemingProvider"];
-
-let app = angular.module('app', ['ngMaterial', 'ui-leaflet']);
-
+// Controller
 app.controller("AppController", AppController);
+
+// Configs
 app.config(AppMdThemeConfig);
 
+// Components
 app.component('myApp', AppComponent);
 app.component('myHeader', HeaderComponent);
 app.component('myMap', MapComponent);
 app.component('myFooter', FooterComponent);
 
-// app.component('myMap', MapComponent);
+// Directives
+app.directive('myResizeMap', ResizeMapDirective);
 
-export {
-  app
-};
+export default app;

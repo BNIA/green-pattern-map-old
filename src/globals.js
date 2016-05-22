@@ -1,0 +1,13 @@
+// Styles
+import 'angular-material/angular-material.css!';
+import 'leaflet/dist/leaflet.css!';
+import './styles/app.css!';
+// Angular
+import 'angular';
+import 'angular-animate';
+import 'angular-messages';
+import 'angular-material';
+import 'angular-simple-logger/dist/index.light.js';
+// Leaflet
+import 'leaflet';
+import 'ui-leaflet';
