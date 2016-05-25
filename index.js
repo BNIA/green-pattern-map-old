@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var app = express();
-var locals = {};
 
 var env = process.env.NODE_ENV || 'development';
 
@@ -9,19 +8,24 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(process.env.PWD, '/app')));
 
 if (env === 'production') {
-  console.log("running in production mode");
-  locals = {prod: true, dev: false};
-  app.use(express.static(path.join(process.env.PWD, '/public')));
+  let pathRoot = path.join(process.env.PWD, '/public');
+  app.locals.prod = true;
+  app.locals.dev = false;
+  app.locals.basedir = pathRoot;
+  app.use(express.static(pathRoot));
 }
 
 if (env === 'development') {
   console.log("running in development mode");
-  locals = {prod: false, dev: true};
-  app.use(express.static(path.join(process.env.PWD, '/src')));
+  let pathRoot = path.join(process.env.PWD, '/src');
+  app.locals.prod = false;
+  app.locals.dev = true;
+  app.locals.basedir = pathRoot;
+  app.use(express.static(pathRoot));
 }
 
 app.get('/', (req, res) => {
-  res.render('app', locals);
+  res.render('index');
   // res.sendFile(path.join(appPath, '/map.html'));
 });
 

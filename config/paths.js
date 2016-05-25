@@ -7,7 +7,7 @@ var developmentRoot = path.join(pwd, '/src');
 exports.productionRoot = productionRoot;
 exports.developmentRoot = developmentRoot;
 
-exports.bundleSrc = 'app';
+exports.bundleSrc = 'main';
 exports.bundleDest = path.join(productionRoot, '/build.js');
 
 exports.configSrc = path.join(developmentRoot, '/config.js');

@@ -1,8 +1,8 @@
-html(lang='en', ng-app='app' ng-strict-di)
+html(lang='en')
   head
     title Green Pattern Map
     meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
-  body
+  body(layout="column")
     // Angular App Main Entry
     if dev
       script(src='jspm_packages/system.js')
@@ -13,5 +13,7 @@ html(lang='en', ng-app='app' ng-strict-di)
     if prod
       script(src="build.js")
     script.
-      System.import('app').catch(console.error.bind(console));
-    my-app
+      System.import('main')
+        .catch(console.error.bind(console));
+    //div(ng-view)
+    div(ng-app="app",ng-strict-di ng-include="'main.html'",layout="column" flex)

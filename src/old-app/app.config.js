@@ -1,4 +1,6 @@
 import {primary, accent, background} from './core/colors';
+import template from './app.html!text';
+import AppController from './app.controller';
 
 var AppMdThemeConfig = function($mdThemingProvider) {
   $mdThemingProvider.definePalette('customPrimary', primary);
@@ -13,4 +15,16 @@ var AppMdThemeConfig = function($mdThemingProvider) {
 };
 AppMdThemeConfig.$inject = ["$mdThemingProvider"];
 
-export {AppMdThemeConfig};
+var AppRouteConfig = function($routeProvider) {
+  $routeProvider.when('/', {
+    template: template,
+    controller: 'AppController'
+  });
+  $routeProvider.otherwise({
+    redirectTo: '/home'
+  });
+};
+
+AppRouteConfig.$inject = ["$routeProvider"];
+
+export {AppMdThemeConfig, AppRouteConfig};

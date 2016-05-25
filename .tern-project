@@ -7,22 +7,6 @@
     "src/**/*.js"
   ],
   "dontLoad": [
-    "public",
-    "src/jspm_packages",
-    "tasks",
-    "index.js",
-    "data",
-    "config"
-  ],
-  "plugins": {
-    "complete_strings": {},
-    "node": {},
-    "angular": {},
-    "requirejs": {},
-    "modules": {},
-    "es_modules": {},
-    "doc_comment": {
-      "fullDocs": true
-    }
-  }
+    "src/jspm_packages/**/*.js"
+  ]
 }

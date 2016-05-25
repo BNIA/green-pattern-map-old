@@ -30,6 +30,7 @@ System.config({
     "leaflet": "github:Leaflet/Leaflet@0.7.7",
     "leaflet.markercluster": "npm:leaflet.markercluster@0.5.0",
     "lodash": "npm:lodash@4.12.0",
+    "ngcomponentrouter": "npm:ngcomponentrouter@2.1.0",
     "text": "github:systemjs/plugin-text@0.0.8",
     "ui-leaflet": "npm:ui-leaflet@1.0.0",
     "github:angular/bower-angular-animate@1.5.5": {
@@ -318,6 +319,9 @@ System.config({
     "npm:miller-rabin@4.0.0": {
       "bn.js": "npm:bn.js@4.11.3",
       "brorand": "npm:brorand@1.0.5"
+    },
+    "npm:ngcomponentrouter@2.1.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:parse-asn1@5.0.0": {
       "asn1.js": "npm:asn1.js@4.6.0",

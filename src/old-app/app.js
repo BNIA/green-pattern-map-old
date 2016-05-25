@@ -1,11 +1,14 @@
 import angular from 'angular';
 import './globals.js';
 
+// Modules
+import landing from './modules/landing/landing';
+
 // Controller
 import AppController from './app.controller.js';
 
 // Configs
-import {AppMdThemeConfig} from './app.config.js';
+import {AppMdThemeConfig, AppRouteConfig} from './app.config.js';
 
 // My Components
 import AppComponent from './map/components/app/app.js';
@@ -16,16 +19,15 @@ import FooterComponent from './map/components/footer/footer.js';
 // My Directives
 import ResizeDirective from './map/directives/resize-map.js';
 
-console.log(ResizeDirective);
-
 let app = angular.module('app',
-  ['ngMaterial', 'ui-leaflet']
+  ['ngRoute', 'ngMaterial', 'ui-leaflet', 'app.landing']
 );
 
 // Controller
 app.controller("AppController", AppController);
 
 // Configs
+app.config(AppRouteConfig);
 app.config(AppMdThemeConfig);
 
 // Components
