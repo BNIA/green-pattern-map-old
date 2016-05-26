@@ -1,3 +1,10 @@
-<div>
-  This is a placeholder for the landing page
+<div class="md-padding my-layout-container" layout-xsm="column" layout-sm="column" layout-md="column" layout-gt-md="row">
+    <div layout="column" flex-offset-gt-md="15" flex-gt-md="35">
+      <landing-map-card class='my-layout-landing-map-card' on-click-button="$ctrl.mapAccess(options)"></landing-map-card>
+      <landing-gpb-card class='my-layout-landing-gpb-card'></landing-gpb-card>
+      <landing-phases-card class='my-layout-landing-phases-card'></landing-phases-card>
+    </div>
+    <div layout="column" flex-gt-md="35">
+      <landing-desc-card class='my-layout-landing-desc-card' flex="35"></landing-desc-card>
+    </div>
 </div>

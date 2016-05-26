@@ -5,7 +5,6 @@ export default class MapViewController extends FlexComponentController {
     super($element);
   }
   $onInit() {
-    console.log("FLEXING");
     this.flexComponent();
   }
 }

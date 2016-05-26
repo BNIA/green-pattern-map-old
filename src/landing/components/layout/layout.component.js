@@ -1,13 +1,13 @@
-import './app.css!';
-import template from './app.html!text';
-/** The Main App Component Controller*/
-function AppController() {
-  this.title = "Green Pattern Map";
-}
+import './layout.css!';
+import template from './layout.html!text';
+import controller from './layout.controller';
 
-class AppComponent {}
-// AppComponent.template = template;
-AppComponent.template = template;
-AppComponent.controller = AppController;
+let bindings = {
+  onMapAccess: '&'
+};
 
-export default AppComponent;
+export default {
+  template,
+  controller,
+  bindings
+};

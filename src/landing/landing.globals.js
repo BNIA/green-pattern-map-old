@@ -3,7 +3,9 @@ import 'angular-material/angular-material.css!';
 
 // Angular
 import 'angular';
-import 'angular-route';
+import 'ngcomponentrouter';
 import 'angular-animate';
 import 'angular-messages';
+
+// Angular Material
 import 'angular-material';

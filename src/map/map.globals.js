@@ -6,6 +6,8 @@ import 'leaflet/dist/leaflet.css!';
 import 'angular';
 import 'angular-messages';
 import 'angular-animate';
+import 'angular-route';
+
 // Angular Material
 import 'angular-material';
 

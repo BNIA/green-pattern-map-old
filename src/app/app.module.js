@@ -1,19 +1,19 @@
-/**
- * This is the main entry point for the app
- */
-import angular from 'angular';
 import './app.globals.js';
+import angular from 'angular';
 import AppController from './app.controller';
 
 import LayoutComponent from './components/layout/layout.component';
 import HeaderComponent from './components/header/header.component';
 // import ContentComponent from './components/content/content.component';
-import LandingViewComponent from './components/landing-view/landing-view.component';
+import LandingViewComponent from
+  './components/landing-view/landing-view.component';
 import MapViewComponent from './components/map-view/map-view.component';
 
 import MdThemeConfig from '../shared/core/md-theme-config';
 
-let dependencies = ['ngComponentRouter', 'ngMaterial', 'map'];
+let dependencies = [
+  'ngComponentRouter', 'ngMaterial', 'map', 'landing'
+];
 
 let app = angular.module('app', dependencies);
 

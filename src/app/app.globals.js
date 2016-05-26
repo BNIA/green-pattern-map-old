@@ -1,6 +1,5 @@
 // Styles
 import 'angular-material/angular-material.css!';
-import './app.css!';
 
 // Angular
 import 'angular';
@@ -13,3 +12,4 @@ import 'angular-material';
 
 // Other Modules
 import '../map/map.module';
+import '../landing/landing.module';

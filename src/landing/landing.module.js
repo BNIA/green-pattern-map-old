@@ -1,25 +1,25 @@
-import './globals';
 import angular from 'angular';
-import AppComponent from './components/app/app.component';
-import template from './landing.html!text';
+import './landing.globals';
 
-var LandingController = function() {};
-LandingController.$inject = [];
+import LandingController from './landing.controller';
 
-var LandingRoute = function($routeProvider) {
-  $routeProvider.when('/landing', {
-    template: template,
-    conroller: 'LandingController'
-  });
-};
+import LayoutComponent from './components/layout/layout.component';
+import MapCardComponent from './components/map-card/map-card.component';
+import GpbCardComponent from './components/gpb-card/gpb-card.component';
+import PhasesCardComponent from
+  './components/phases-card/phases-card.component';
+import DescCardComponent from './components/desc-card/desc-card.component';
 
-LandingRoute.$inject = ['$routeProvider'];
+var dependencies = ['ngMaterial'];
 
-let landing = angular.module('app.landing', ['ngRoute', 'ngMaterial']);
+let landing = angular.module('landing', dependencies);
 
 landing.controller('LandingController', LandingController);
 
-landing.component('myApp', AppComponent);
-landing.config(LandingRoute);
+landing.component('landingLayout', LayoutComponent);
+landing.component('landingMapCard', MapCardComponent);
+landing.component('landingGpbCard', GpbCardComponent);
+landing.component('landingPhasesCard', PhasesCardComponent);
+landing.component('landingDescCard', DescCardComponent);
 
 export default landing;
