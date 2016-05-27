@@ -9,6 +9,7 @@ import GpbCardComponent from './components/gpb-card/gpb-card.component';
 import PhasesCardComponent from
   './components/phases-card/phases-card.component';
 import DescCardComponent from './components/desc-card/desc-card.component';
+import FooterComponent from './components/footer/footer.component';
 
 var dependencies = ['ngMaterial'];
 
@@ -21,5 +22,6 @@ landing.component('landingMapCard', MapCardComponent);
 landing.component('landingGpbCard', GpbCardComponent);
 landing.component('landingPhasesCard', PhasesCardComponent);
 landing.component('landingDescCard', DescCardComponent);
+landing.component('landingFooter', FooterComponent);
 
 export default landing;
