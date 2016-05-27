@@ -1,6 +1,6 @@
 import './app.globals.js';
 import angular from 'angular';
-import AppController from './app.controller';
+// import AppController from './app.controller';
 
 import LayoutComponent from './components/layout/layout.component';
 import HeaderComponent from './components/header/header.component';
@@ -17,7 +17,7 @@ let dependencies = [
 
 let app = angular.module('app', dependencies);
 
-app.controller('AppController', AppController);
+// app.controller('AppController', AppController);
 
 app.component('appLayout', LayoutComponent);
 app.component('appHeader', HeaderComponent);

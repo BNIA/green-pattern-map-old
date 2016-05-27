@@ -3,7 +3,7 @@
     <span>{{$ctrl.title}}</span>
   </h2>
 </md-toolbar>
-<md-tabs class="md-primary" autoselect="false">
+<md-tabs class="md-primary" autoselect="false" md-selected="$ctrl.index">
   <md-tab label="Home" md-on-select="$ctrl.tabChange('/Home')" md-active="$ctrl.tab == '/Home'"></md-tab>
   <md-tab label="Map" md-on-select="$ctrl.tabChange('/Map')" md-active="$ctrl.tab == '/Map'"></md-tab>
 </md-tabs>
