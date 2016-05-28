@@ -1,8 +1,126 @@
 <md-toolbar class="md-primary">
+  <div layout="row" class="title-bar">
+    <md-button aria-label="label" class="md-icon-button">
+      <i class="material-icons">menu</i>
+    </md-button>
     <h2 class="md-toolbar-tools">
-    <span>{{$ctrl.title}}</span>
-  </h2>
+      <span>{{$ctrl.title}}</span>
+    </h2>
+    <md-button aria-label="label" class="md-icon-button" ng-click="search = !search">
+      <i class="material-icons">search</i>
+    </md-button>
+    <md-button aria-label="photo" class="md-icon-button">
+      <i class="material-icons">more_vert</i>
+    </md-button>
+  </div>
+
+  <div class="search" layout="row" ng-show="search" style="width: 100%;">
+    <form ng-submit="$event.preventDefault()">
+      <md-autocomplete
+        ng-disabled="ctrl.isDisabled"
+        md-no-cache="ctrl.noCache"
+        md-selected-item="ctrl.selectedItem"
+        md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+        md-search-text="ctrl.searchText"
+        md-selected-item-change="ctrl.selectedItemChange(item)"
+        md-items="item in ctrl.querySearch(ctrl.searchText)"
+        md-item-text="item.name"
+        md-min-length="0"
+        placeholder="Enter Address"
+        md-menu-class="autocomplete-custom-template">
+      </md-autocomplete>
+      <md-button aria-label="label" class="md-icon-button" ng-click="search = !search">
+        <i class="material-icons">close</i>
+      </md-button>
+    </form>
+  </div>
+
+  <div class="menu" layout="row" style="width: 100%;">
+    <md-menu-bar>
+      <md-menu>
+        <span>
+          <button ng-click="$mdOpenMenu()">Patterns</button>
+          <i class="material-icons">arrow_drop_down</i>
+        </span>
+        <md-menu-content>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Community Managed Open Spaces</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Storm Water Management Sites</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Urban Forest and Buffer</span>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+      <md-menu>
+        <span>
+          <button ng-click="$mdOpenMenu()">Layers</button>
+          <i class="material-icons">arrow_drop_down</i>
+        </span>
+        <md-menu-content>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Neighborhoods</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Community Statistical Area</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Watersheds</span>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+      <md-menu>
+        <span>
+          <button ng-click="$mdOpenMenu()">Indicators</button>
+          <i class="material-icons">arrow_drop_down</i>
+        </span>
+        <md-menu-content>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Economic and Workforce Development</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Health and Human Welfare</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Housing</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Sustainability</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Crime and Safety</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Education</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Arts and Culture</span>
+          </md-menu-item>
+          <md-menu-item>
+            <input type="checkbox">
+            <span>Socioeconomic/Demographics</span>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </md-menu-bar>
+  </div>
 </md-toolbar>
+
 <md-tabs class="md-primary" autoselect="false" md-selected="$ctrl.index">
   <md-tab label="Home" md-on-select="$ctrl.tabChange('/Home')" md-active="$ctrl.tab == '/Home'"></md-tab>
   <md-tab label="Map" md-on-select="$ctrl.tabChange('/Map')" md-active="$ctrl.tab == '/Map'"></md-tab>
