@@ -3,7 +3,8 @@ export default class LandingViewController {
     this.$rootScope = $rootScope;
   }
   mapAccess(options) {
-    this.$rootScope.emit('onMapAccess', {options});
+    console.log("lv map access");
+    this.$rootScope.$emit('onMapAccess', {options});
   }
 }
 

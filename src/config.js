@@ -28,6 +28,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.21",
     "jquery": "npm:jquery@2.2.4",
+    "json": "github:systemjs/plugin-json@0.1.2",
     "leaflet": "github:Leaflet/Leaflet@0.7.7",
     "leaflet.markercluster": "npm:leaflet.markercluster@0.5.0",
     "lodash": "npm:lodash@4.12.0",

@@ -8,8 +8,9 @@ class Phase {
 }
 
 export default class PhasesCardController {
-  constructor(){
-    this.cmos = new Phase('cmos', 'Community Managed Open Spaces', 'assets/img/cmos.png');
+  constructor() {
+    this.cmos = new Phase('cmos', 'Community Managed Open Spaces',
+      'assets/img/cmos.png');
     this.sw = new Phase('sw', 'Stormwater Management', 'assets/img/sw.png');
     this.uf = new Phase('uf', 'Urban Forest And Buffer', 'assets/img/uf.png');
     this.clgr = new Phase('clgr', 'Clean and Green', 'assets/img/clgr.png');

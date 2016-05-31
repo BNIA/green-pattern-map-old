@@ -3,7 +3,7 @@ import template from './header.html!text';
 import controller from './header.controller';
 
 let bindings = {
-  tab: '<',
+  tabs: '<',
   onTabChange: '&'
 };
 

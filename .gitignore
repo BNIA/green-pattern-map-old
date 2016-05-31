@@ -19,3 +19,4 @@
 /src/build.js
 /src/build.js.map
 /src/**/*.css
+/src/app/core/options.json

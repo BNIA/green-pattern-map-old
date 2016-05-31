@@ -13,6 +13,16 @@
       <i class="material-icons">more_vert</i>
     </md-button>
   </div>
+</md-toolbar>
+
+  <md-tabs class="md-primary" autoselect="false" md-selected="$ctrl.tabs.activeIndex">
+    <md-tab
+      ng-repeat = "key in $ctrl.tabs.keys"
+      md-on-select = "$ctrl.tabChange(key)"
+      md-active = "$ctrl.tabs.activeKey == key ">
+        <md-tab-label> {{$ctrl.tabs.vals[$index]}} </md-tab-label>
+    </md-tab>
+  </md-tabs>
 
   <div class="search" layout="row" ng-show="search" style="width: 100%;">
     <form ng-submit="$event.preventDefault()">
@@ -35,7 +45,7 @@
     </form>
   </div>
 
-  <div class="menu" layout="row" style="width: 100%;">
+  <!-- <div class="menu" layout="row" style="width: 100%;">
     <md-menu-bar>
       <md-menu>
         <span>
@@ -82,11 +92,7 @@
           <button ng-click="$mdOpenMenu()">Indicators</button>
           <i class="material-icons">arrow_drop_down</i>
         </span>
-        <md-menu-content>
-          <md-menu-item>
-            <input type="checkbox">
-            <span>Economic and Workforce Development</span>
-          </md-menu-item>
+        <md-menu-content>  <div layout="row" class="title-bar">
           <md-menu-item>
             <input type="checkbox">
             <span>Health and Human Welfare</span>
@@ -119,9 +125,4 @@
       </md-menu>
     </md-menu-bar>
   </div>
-</md-toolbar>
-
-<md-tabs class="md-primary" autoselect="false" md-selected="$ctrl.index">
-  <md-tab label="Home" md-on-select="$ctrl.tabChange('/Home')" md-active="$ctrl.tab == '/Home'"></md-tab>
-  <md-tab label="Map" md-on-select="$ctrl.tabChange('/Map')" md-active="$ctrl.tab == '/Map'"></md-tab>
-</md-tabs>
+</md-toolbar> -->

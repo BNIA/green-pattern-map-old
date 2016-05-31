@@ -4,6 +4,7 @@ import angular from 'angular';
 
 import LayoutComponent from './components/layout/layout.component';
 import HeaderComponent from './components/header/header.component';
+import MapMenuComponent from './components/map-menu/map-menu.component';
 // import ContentComponent from './components/content/content.component';
 import LandingViewComponent from
   './components/landing-view/landing-view.component';
@@ -23,6 +24,7 @@ app.component('appLayout', LayoutComponent);
 app.component('appHeader', HeaderComponent);
 app.component('appLandingView', LandingViewComponent);
 app.component('appMapView', MapViewComponent);
+app.component('appMapMenu', MapMenuComponent);
 
 // TODO: fix this
 var config = function($locationProvider) {

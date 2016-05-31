@@ -1,23 +1,25 @@
+import Tabs from '../../core/tabs.js';
+
 export default class LayoutController {
   constructor($rootRouter, $rootScope) {
-    this.tab = '/Home';
+    var self = this;
+    this.tabs = new Tabs();
     this.$rootRouter = $rootRouter;
     this.$rootScope = $rootScope;
-    $rootScope.$on('onMapAccess', this.mapAccess);
+    this.$rootScope.$on('onMapAccess', options => {
+      return self.tabChange('/Map', options);
+    });
   }
   reroute(route, options = {}) {
+    console.log(route);
     this.$rootRouter.navigate([route, options]);
   }
   tabChange(tab, options = {}) {
-    this.tab = tab;
-    this.reroute(this.tab, options);
-  }
-  mapAccess(options = {}) {
-    console.log("tried");
-    this.tabChange('/Map', options);
+    this.tabs.changeActiveTab(tab);
+    this.reroute(this.tabs.activeKey, options);
   }
   $onInit() {
-    this.reroute(this.tab);
+    this.reroute(this.tabs.activeTab);
   }
 }
 

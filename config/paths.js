@@ -15,3 +15,5 @@ exports.configDest = productionRoot;
 
 exports.lessSrc = path.join(developmentRoot, '/**/*.less');
 exports.lessDest = developmentRoot;
+
+exports.optionsDest = path.join(developmentRoot, '/app/core/options.json');

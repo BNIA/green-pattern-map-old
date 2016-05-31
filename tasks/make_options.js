@@ -4,6 +4,7 @@ var jsonfile = require('jsonfile')
 var _ = require('lodash')
 var path = require('path');
 var configPath = path.join(process.env.PWD,'config/config.json');
+var paths = require(path.join(process.env.PWD, 'config/paths.js'));
 var config = require(configPath);
 
 gulp.task('make_options', () => {
@@ -355,7 +356,7 @@ gulp.task('make_options', () => {
             configs: []
         }))
         .then(() => {
-            jsonfile.writeFileSync('./server/options.json', opt)
+            jsonfile.writeFileSync(paths.optionsDest, opt)
             return pg.destroy()
         })
 })
