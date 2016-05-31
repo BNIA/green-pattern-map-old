@@ -1,4 +1,4 @@
-// import './layout.css';
+import './header.css!';
 import template from './header.html!text';
 import controller from './header.controller';
 
