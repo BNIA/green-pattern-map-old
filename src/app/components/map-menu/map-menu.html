@@ -4,16 +4,22 @@
         Layers
       </button>
       <md-menu-content>
-        <md-menu-item>
-          <md-checkbox ng-model="$ctrl.opts.allCG">
-            Community Managed Open Spaces
-          </md-checkbox>
-        </md-menu-item>
-        <md-menu-item>
-          <md-checkbox ng-model="$ctrl.opts.allSW">
-            Stormwater Management Sites
-          </md-checkbox>
-        </md-menu-item>
+        <div class="my-menu-content">
+          <md-menu-item>
+            <md-button>
+            <md-checkbox ng-model="$ctrl.opts.allCG">
+              Community Managed Open Spaces
+            </md-checkbox>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button>
+            <md-checkbox ng-model="$ctrl.opts.allSW">
+              Stormwater Management Sites
+            </md-checkbox>
+            </md-button>
+          </md-menu-item>
+        </div>
       </md-menu-content>
     </md-menu>
     <md-menu>
@@ -21,13 +27,16 @@
         Boundaries
       </button>
       <md-menu-content>
-        <md-radio-group>
-          <md-radio-button
-            ng-repeat="bc in $ctrl.opts.boundaryChoices"
-            ng-value = "bc.key">
-            {{bc.val}}
-          </md-radio-button>
-        </md-radio-group>
+        <div class="my-menu-content">
+          <md-radio-group>
+            <md-button ng-repeat="bc in $ctrl.opts.boundaryChoices">
+            <md-radio-button
+              ng-value = "bc.key">
+              {{bc.val}}
+            </md-radio-button>
+            </md-button>
+          </md-radio-group>
+        </div>
       </md-menu-content>
     </md-menu>
 </md-menu-bar>

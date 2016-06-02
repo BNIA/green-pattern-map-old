@@ -13,7 +13,8 @@ exports.bundleDest = path.join(productionRoot, '/build.js');
 exports.configSrc = path.join(developmentRoot, '/config.js');
 exports.configDest = productionRoot;
 
-exports.lessSrc = path.join(developmentRoot, '/**/*.less');
+exports.lessSrc = [path.join(developmentRoot, '/**/*.less'),
+  "!" + path.join(developmentRoot, '/{jspm_packages, jspm_packages/**}')];
 exports.lessDest = developmentRoot;
 
 exports.optionsDest = path.join(developmentRoot, '/app/core/options.json');

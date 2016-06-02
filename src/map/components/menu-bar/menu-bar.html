@@ -1,0 +1,35 @@
+<md-toolbar class="my-map-toolbar">
+  <div class="md-toolbar-tools" layout="row" flex>
+      <span flex></span>
+      <md-button
+        aria-label="search"
+        class="md-icon-button"
+        ng-click="search = !search">
+          <i class="material-icons">search</i>
+      </md-button>
+      <md-button aria-label="config" class="md-icon-button">
+        <md-icon class="material-icons">more_vert</i>
+      </md-button>
+        </div>
+</md-toolbar>
+
+<div class="search" layout="row" ng-show="search" style="width: 100%;top:-6px;">
+  <form ng-submit="$event.preventDefault()">
+    <md-autocomplete
+      ng-disabled="ctrl.isDisabled"
+      md-no-cache="ctrl.noCache"
+      md-selected-item="ctrl.selectedItem"
+      md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+      md-search-text="ctrl.searchText"
+      md-selected-item-change="ctrl.selectedItemChange(item)"
+      md-items="item in ctrl.querySearch(ctrl.searchText)"
+      md-item-text="item.name"
+      md-min-length="0"
+      placeholder="Enter Address"
+      md-menu-class="autocomplete-custom-template">
+    </md-autocomplete>
+    <md-button aria-label="label" class="md-icon-button" ng-click="search = !search">
+      <i class="material-icons">close</i>
+    </md-button>
+  </form>
+</div>

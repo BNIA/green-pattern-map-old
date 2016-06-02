@@ -4,8 +4,9 @@ import 'leaflet/dist/leaflet.css!';
 
 // Angular
 import 'angular';
-import 'angular-messages';
 import 'angular-animate';
+import 'angular-messages';
+import 'angular-aria';
 import 'angular-route';
 
 // Angular Material

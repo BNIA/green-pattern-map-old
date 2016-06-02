@@ -1,0 +1,47 @@
+<div layout="column" flex>
+<md-content layout="row" flex>
+    <md-content layout="column" flex="30" class="my-left-boundaries-config" md-whiteframe="2">
+      <md-content layout="column" flex="40">
+        <div layout="column" flex>
+          <map-map flex></map-map>
+        </div>
+      </md-content>
+      <md-content flex>
+        <md-list>
+      <md-subheader class="md-no-sticky">Boundaries</md-subheader>
+      <md-radio-group>
+      <div ng-repeat = "bc in $ctrl.boundaryChoices">
+        <md-list-item class="my-bc-list-item">
+          <md-radio-button ng-value = "bc.key" class="md-primary" flex>{{bc.val}}</md-radio-button>
+          <md-button class="md-icon-button" ng-click="$ctrl.assignActiveItem(bc.key)">
+            <i class="material-icons">list</i>
+          </md-button>
+          <md-button class="md-icon-button" ng-click="">
+            <i class="material-icons">info_outline</i>
+          </md-button>
+      </md-list-item>
+    </div>
+      </md-radio-group>
+    </md-list>
+    </md-content>
+  </md-content>
+  <md-divider></md-divider>
+      <md-content layout="column" flex class="my-right-boundaries-config">
+        <div ng-repeat="bc in $ctrl.boundaryChoices" ng-show="($ctrl.activeItem == bc.key)">
+          <md-radio-group>
+          <md-list ng-repeat="c in bc.configs">
+            <md-subheader>{{c.val}}</md-subheader>
+            <md-list-item class="my-bc-list-item" ng-repeat="o in c.opt" layout="row" flex>
+              <md-radio-button ng-value= "o.key">{{o.val}}</md-radio-button>
+              <span flex></span>
+              <md-button class="md-icon-button" ng-click="">
+                <i class="material-icons">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+          </md-list>
+        </md-radio-group>
+        </div>
+      </md-content>
+</md-content>
+</div>

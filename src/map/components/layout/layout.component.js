@@ -1,4 +1,4 @@
-// import './layout.css';
+import './layout.css!';
 import template from './layout.html!text';
 import controller from './layout.controller';
 

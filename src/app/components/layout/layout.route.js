@@ -7,4 +7,13 @@ export default [{
   path: '/map',
   name: 'Map',
   component: 'appMapView'
-}];
+}, {
+  path: '/layers',
+  name: 'Layers',
+  component: 'appLayersView'
+}, {
+  path: '/boundaries',
+  name: 'Boundaries',
+  component: 'appBoundariesView'
+}
+];

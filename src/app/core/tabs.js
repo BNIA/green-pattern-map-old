@@ -1,7 +1,8 @@
 import findIndex from 'lodash/findIndex';
 
 export default class Tabs {
-  constructor(keys = ['/Home', '/Map'], vals = ['Home', 'Map'],
+  constructor(keys = ['/Home', '/Map', '/Layers', '/Boundaries'],
+    vals = ['Home', 'Map', 'Layers', 'Boundaries'],
     activeIndex = 0) {
     this.keys = keys;
     this.vals = vals;

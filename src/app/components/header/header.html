@@ -1,49 +1,40 @@
-<md-toolbar class="md-primary">
-  <div layout="row" class="title-bar">
-    <md-button aria-label="label" class="md-icon-button">
-      <i class="material-icons">menu</i>
-    </md-button>
-    <h2 class="md-toolbar-tools">
-      <span>{{$ctrl.title}}</span>
-    </h2>
-    <md-button aria-label="label" class="md-icon-button" ng-click="search = !search">
-      <i class="material-icons">search</i>
-    </md-button>
-    <md-button aria-label="photo" class="md-icon-button">
-      <i class="material-icons">more_vert</i>
-    </md-button>
-  </div>
-</md-toolbar>
-
-  <md-tabs class="md-primary" autoselect="false" md-selected="$ctrl.tabs.activeIndex">
-    <md-tab
-      ng-repeat = "key in $ctrl.tabs.keys"
-      md-on-select = "$ctrl.tabChange(key)"
-      md-active = "$ctrl.tabs.activeKey == key ">
-        <md-tab-label> {{$ctrl.tabs.vals[$index]}} </md-tab-label>
-    </md-tab>
-  </md-tabs>
-
-  <div class="search" layout="row" ng-show="search" style="width: 100%;">
-    <form ng-submit="$event.preventDefault()">
-      <md-autocomplete
-        ng-disabled="ctrl.isDisabled"
-        md-no-cache="ctrl.noCache"
-        md-selected-item="ctrl.selectedItem"
-        md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
-        md-search-text="ctrl.searchText"
-        md-selected-item-change="ctrl.selectedItemChange(item)"
-        md-items="item in ctrl.querySearch(ctrl.searchText)"
-        md-item-text="item.name"
-        md-min-length="0"
-        placeholder="Enter Address"
-        md-menu-class="autocomplete-custom-template">
-      </md-autocomplete>
-      <md-button aria-label="label" class="md-icon-button" ng-click="search = !search">
-        <i class="material-icons">close</i>
+<!-- <md-toolbar class="md-primary" layout="column">
+  <div layout="row">
+  <div flex> -->
+  <div layout="row" flex>
+  <md-toolbar class="my-header-md-toolbar" flex="20">
+    <div class="md-toolbar-tools" layout="row" flex>
+      <md-button
+        aria-label="menu"
+        class="md-icon-button"
+        ng-click="">
+          <i class="material-icons">menu</i>
       </md-button>
-    </form>
+      <h2>{{$ctrl.title}}</h2>
+    </div>
+  </md-toolbar>
+  <md-toolbar class="my-header-md-toolbar" flex>
+    <md-tabs class="md-primary" autoselect="false" md-selected="$ctrl.tabs.activeIndex">
+      <md-tab
+        ng-repeat = "key in $ctrl.tabs.keys"
+        md-on-select = "$ctrl.tabChange(key)"
+        md-active = "$ctrl.tabs.activeKey == key ">
+          <md-tab-label> {{$ctrl.tabs.vals[$index]}} </md-tab-label>
+      </md-tab>
+    </md-tabs>
+    </md-toolbar>
+    <div flex="20">
+      <md-toolbar class="my-header-md-toolbar"
+        ng-show="($ctrl.tabs.activeKey == '/Home') || ($ctrl.tabs.activeKey == '/Layers') || ($ctrl.tabs.activeKey == '/Boundaries')"
+        flex>
+      </md-toolbar>
+      <map-menu-bar ng-show="$ctrl.tabs.activeKey == '/Map'"></map-menu-bar>
+    </div>
+      </div>
+  <!-- </div>
   </div>
+</md-toolbar> -->
+
 
   <!-- <div class="menu" layout="row" style="width: 100%;">
     <md-menu-bar>

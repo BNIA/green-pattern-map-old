@@ -9,8 +9,12 @@ import MapMenuComponent from './components/map-menu/map-menu.component';
 import LandingViewComponent from
   './components/landing-view/landing-view.component';
 import MapViewComponent from './components/map-view/map-view.component';
+import LayersViewComponent from
+  './components/layers-view/layers-view.component';
+import BoundariesViewComponent from
+  './components/boundaries-view/boundaries-view.component';
 
-import MdThemeConfig from '../shared/core/md-theme-config';
+import {MdThemeConfig, MdIconConfig} from '../shared/core/md-config';
 
 let dependencies = [
   'ngComponentRouter', 'ngMaterial', 'map', 'landing'
@@ -25,6 +29,8 @@ app.component('appHeader', HeaderComponent);
 app.component('appLandingView', LandingViewComponent);
 app.component('appMapView', MapViewComponent);
 app.component('appMapMenu', MapMenuComponent);
+app.component('appLayersView', LayersViewComponent);
+app.component('appBoundariesView', BoundariesViewComponent);
 
 // TODO: fix this
 var config = function($locationProvider) {
@@ -40,5 +46,6 @@ app.config(config);
 app.value('$routerRootComponent', 'appLayout');
 
 app.config(MdThemeConfig);
+app.config(MdIconConfig);
 
 export default app;

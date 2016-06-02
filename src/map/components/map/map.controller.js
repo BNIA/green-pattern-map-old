@@ -8,7 +8,8 @@ export default class MapController {
       baltimore: baltimore,
       defaults: {
         tileLayer: tileChoice.tileLayer,
-        tileLayerOptions: tileChoice.tileLayerOptions
+        tileLayerOptions: tileChoice.tileLayerOptions,
+        zoomControl: false
       }
     });
   }

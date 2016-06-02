@@ -1,0 +1,59 @@
+<div layout="column" flex>
+<md-content class="my-config-content" layout="row" flex>
+    <md-content layout="column" flex="30" class="my-left-layers-config" md-whiteframe="2">
+        <md-content layout="column" flex="40">
+          <div layout="column" flex>
+            <map-map flex></map-map>
+          </div>
+        </md-content>
+        <md-content flex>
+        <md-list>
+            <md-subheader class="md-no-sticky">Layers</md-subheader>
+            <md-list-item ng-repeat="phase in $ctrl.phases">
+              <md-checkbox ng-value= "phase.active"></md-checkbox>
+              <p>
+                {{phase.name}}
+              </p>
+              <md-button class="md-icon-button" ng-click="$ctrl.assignActiveItem(phase.name)">
+                <i class="material-icons">list</i>
+              </md-button>
+              <md-button class="md-icon-button" ng-click="">
+                <i class="material-icons">info_outline</i>
+              </md-button>
+            </md-list-item>
+    </md-list>
+    </md-content>
+  </md-content>
+  <md-divider></md-divider>
+      <md-content layout="column" flex class="my-right-layers-config">
+        <div ng-repeat="phase in $ctrl.phases" ng-show="($ctrl.activeItem == phase.name)">
+          <md-list layout="row">
+            <md-list-item>
+              <md-switch></md-switch>
+              <p>
+                All Points
+              </p>
+            </md-list-item>
+            <md-list-item>
+              <md-button class="md-raised md-accent">Clear Filters</md-button>
+            </md-list-item>
+          </md-list>
+          <md-list ng-repeat="lf in phase.layerFilters">
+            <md-subheader>{{lf.val}}</md-subheader>
+            <md-list-item ng-repeat="o in lf.opt">
+              <md-checkbox
+              ng-model="o.isOn">
+              </md-checkbox>
+              <p>
+                {{o.val}}
+              </p>
+              <md-button class="md-icon-button" ng-click="">
+                <i class="material-icons">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+          </md-list>
+        </div>
+      </md-content>
+</md-content>
+</div>

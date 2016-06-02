@@ -48,7 +48,8 @@ let background = {
   A100: '#ffffff',
   A200: '#ffffff',
   A400: '#ffffff',
-  A700: '#bfbfbf'
+  A700: '#bfbfbf',
+  contrastDefaultColor: 'dark'
 };
 
 let cg = {
