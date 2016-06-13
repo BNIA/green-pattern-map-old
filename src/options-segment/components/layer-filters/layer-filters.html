@@ -1,0 +1,28 @@
+<md-content layout="column">
+  <section ng-repeat="o in $ctrl.layerFilters.opt">
+    <md-subheader class="md-primary">{{o.val}}</md-subheader>
+    <md-checkbox
+      ng-checked="$o.allOn"
+      md-indeterminate="$ctrl.allOn == null"
+      ng-click="">
+      <span ng-if="isChecked()">Un-</span>Select All {{o.val}}
+    </md-checkbox>
+  <fieldset ng-repeat="n in o.opt" class="my-field-set">
+    <legend>{{n.val}}</legend>
+    <md-checkbox
+      ng-checked=""
+      md-indeterminate="true"
+      ng-click="">
+      <span ng-if="isChecked()">Un-</span>Select All
+    </md-checkbox>
+    <md-content class="my-select-all-checkboxes" layout="column">
+      <md-checkbox
+        ng-repeat="m in n.opt"
+        ng-checked="m.isOn"
+        ng-click="">
+        <span class="my-checkbox-title">{{m.val}}</span>
+      </md-checkbox>
+    </md-content>
+  </fieldset>
+  </section>
+</md-content>

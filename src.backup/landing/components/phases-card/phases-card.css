@@ -1,0 +1,29 @@
+.my-phases-card-cmos-avatar {
+  background-color: #ff4bc8;
+}
+.my-phases-card-sw-avatar {
+  background-color: #3278d2;
+}
+.my-phases-card-uf-avatar {
+  background-color: #50d264;
+}
+.my-phases-card-clgr-avatar {
+  background-color: #ccc;
+}
+.future-iterations {
+  align-items: flex-start;
+}
+.future-iterations img {
+  margin-top: 16px;
+}
+.future-iterations h5 {
+  margin-bottom: 8px;
+}
+.future-iterations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+.future-iterations ul li {
+  padding: .25em 0;
+}

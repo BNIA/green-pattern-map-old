@@ -1,5 +1,5 @@
 /.tern-project
-/.eslintrc.json
+/.eslintrc
 
 /node_modules
 
@@ -19,4 +19,4 @@
 /src/build.js
 /src/build.js.map
 /src/**/*.css
-/src/app/core/options.json
+/server/options.json

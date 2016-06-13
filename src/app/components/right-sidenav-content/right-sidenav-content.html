@@ -1,0 +1,21 @@
+<md-content layout="column" class="md-padding">
+  <h2>
+    {{$ctrl.selected.val}}
+  </h2>
+  <div>
+    {{$ctrl.selected}}
+  </div>
+  <div  ng-repeat="o in $ctrl.selected.opt">
+  <md-subheader>{{o.val}}</md-subheader>
+  <div>
+    {{o}}
+  </div>
+  <md-list>
+    <md-list-item ng-repeat="n in o.opt">
+      <p>
+        {{n.val}}
+      </p>
+    </md-list-item>
+  </md-list>
+  </div>
+</md-content>

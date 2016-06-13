@@ -2,8 +2,10 @@ html(lang='en')
   head
     title Green Pattern Map
     meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+    // To do dev and production for these
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic")
     link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
-  body(layout="column")
+  body
     // Angular App Main Entry
     if dev
       script(src='jspm_packages/system.js')
@@ -16,5 +18,4 @@ html(lang='en')
     script.
       System.import('main')
         .catch(console.error.bind(console));
-    //div(ng-view)
-    div(ng-app="app",ng-strict-di ng-include="'main.html'",layout="column" flex)
+    app

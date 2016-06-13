@@ -1,0 +1,10 @@
+.my-gpb-card-md-card md-card-title {
+  display: block;
+  color: #007db6;
+}
+.my-gpb-card-md-card p {
+  margin: 0;
+}
+.my-gpb-card-md-card button {
+  color: #007db6;
+}

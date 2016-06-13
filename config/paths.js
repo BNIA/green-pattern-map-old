@@ -14,7 +14,8 @@ exports.configSrc = path.join(developmentRoot, '/config.js');
 exports.configDest = productionRoot;
 
 exports.lessSrc = [path.join(developmentRoot, '/**/*.less'),
-  "!" + path.join(developmentRoot, '/{jspm_packages, jspm_packages/**}')];
+  "!" + path.join(developmentRoot, '/{jspm_packages, jspm_packages/**}'),
+  "!" + path.join(developmentRoot, '/shared/styles/colors.less')];
 exports.lessDest = developmentRoot;
 
-exports.optionsDest = path.join(developmentRoot, '/app/core/options.json');
+exports.optionsDest = path.join(process.env.PWD, '/server/options.json');

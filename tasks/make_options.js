@@ -296,8 +296,8 @@ gulp.task('make_options', () => {
         opt: tmp,
         active: true
       });
-      opt.layerFilters.allCG = false;
-      opt.layerFilters.allSW = false;
+      opt.layerFilters.allCG = null;
+      opt.layerFilters.allSW = null;
       opt.boundaryChoices = [];
 
       return opt;
@@ -352,7 +352,8 @@ gulp.task('make_options', () => {
               var cOpt = _.map(sections, s => {
                 var o = {
                   key: ('vital_signs_' + changeCase.snake(s)),
-                  val: ('Vital Signs: ' + changeCase.title(s)),
+                  grp: 'vital_signs',
+                  val: (changeCase.title(s)),
                   active: true,
                   opt: (_.filter(rows, r => {
                     return (r.properties.section === s);
@@ -379,6 +380,12 @@ gulp.task('make_options', () => {
       active: true,
       configs: []
     }))
+    .then(() => {
+      let sw = {opt: opt.layerFilters.sw, key:'sw', val: 'Stormwater Management', allOn: null};
+      let cg = {opt: opt.layerFilters.cg, key:'cg', val: 'Community Managed Open Spaces', allOn: null};
+      let global = {opt: opt.layerFilters.global, key:'global', val: 'All Patterns', allOn: null};
+      opt.layerFilters = [sw,cg,global];
+    })
     .then(() => {
       jsonfile.writeFileSync(paths.optionsDest, opt);
       return pg.destroy();

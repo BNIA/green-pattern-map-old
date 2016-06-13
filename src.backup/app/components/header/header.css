@@ -1,0 +1,29 @@
+.my-header-md-toolbar,
+.my-map-toolbar {
+  min-height: 48px;
+  max-height: 48px;
+}
+.search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 10px;
+}
+.search form {
+  position: relative;
+  width: 100%;
+}
+.search .md-icon-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 101;
+  margin-top: -20px;
+}
+.search .md-icon-button i {
+  color: rgba(0, 0, 0, 0.38);
+}
+.menu {
+  padding: 0 0 8px 0;
+}

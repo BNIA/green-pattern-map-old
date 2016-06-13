@@ -1,0 +1,72 @@
+<section layout="row" flex class="my-app-container">
+  <!-- <md-sidemenu
+    class="md-primary my-sidenav-left"
+    ng-show="$ctrl.path == '/map' && $ctrl.$mdMedia('gt-md')"
+    md-whiteframe="4">
+  <left-sidenav-content layer-filters="$ctrl.layerFilters"></left-sidenav-content>
+</md-sidemenu> -->
+    <md-sidenav
+        class="md-sidenav-left my-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$ctrl.path == '/map' && $mdMedia('gt-md')"
+        md-disable-backdrop
+        md-whiteframe="4">
+        <left-sidenav-content
+          layer-filters="$ctrl.layerFilters"
+          vital-signs="$ctrl.vitalSigns"
+          on-select="$ctrl.selectItem(item)">
+        </left-sidenav-content>
+    </md-sidenav>
+<div layout='column' flex>
+  <div class="my-overlay">
+    <md-button
+      class="md-fab my-boundaries-button"
+      aria-label="boundaries"
+      ng-click="$ctrl.toggleSidenav('left')">
+        <i class="material-icons">menu</i>
+    </md-button>
+  </div>
+<md-toolbar md-whiteframe="2" class="my-toolbar">
+    <div class="md-toolbar-tools">
+        <md-button
+          aria-label="menu"
+          class="md-icon-button"
+          ng-click="$ctrl.toggleSidenav('left')"
+          ng-show="$ctrl.path == '/map' && !($ctrl.$mdMedia('gt-md'))">
+            <i class="material-icons">menu</i>
+        </md-button>
+          <md-icon
+            md-svg-icon="logo"
+            aria-label="logo"
+            style="height:36;width:36;"
+            ng-show="$ctrl.path == '/home' || ($ctrl.path == '/map' && !$ctrl.$mdMedia('gt-md'))">
+          </md-icon>
+        <h2 ng-show="$ctrl.path == '/home' || ($ctrl.path == '/map' && !$ctrl.$mdMedia('gt-md'))">
+            <span>{{$ctrl.title}}</span>
+        </h2>
+        <span flex></span>
+        <md-button
+          aria-label="map"
+          ng-click="$ctrl.reroute('/Map')">
+          Map
+        </md-button>
+        <md-button
+          aria-label="map"
+          ng-click="$ctrl.reroute('/Home')">
+          Home
+        </md-button>
+        <md-button aria-label="more" class="md-icon-button" ng-click="">
+            <i class="material-icons">more_vert</i>
+        </md-button>
+    </div>
+</md-toolbar>
+    <ng-outlet layout='column' flex></ng-outlet>
+</div>
+    <md-sidenav
+        class="md-sidenav-right my-sidenav-right"
+        md-component-id="right"
+        ng-show="$ctrl.path == '/map'"
+        md-whiteframe="4">
+        <right-sidenav-content selected="$ctrl.selected"></right-sidenav-content>
+    </md-sidenav>
+</section>

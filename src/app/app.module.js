@@ -1,51 +1,60 @@
-import './app.globals.js';
+import './app.globals';
 import angular from 'angular';
-// import AppController from './app.controller';
 
-import LayoutComponent from './components/layout/layout.component';
-import HeaderComponent from './components/header/header.component';
-import MapMenuComponent from './components/map-menu/map-menu.component';
-// import ContentComponent from './components/content/content.component';
-import LandingViewComponent from
-  './components/landing-view/landing-view.component';
-import MapViewComponent from './components/map-view/map-view.component';
-import LayersViewComponent from
-  './components/layers-view/layers-view.component';
-import BoundariesViewComponent from
-  './components/boundaries-view/boundaries-view.component';
+// Import Configuration
+import {locationConfig} from './app.config';
+import mdThemeConfig from '../shared/md-theme-config';
+import mdIconConfig from '../shared/md-icon-config';
 
-import {MdThemeConfig, MdIconConfig} from '../shared/core/md-config';
+// Import Components
+import AppComponent from './components/app/app.component';
+import LeftSidenavContentComponent from
+  './components/left-sidenav-content/left-sidenav-content.component';
+import RightSidenavContentComponent from
+  './components/right-sidenav-content/right-sidenav-content.component';
 
+// Import services
+import OptionsService from './services/options.service';
+import LayersService from './services/layers.service';
+
+// Load dependences:
+// Other libs, and internal modules
 let dependencies = [
-  'ngComponentRouter', 'ngMaterial', 'map', 'landing'
+  'ngMaterial',
+  'ngMaterialSidemenu',
+  'ngComponentRouter',
+  'optionsSegment',
+  'landingPage',
+  'mapPage'
 ];
 
 let app = angular.module('app', dependencies);
 
-// app.controller('AppController', AppController);
+// Configure app
+app.value('$routerRootComponent', 'app'); // root to ng-component-router
+app.config(locationConfig);
+app.config(mdThemeConfig);
+app.config(mdIconConfig);
 
-app.component('appLayout', LayoutComponent);
-app.component('appHeader', HeaderComponent);
-app.component('appLandingView', LandingViewComponent);
-app.component('appMapView', MapViewComponent);
-app.component('appMapMenu', MapMenuComponent);
-app.component('appLayersView', LayersViewComponent);
-app.component('appBoundariesView', BoundariesViewComponent);
+// Load components into the app
+app.component('app', AppComponent);
+app.component('leftSidenavContent', LeftSidenavContentComponent);
+app.component('rightSidenavContent', RightSidenavContentComponent);
 
-// TODO: fix this
-var config = function($locationProvider) {
-  $locationProvider.html5Mode({
-    enabled: false,
-    requireBase: false
+// Load services into the app
+app.service('optionsService', OptionsService);
+app.service('layersService', LayersService);
+
+// Bootstrap the app
+angular.element(document).ready(() => {
+  document.body.setAttribute('layout', 'column');
+  let appEle = document.getElementsByTagName('app')[0];
+  appEle.setAttribute('layout', 'column');
+  appEle.setAttribute('flex', 100);
+  angular.bootstrap(document.body, ['app'], {
+    strictDi: true
   });
-};
-
-config.$inject = ["$locationProvider"];
-
-app.config(config);
-app.value('$routerRootComponent', 'appLayout');
-
-app.config(MdThemeConfig);
-app.config(MdIconConfig);
+  // Add flex to the component here if needed , etc.
+});
 
 export default app;

@@ -1,0 +1,10 @@
+.my-bc-list-item {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.my-left-boundaries-config {
+  z-index: 1;
+}
+.my-right-boundaries-config {
+  z-index: 0;
+}

@@ -1,0 +1,27 @@
+.my-app-header {
+  z-index: 2;
+}
+.my-app-content {
+  z-index: 0;
+  background-color: #f2f2f2;
+}
+.my-app-sidenav {
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+}
+.my-phase-cmos-avatar {
+  background-color: #ff4bc8;
+}
+.my-phase-sw-avatar {
+  background-color: #3278d2;
+}
+.my-phase-avatar {
+  background-color: #50d264;
+}
+.my-phase-clgr-avatar {
+  background-color: #ccc;
+}
+md-sidenav {
+  width: 100px;
+}

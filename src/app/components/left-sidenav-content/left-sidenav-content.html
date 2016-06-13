@@ -1,0 +1,44 @@
+<div layout="column" flex>
+  <md-toolbar class="my-nav-toolbar">
+    <div class="md-toolbar-tools">
+      <md-icon
+        md-svg-icon="logo"
+        aria-label="logo"
+        style="height:36;width:36;">
+      </md-icon>
+      <h3 flex>
+          <span>{{$ctrl.title}}</span>
+      </h3>
+      </div>
+  </md-toolbar>
+  <md-divider></md-divider>
+  <md-content class="my-nav-content">
+    <md-subheader class="md-no-sticky my-nav-subhead">Layers</md-subheader>
+    <md-list>
+      <md-list-item ng-repeat="o in $ctrl.layerFilters.opt">
+        <md-button
+          ng-class="($ctrl.selected.key == o.key) ?
+            'my-nav-button md-focused' :
+            'my-nav-button'"
+          ng-click="$ctrl.selectItem(o)"
+          flex>
+          {{o.val}}
+        </md-button>
+      </md-list-item>
+    </md-list>
+    <md-divider></md-divider>
+    <md-subheader class="md-no-sticky my-nav-subhead">Vital Signs</md-subheader>
+    <md-list>
+      <md-list-item ng-repeat="o in $ctrl.vitalSigns">
+        <md-button
+          ng-class="($ctrl.selected.key == o.key) ?
+            'my-nav-button md-focused' :
+            'my-nav-button'"
+          ng-click="$ctrl.selectItem(o)"
+          flex>
+          {{o.val}}
+      </md-list-item>
+    </md-list>
+  <md-divider></md-divider>
+  </md-content>
+</div>

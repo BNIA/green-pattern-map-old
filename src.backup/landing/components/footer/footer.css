@@ -1,0 +1,60 @@
+.my-landing-footer-container {
+  color: #faa732;
+  background-color: #007db6;
+  font-size: 14px;
+  line-height: 150%;
+  padding: 2em 0;
+}
+.my-landing-footer-container h3 {
+  color: #fff;
+  font-size: 1.25em;
+  margin: 0 0 1em 0;
+}
+.my-landing-footer-container p {
+  color: #b2d8e9;
+  margin: 0 0 .5em 0;
+}
+.my-landing-footer-container a {
+  color: #faa732;
+}
+.my-landing-footer-container ul.social-media {
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+.my-landing-footer-container ul.social-media li {
+  position: relative;
+  display: inline-block;
+  line-height: 2em;
+  margin: 0 0 1em 0;
+  padding: 0 1em 0 2.5em;
+}
+.my-landing-footer-container ul.social-media li:last-of-type {
+  padding: 0 0 0 2.5em;
+}
+.my-landing-footer-container ul.social-media li a {
+  color: #b2d8e9;
+  text-decoration: none;
+}
+.my-landing-footer-container ul.social-media li a span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 2em;
+  height: 2em;
+  background-image: url({{$ctrl.socialIcons}});
+  background-size: 6em 2em;
+  background-repeat: no-repeat;
+}
+.my-landing-footer-container ul.social-media li.twitter a span {
+  background-position: 0 0;
+}
+.my-landing-footer-container ul.social-media li.facebook a span {
+  background-position: -2em 0;
+}
+.my-landing-footer-container ul.social-media li.youtube a span {
+  background-position: -4em 0;
+}
+.my-landing-footer-container div.bnia-logo {
+  text-align: center;
+}
