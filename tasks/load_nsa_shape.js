@@ -27,7 +27,7 @@ gulp.task('load_nsa_shape', function(){
 	.then(function(){
 		// just doing it this way because file is so big
 var execStr = "";
-var isWin = (os.platform() === 'win32');
+var isWin = (require('os').platform() === 'win32');
 if(isWin) {
   execStr = "SET PGPASSWORD=" + config.connection.password;
 } else {
