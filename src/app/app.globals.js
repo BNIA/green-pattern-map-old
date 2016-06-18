@@ -4,12 +4,10 @@
 import 'angular';
 
 // Angular Component Router
-import 'ngcomponentrouter';
+import 'angular-route';
 
 // Angular Material
 import 'angular-material';
-import 'angular-material-sidemenu/dest/angular-material-sidemenu.css!';
-import 'angular-material-sidemenu';
 
 // Other Modules
 import '../options-segment/options-segment.module';

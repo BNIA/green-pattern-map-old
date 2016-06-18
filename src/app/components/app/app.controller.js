@@ -1,9 +1,9 @@
 export default class AppController {
-  constructor($scope, $rootScope, $rootRouter, $location, $mdSidenav, $mdMedia,
+  constructor($scope, $rootScope, $route, $location, $mdSidenav, $mdMedia,
     optionsService, layersService) {
     this.$scope = $scope;
     this.$rootScope = $rootScope; // The Root Scope of the app
-    this.$rootRouter = $rootRouter;
+    this.$route = $route;
     this.$location = $location;
     this.$mdSidenav = $mdSidenav;
     this.$mdMedia = $mdMedia;
@@ -21,13 +21,13 @@ export default class AppController {
     // Assign to scope for children to access
     this.$rootScope.title = this.title;
   }
-  reroute(route, options = {id: 1}) {
-    this.$rootRouter.navigate([route, options])
-      .then(() => {
-        this.path = this.$location.path();
-      });
+  reroute(route) {
+    this.$location.path(route);
+    this.path = this.$location.path();
+    console.log(this.path);
   }
   toggleSidenav(side, onOff) {
+    console.log(side, onOff);
     if (onOff === true) {
       this.$mdSidenav(side).open();
     } else if (onOff === false) {
@@ -57,7 +57,7 @@ export default class AppController {
 AppController.$inject = [
   '$scope',
   '$rootScope',
-  '$rootRouter',
+  '$route',
   '$location',
   '$mdSidenav',
   '$mdMedia',

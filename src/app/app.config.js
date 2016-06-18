@@ -1,10 +1,16 @@
-let locationConfig = function($locationProvider) {
-  $locationProvider.html5Mode({
-    enabled: false,
-    requireBase: false
+import landingPageTemplate from './templates/landing-page.html!text';
+import mapPageTemplate from './templates/map-page.html!text';
+
+let routeProviderConfig = function($routeProvider) {
+  $routeProvider.when('/home', {
+    template: landingPageTemplate
+  }).when('/map', {
+    template: mapPageTemplate
+  }).otherwise({
+    redirectTo: '/home'
   });
 };
 
-locationConfig.$inject = ['$locationProvider'];
+routeProviderConfig.$inject = ['$routeProvider'];
 
-export {locationConfig};
+export {routeProviderConfig};

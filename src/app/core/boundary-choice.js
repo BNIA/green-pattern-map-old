@@ -3,13 +3,14 @@ import filter from 'lodash/filter';
 import BoundaryChoiceConfig from './boundary-choice-config';
 
 export default class BoundaryChoice {
-  constructor(_jsonObj) {
+  constructor(_jsonObj, parent) {
     this.key = _jsonObj.key;
     this.val = _jsonObj.val;
     this.active = _jsonObj.active;
     this.configs = map(_jsonObj.configs, o => {
       return new BoundaryChoiceConfig(o);
     });
+    this.parent = parent;
   }
   filterConfig(key) {
     return filter(this.configs, c => {

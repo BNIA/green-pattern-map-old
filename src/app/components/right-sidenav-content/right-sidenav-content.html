@@ -1,21 +1,53 @@
-<md-content layout="column" class="md-padding">
-  <h2>
-    {{$ctrl.selected.val}}
-  </h2>
-  <div>
-    {{$ctrl.selected}}
-  </div>
-  <div  ng-repeat="o in $ctrl.selected.opt">
-  <md-subheader>{{o.val}}</md-subheader>
-  <div>
-    {{o}}
-  </div>
-  <md-list>
-    <md-list-item ng-repeat="n in o.opt">
-      <p>
-        {{n.val}}
-      </p>
-    </md-list-item>
-  </md-list>
-  </div>
-</md-content>
+<div layout="column" flex>
+  <md-toolbar class="md-accent">
+    <div class="md-toolbar-tools" layout="row">
+      <md-button
+        aria-label="menu"
+        class="md-icon-button"
+        ng-click="$ctrl.navBack()"
+        ng-show="!($ctrl.$mdMedia('gt-md'))">
+          <i class="material-icons">arrow_back</i>
+      </md-button>
+      <h2>{{$ctrl.selected.val}}</h2>
+    </div>
+  </md-toolbar>
+  <md-divider></md-divider>
+  <md-content>
+    <div ng-if="($ctrl.selected.type =='layer-filters-set')">
+      <div ng-repeat="o in $ctrl.selected['opt']">
+      <md-subheader>{{o.val}}</md-subheader>
+      <md-list>
+        <md-list-item ng-repeat="n in o.opt" layout="row">
+          <p flex="90">
+            {{n.val}}
+          </p>
+          <md-checkbox
+            class="md-secondary my-right-sidenav-checkbox"
+            ng-model="n.isOn"
+            ng-click="$ctrl.select(n)"
+            flex="10">
+          </md-checkbox>
+        </md-list-item>
+      </md-list>
+      </div>
+    </div>
+    <div ng-if="$ctrl.selected.type =='boundary-choice-config'">
+      <md-list>
+        <md-radio-group>
+        <md-list-item ng-repeat="o in $ctrl.selected['opt']" layouy="row">
+          <p flex="90">
+            {{o.val}}
+          </p>
+          <md-radio-button
+            class="md-secondary my-right-sidenav-checkbox"
+            ng-model="o.isOn"
+            ng-value="o.key"
+            ng-click="$ctrl.select(o)"
+            flex="10">
+          </md-radio-button>
+        </md-list-item>
+        </md-radio-group>
+      </md-list>
+    </div>
+  </md-content>
+</div>

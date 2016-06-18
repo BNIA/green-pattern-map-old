@@ -22,7 +22,7 @@ System.config({
     "angular-material-sidemenu": "npm:angular-material-sidemenu@1.0.2",
     "angular-messages": "github:angular/bower-angular-messages@1.5.6",
     "angular-mocks": "github:angular/bower-angular-mocks@1.5.5",
-    "angular-route": "github:angular/bower-angular-route@1.5.5",
+    "angular-route": "github:angular/bower-angular-route@1.5.6",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.5.5",
     "angular-simple-logger": "npm:angular-simple-logger@0.1.7",
     "babel": "npm:babel-core@5.8.38",
@@ -50,7 +50,7 @@ System.config({
     "github:angular/bower-angular-mocks@1.5.5": {
       "angular": "github:angular/bower-angular@1.5.6"
     },
-    "github:angular/bower-angular-route@1.5.5": {
+    "github:angular/bower-angular-route@1.5.6": {
       "angular": "github:angular/bower-angular@1.5.6"
     },
     "github:angular/bower-angular-sanitize@1.5.5": {

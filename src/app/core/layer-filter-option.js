@@ -1,9 +1,14 @@
 export default class LayerFilterOption {
-  constructor(_jsonObj) {
+  constructor(_jsonObj, parent) {
     this.key = _jsonObj.key;
     this.val = _jsonObj.val;
     this.isOn = _jsonObj.isOn;
     this.active = _jsonObj.active;
+    this.parent = parent;
+  }
+  alertChange() {
+    var self = this;
+    this.parent.onChildChange(self);
   }
   toJSON() {
     return {

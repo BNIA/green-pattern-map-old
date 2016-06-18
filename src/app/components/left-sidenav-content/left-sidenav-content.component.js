@@ -7,7 +7,8 @@ let bindings = {
   onLayerFiltersChange: '&',
   vitalSigns: '<',
   onVitalSignsChange: '&',
-  onSelect: '&'
+  onSelect: '&',
+  onNavBack: '&'
 };
 
 export default {

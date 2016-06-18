@@ -3,7 +3,9 @@ import controller from './right-sidenav-content.controller';
 import template from './right-sidenav-content.html!text';
 
 let bindings = {
-  selected: '<'
+  selected: '<',
+  onSelect: '&',
+  onNavBack: '&'
 };
 
 export default {

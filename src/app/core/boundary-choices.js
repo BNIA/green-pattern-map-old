@@ -4,8 +4,9 @@ import BoundaryChoice from './boundary-choice.js';
 
 export default class BoundaryChoices {
   constructor(_jsonArr) {
+    var self = this;
     this.opt = map(_jsonArr, o => {
-      return new BoundaryChoice(o);
+      return new BoundaryChoice(o, self);
     });
   }
   findBoundaryChoice(key) {
