@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var jspm = require('jspm');
 var path = require('path');
-var paths = require(path.join(process.env.PWD, 'config/paths.js'));
+var paths = require(path.join(process.cwd(), 'config/paths.js'));
 var jspmOpts = {
   sourceMaps: false,
   minify: true

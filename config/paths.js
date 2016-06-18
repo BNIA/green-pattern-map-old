@@ -1,9 +1,11 @@
 var path = require('path');
-var pwd = process.env.PWD;
+var pwd = process.cwd();
 
 var productionRoot = path.join(pwd, '/public');
 var developmentRoot = path.join(pwd, '/src');
+var serverRoot = path.join(pwd, '/server');
 
+exports.serverRoot = serverRoot;
 exports.productionRoot = productionRoot;
 exports.developmentRoot = developmentRoot;
 

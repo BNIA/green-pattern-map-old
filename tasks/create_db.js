@@ -2,7 +2,7 @@ var gulp = require('gulp')
 var knex = require('knex')
 var exec = require('child-process-promise').exec
 var path = require('path');
-var configPath = path.join(process.env.PWD,'config/config.json');
+var configPath = path.join(process.cwd(),'config/config.json');
 var config = require(configPath);
 var pg = null
 

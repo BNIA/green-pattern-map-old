@@ -1,7 +1,7 @@
 var gulp = require('gulp')
 var knex = require('knex')
 var path = require('path');
-var configPath = path.join(process.env.PWD,'config/config.json');
+var configPath = path.join(process.cwd(),'config/config.json');
 var config = require(configPath);
 
 gulp.task('make_nsa_geojson', function(){

@@ -3,7 +3,7 @@ var knex = require('knex')
 var tidy = require('tidyaddr-js')
 var titleize = require('inflection').titleize
 var path = require('path');
-var configPath = path.join(process.env.PWD,'config/config.json');
+var configPath = path.join(process.cwd(),'config/config.json');
 var config = require(configPath);
 
 

@@ -19,14 +19,14 @@
 //     }
 //     var path1 = System.map[pkgName]
 //     if(_.isNil(path1)){
-//         var retPath =  process.env.PWD + '/' + pkgPath
+//         var retPath =  process.cwd() + '/' + pkgPath
 //         return retPath
 //     }
 //     var path2 = _.reduce(browserPaths,(res,val) => {
 //         res = res.replace(val[0],val[1])
 //         return res
 //     },path1)
-//     var path3 = process.env.PWD + path2
+//     var path3 = process.cwd() + path2
 //     var path4 = path3 + rest
 //     return path4
 // }
@@ -61,11 +61,11 @@
 //         key = arr[0]
 //         console.log(val)
 //         console.log(key)
-//         console.log(process.env.PWD + '/client/map/libs/' + key)
+//         console.log(process.cwd() + '/client/map/libs/' + key)
 //         console.log()
 //         stream.add(
 //             gulp.src(val)
-//                 .pipe(gulp.dest(process.env.PWD + '/client/map/libs/' + key))
+//                 .pipe(gulp.dest(process.cwd() + '/client/map/libs/' + key))
 //         )
 //     })
 //     return stream.isEmpty() ? null : stream

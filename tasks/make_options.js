@@ -3,8 +3,8 @@ var knex = require('knex');
 var jsonfile = require('jsonfile');
 var _ = require('lodash');
 var path = require('path');
-var configPath = path.join(process.env.PWD, 'config/config.json');
-var paths = require(path.join(process.env.PWD, 'config/paths.js'));
+var configPath = path.join(process.cwd(), 'config/config.json');
+var paths = require(path.join(process.cwd(), 'config/paths.js'));
 var config = require(configPath);
 var changeCase = require('case');
 
