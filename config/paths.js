@@ -20,4 +20,4 @@ exports.lessSrc = [path.join(developmentRoot, '/**/*.less'),
   "!" + path.join(developmentRoot, '/shared/styles/colors.less')];
 exports.lessDest = developmentRoot;
 
-exports.optionsDest = path.join(process.env.PWD, '/server/options.json');
+exports.optionsDest = path.join(pwd, '/server/options.json');
