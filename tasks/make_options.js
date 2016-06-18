@@ -1,3 +1,4 @@
+"use strict";
 var gulp = require('gulp');
 var knex = require('knex');
 var jsonfile = require('jsonfile');

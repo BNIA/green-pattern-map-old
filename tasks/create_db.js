@@ -5,9 +5,15 @@ var path = require('path');
 var configPath = path.join(process.cwd(),'config/config.json');
 var config = require(configPath);
 var pg = null
+var isWin = (os.platform() === 'win32');
 
 gulp.task('create_db',() => {
-    var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+    var execStr = "";
+    if(isWin) {
+      execStr = "SET PGPASSWORD=" + config.connection.password;
+    } else {
+      var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+    }
     execStr+= " createdb " + config.connection.database
     execStr+= " -T template0"
     execStr+= " -E utf8"

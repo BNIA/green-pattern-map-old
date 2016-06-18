@@ -26,7 +26,13 @@ gulp.task('load_sws_shape', () => {
 	})
 	.then(() => {
 		// just doing it this way because file is so big
-		var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+var execStr = "";
+var isWin = (os.platform() === 'win32');
+if(isWin) {
+  execStr = "SET PGPASSWORD=" + config.connection.password;
+} else {
+  var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+}
 		execStr+= " psql -h " + config.connection.host
 		execStr+= " -U " + config.connection.user
 		execStr+= " -p " + config.connection.port

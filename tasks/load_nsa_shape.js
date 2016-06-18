@@ -12,21 +12,27 @@ gulp.task('load_nsa_shape', function(){
 	return pg.raw('CREATE SCHEMA IF NOT EXISTS "boundaries"').then(function(){
 		var filename = "data/boundaries/nsas/boundaries.shp"
 		// convert ssid to 4326 from 2248
-		var execStr = "shp2pgsql -s 2248:4326"					
+		var execStr = "shp2pgsql -s 2248:4326"
 		// name geo column "geometry"
 		execStr += " -g geometry"
 		// read shp file
-		execStr += " " + filename								
+		execStr += " " + filename
 		// where to put it in db
 		execStr += " boundaries.nsas"
 		// put it in sql file
-		execStr += " > data/boundaries/nsas/boundaries.sql" 	
+		execStr += " > data/boundaries/nsas/boundaries.sql"
 		// increase buffer to allow whole stdout read
 		return exec(execStr)
 	})
 	.then(function(){
 		// just doing it this way because file is so big
-		var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+var execStr = "";
+var isWin = (os.platform() === 'win32');
+if(isWin) {
+  execStr = "SET PGPASSWORD=" + config.connection.password;
+} else {
+  var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+}
 		execStr+= " psql -h " + config.connection.host
 		execStr+= " -U " + config.connection.user
 		execStr+= " -p " + config.connection.port

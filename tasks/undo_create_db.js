@@ -5,7 +5,13 @@ var configPath = path.join(process.cwd(),'config/config.json');
 var config = require(configPath);
 
 gulp.task('undo_create_db',() => {
-    var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+var execStr = "";
+var isWin = (os.platform() === 'win32');
+if(isWin) {
+  execStr = "SET PGPASSWORD=" + config.connection.password;
+} else {
+  var execStr = "export PGPASSWORD='" + config.connection.password + "'; "
+}
     execStr+= " dropdb " + config.connection.database
     execStr+= " -h " + config.connection.host
     execStr+= " -U " + config.connection.user
