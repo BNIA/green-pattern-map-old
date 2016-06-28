@@ -8,6 +8,7 @@
     "start:w": "concurrently \"node index.js\" \"gulp watch_less\" ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "",
+    "jspm": "jspm",
     "preuninstall": "gulp uninstall",
     "build": "jspm bundle src/map public/build.js --skip-source-maps --minify"
   },
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "body-parser": "1.15.0",
+    "bookshelf": "0.9.5",
     "express": "4.13.4",
     "gulp-env": "0.4.0",
     "knex": "0.11.3",
@@ -80,9 +82,10 @@
       "angular-material-sidemenu": "npm:angular-material-sidemenu@^1.0.2",
       "angular-messages": "github:angular/bower-angular-messages@^1.5.5",
       "angular-mocks": "github:angular/bower-angular-mocks@^1.5.5",
-      "angular-route": "github:angular/bower-angular-route@^1.5.5",
+      "angular-route": "github:angular/bower-angular-route@^1.5.6",
       "angular-sanitize": "github:angular/bower-angular-sanitize@^1.5.5",
       "angular-simple-logger": "npm:angular-simple-logger@^0.1.7",
+      "angular-utils-disqus": "npm:angular-utils-disqus@^1.0.1",
       "css": "github:systemjs/plugin-css@^0.1.21",
       "jquery": "npm:jquery@^2.2.4",
       "json": "github:systemjs/plugin-json@^0.1.2",

@@ -25,7 +25,8 @@ let dependencies = [
   'ngMaterial',
   'ngRoute',
   'landingPage',
-  'mapPage'
+  'mapPage',
+  'angularUtils.directives.dirDisqus'
 ];
 
 let app = angular.module('app', dependencies);
