@@ -10,6 +10,12 @@ export default class AppController {
     this.optionsService = optionsService;
     this.layersService = layersService;
 
+    $scope.disqusConfig = {
+      disqus_shortname: 'Your disqus shortname',
+      disqus_identifier: 'Comments identifier',
+      disqus_url: 'Comments url'
+    };
+
     // Assign local variables
     this.title = 'Green Pattern Map';
     this.layerFilters = null;
