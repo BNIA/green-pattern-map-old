@@ -25,6 +25,7 @@ System.config({
     "angular-route": "github:angular/bower-angular-route@1.5.6",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.5.5",
     "angular-simple-logger": "npm:angular-simple-logger@0.1.7",
+    "angular-utils-disqus": "npm:angular-utils-disqus@1.0.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.6",
