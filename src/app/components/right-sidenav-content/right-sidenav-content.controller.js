@@ -10,6 +10,7 @@ export default class RightSidenavContentController {
     if (this.selected.type === 'boundary-choice-config') {
       opt.toggleIsOn();
     }
+    this.onSelect({opt});
   }
   navBack() {
     console.log("hi");

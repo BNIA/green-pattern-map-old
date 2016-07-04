@@ -4,6 +4,7 @@ export default class LayerFilterOption {
     this.val = _jsonObj.val;
     this.isOn = _jsonObj.isOn;
     this.active = _jsonObj.active;
+    this.type = 'layer-filter-option';
     this.parent = parent;
   }
   alertChange() {

@@ -46,6 +46,18 @@ export default class AppController {
     this.selected = item;
     this.toggleSidenav('right', true);
   }
+  selectFilter(opt) {
+    if (opt.type === 'layer-filter-option') {
+      this.layersService.getLayers(this.layerFilters)
+        .then(layers => {
+          this.setLayers(layers);
+        });
+    }
+    // console.log(opt);
+  }
+  setLayers(layers) {
+    this.$rootScope.$broadcast('setLayers', layers);
+  }
   $onInit() {
     this.optionsService.getLayerFilters().then(data => {
       this.layerFilters = data;

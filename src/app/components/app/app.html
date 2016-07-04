@@ -61,6 +61,7 @@
         md-whiteframe="4">
         <right-sidenav-content
         selected="$ctrl.selected"
+        on-select="$ctrl.selectFilter(opt)"
         on-nav-back="$ctrl.toggleSidenav('right',false)">
         </right-sidenav-content>
     </md-sidenav>

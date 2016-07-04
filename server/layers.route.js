@@ -1,18 +1,21 @@
 var _ = require('lodash')
 
 var filterLayers = function(pg,filters){
+  // console.log(filters);
+    var sw = _.find(filters, {key: 'sw'});
+    var cg = _.find(filters, {key: 'cg'});
+    var glob = _.find(filters, {key: 'global'});
     var query = pg.select('geojson').from('layers.gpb').where((qh) => {
         qh.where((qi) => {
             qi.where('gpb_type','sw').where((qj) => {
                 //all_sw -- if we just want all of the stormwater points, use the all_sw option
-                if(filters.allSW === true){qj.where(true)}
+                if(sw.allOn === 1){qj.where(true)}
                 else{qj.where(false)}
 
                 //TODO: sw_src, retrofit_type
 
                 //status
-                var status = _(filters.sw).find('key','status')
-                if(status.active === true){
+                var status = _.find(sw.opt, {'key': 'status'});
                     if(_.find(status.opt,{key:'Active'}).isOn == true){
                         qj.orWhere('status','Active')
                     }
@@ -22,10 +25,8 @@ var filterLayers = function(pg,filters){
                     if(_.find(status.opt,{key:'status_none'}).isOn == true){
                         qj.orWhereNull('status')
                     }
-                }
                 //bmp_type
-                var bmp_type = _(filters.sw).find({'key':'bmp_type'})
-                if(bmp_type.active === true){
+                var bmp_type = _.find(sw.opt, {'key':'bmp_type'});
                     if(_.find(bmp_type.opt,{key:'bmp_icr'}).isOn === true){
                         qj.orWhere('bmp_icr',true)
                     }
@@ -106,19 +107,17 @@ var filterLayers = function(pg,filters){
                             qh.where('bmp_or',false)
                         })
                     }
-                }
             })
         }).orWhere((qi) => {
             qi.where('gpb_type','cg').where((qj) => {
                 //all_cg
-                if(filters.allCG === true){qj.where(true)}
+                if(cg.allOn === 1){qj.where(true)}
                 else{qj.where(false)}
 
                 //TODO: cg_src, mg_type
 
                 //cg_siteuse
-                var cg_siteuse = _(filters.cg).find('key','cg_siteuse')
-                if(cg_siteuse.active === true){
+                var cg_siteuse = _.find(cg.opt, {'key':'cg_siteuse'})
                     if(_.find(cg_siteuse.opt,{key:'cgsu_act_rec'}).isOn === true){qj.orWhere('cgsu_act_rec',true)}
                     if(_.find(cg_siteuse.opt,{key:'cgsu_aal'}).isOn === true){qj.orWhere('cgsu_aal',true)}
                     if(_.find(cg_siteuse.opt,{key:'cgsu_beauty'}).isOn === true){qj.orWhere('cgsu_beauty',true)}
@@ -152,7 +151,6 @@ var filterLayers = function(pg,filters){
                         qh.where('cgsu_rn_gar',false)
                         qh.where('cgsu_rn_gar',false)
                     })}
-                }
             })
         })
     })
@@ -160,27 +158,21 @@ var filterLayers = function(pg,filters){
     //GLOBAL FILTERS
     //TODO: data_year
 
-    var csa_id = _.find(filters.global,{'key':'csa_id'})
-    if(csa_id.active === true){
+    var csa_id = _.find(glob.opt,{'key':'csa_id'})
         var on_csa_ids = _.filter(csa_id.opt,{'isOn':true}).map((k) => {return k.key})
         console.log(on_csa_ids)
         if(on_csa_ids.length > 0){
             query = query.whereIn('csa_id',on_csa_ids)
-        }
     }
-    var nsa_id = _.find(filters.global,{'key':'nsa_id'})
-    if(nsa_id.active === true){
+    var nsa_id = _.find(glob.opt,{'key':'nsa_id'})
         var on_nsa_ids = _.filter(nsa_id.opt,{'isOn':true}).map((k) => {return k.key})
         if(on_nsa_ids.length > 0){
             query = query.whereIn('nsa_id',on_nsa_ids)
-        }
     }
-    var sws_id = _.find(filters.global,{'key':'sws_id'})
-    if(sws_id.active === true){
+    var sws_id = _.find(glob.opt,{'key':'sws_id'})
         var on_sws_ids = _.filter(sws_id.opt,{'isOn':true}).map((k) => {return k.key})
         if(on_sws_ids.length > 0){
             query = query.whereIn('sws_id',on_sws_ids)
-        }
     }
     console.log(query.toString())
     return query.map((row) => {
