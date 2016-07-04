@@ -19,6 +19,13 @@ export default class AppController {
     this.$rootScope.$on('setLayers', (event, layers) => {
       this.onSetLayers(layers);
     });
+    this.$scope.$on('leafletDirectiveMarker.click', (event, marker) => {
+      console.log("CLICK");
+      this.emitLayerClick(marker.model || {});
+    });
+  }
+  emitLayerClick(layer) {
+    this.$rootScope.$emit('layerClick', layer);
   }
   onSetLayers(layers) {
     this.markers = layers;

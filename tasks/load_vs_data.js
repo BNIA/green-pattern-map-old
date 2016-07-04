@@ -9,7 +9,7 @@ var config = require(configPath);
 gulp.task('load_vs_data', () => {
 	var pg = knex({client:'pg',connection:config.connection})
 	// Make sure that boundaries schema exists
-	return pg.raw('CREATE SCHEMA IF NOT EXISTS "vital_signs"')
+	return pg.raw('select * from information_schema.columns')
 	.then(() => {
 		// just doing it this way because file is so big
 var execStr = "";

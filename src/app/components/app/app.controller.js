@@ -10,11 +10,13 @@ export default class AppController {
     this.optionsService = optionsService;
     this.layersService = layersService;
 
-    $scope.disqusConfig = {
-      disqus_shortname: 'Your disqus shortname',
-      disqus_identifier: 'Comments identifier',
-      disqus_url: 'Comments url'
+    this.disqusConfig = {
+      disqus_shortname: 'greenpatternmap',
+      disqus_identifier: '2583577',
+      disqus_url: 'https://greenpatternmap.disqus.com/default'
     };
+
+    this.disqusUrlBase = 'https://greenpatternmap.disqus.com/layers/';
 
     // Assign local variables
     this.title = 'Green Pattern Map';
@@ -26,6 +28,10 @@ export default class AppController {
 
     // Assign to scope for children to access
     this.$rootScope.title = this.title;
+    this.$rootScope.$on('layerClick', (event, layer) => {
+      layer.type = 'layer';
+      this.selectItem(layer);
+    });
   }
   reroute(route) {
     this.$location.path(route);
@@ -43,6 +49,12 @@ export default class AppController {
     }
   }
   selectItem(item) {
+    if (item.type === 'layer') {
+      console.log(item);
+      this.disqusConfig.disqus_url = this.disqusUrlBase +
+        item.properties.site_id;
+      this.disqusConfig.disqus_identifier = item.properties.site_id;
+    }
     this.selected = item;
     this.toggleSidenav('right', true);
   }

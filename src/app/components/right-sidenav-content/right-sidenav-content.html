@@ -49,5 +49,25 @@
         </md-radio-group>
       </md-list>
     </div>
+    <div ng-if="$ctrl.selected.type =='layer'">
+      <p>{{$ctrl.selected.properties}}</p>
+      <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
+      <!-- <md-list>
+        <md-radio-group>
+        <md-list-item ng-repeat="o in $ctrl.selected['opt']" layouy="row">
+          <p flex="90">
+            {{o.val}}
+          </p>
+          <md-radio-button
+            class="md-secondary my-right-sidenav-checkbox"
+            ng-model="o.isOn"
+            ng-value="o.key"
+            ng-click="$ctrl.select(o)"
+            flex="10">
+          </md-radio-button>
+        </md-list-item>
+        </md-radio-group>
+      </md-list> -->
+    </div>
   </md-content>
 </div>

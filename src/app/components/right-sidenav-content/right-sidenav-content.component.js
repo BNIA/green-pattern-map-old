@@ -5,7 +5,8 @@ import template from './right-sidenav-content.html!text';
 let bindings = {
   selected: '<',
   onSelect: '&',
-  onNavBack: '&'
+  onNavBack: '&',
+  disqusConfig: '<'
 };
 
 export default {

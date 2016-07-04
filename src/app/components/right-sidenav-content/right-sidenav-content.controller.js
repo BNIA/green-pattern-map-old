@@ -16,6 +16,7 @@ export default class RightSidenavContentController {
     console.log("hi");
     this.onNavBack();
   }
+  $onChanges
 }
 
 RightSidenavContentController.$inject = ["$element", "$mdMedia"];
