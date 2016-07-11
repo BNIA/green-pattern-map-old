@@ -50,7 +50,36 @@
       </md-list>
     </div>
     <div ng-if="$ctrl.selected.type =='layer'">
-      <p>{{$ctrl.selected.properties}}</p>
+      <!---<p>{{$ctrl.selected.properties}}</p>---->
+<img ng-src="../../../assets/img/map.jpg"  style="width:304px;height:228px;"/>
+
+
+    <md-button class="md-raised md-primary">Add picture +</md-button>
+      <md-list>
+        <md-list-item class="md-2-line" >
+
+    <div class="md-list-item-text">
+      <h3>Location</h3>
+      <p>{{$ctrl.selected.properties.site_name}}</p>
+    </div>
+  </md-list-item>
+  <md-list-item class="md-2-line" >
+
+<div class="md-list-item-text">
+<h3>Status</h3>
+<p>{{$ctrl.selected.properties.status}}</p>
+</div>
+</md-list-item>
+<md-list-item class="md-2-line" >
+
+<div class="md-list-item-text">
+<h3>Purpose</h3>
+<p>{{$ctrl.selected.properties.sw_siteuse}}</p>
+</div>
+</md-list-item>
+
+      </md-list>
+
       <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
       <!-- <md-list>
         <md-radio-group>
