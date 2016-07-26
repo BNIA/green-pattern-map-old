@@ -14,10 +14,12 @@ System.config({
   },
 
   map: {
-    "angular": "github:angular/bower-angular@1.5.6",
+    "angular": "github:angular/bower-angular@1.5.7",
     "angular-animate": "github:angular/bower-angular-animate@1.5.6",
     "angular-aria": "github:angular/bower-angular-aria@1.5.6",
+    "angular-carousel": "npm:angular-carousel@1.0.1",
     "angular-css": "npm:angular-css@1.0.8",
+    "angular-jk-carousel": "npm:angular-jk-carousel@0.1.4",
     "angular-material": "github:angular/bower-material@1.0.9",
     "angular-material-sidemenu": "npm:angular-material-sidemenu@1.0.2",
     "angular-messages": "github:angular/bower-angular-messages@1.5.6",
@@ -40,31 +42,31 @@ System.config({
     "text": "github:systemjs/plugin-text@0.0.8",
     "ui-leaflet": "npm:ui-leaflet@1.0.0",
     "github:angular/bower-angular-animate@1.5.6": {
-      "angular": "github:angular/bower-angular@1.5.6"
+      "angular": "github:angular/bower-angular@1.5.7"
     },
     "github:angular/bower-angular-aria@1.5.6": {
-      "angular": "github:angular/bower-angular@1.5.6"
+      "angular": "github:angular/bower-angular@1.5.7"
     },
     "github:angular/bower-angular-messages@1.5.6": {
-      "angular": "github:angular/bower-angular@1.5.6"
+      "angular": "github:angular/bower-angular@1.5.7"
     },
     "github:angular/bower-angular-mocks@1.5.5": {
-      "angular": "github:angular/bower-angular@1.5.6"
+      "angular": "github:angular/bower-angular@1.5.7"
     },
     "github:angular/bower-angular-route@1.5.6": {
-      "angular": "github:angular/bower-angular@1.5.6"
+      "angular": "github:angular/bower-angular@1.5.7"
     },
     "github:angular/bower-angular-sanitize@1.5.5": {
-      "angular": "github:angular/bower-angular@1.5.6"
+      "angular": "github:angular/bower-angular@1.5.7"
     },
     "github:angular/bower-material@1.0.9": {
-      "angular": "github:angular/bower-angular@1.5.6",
+      "angular": "github:angular/bower-angular@1.5.7",
       "angular-animate": "github:angular/bower-angular-animate@1.5.6",
       "angular-aria": "github:angular/bower-angular-aria@1.5.6",
       "css": "github:systemjs/plugin-css@0.1.22"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
-      "assert": "npm:assert@1.4.0"
+      "assert": "npm:assert@1.4.1"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.6.0"
@@ -82,7 +84,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.3"
+      "process": "npm:process@0.11.5"
     },
     "github:jspm/nodelibs-stream@0.1.0": {
       "stream-browserify": "npm:stream-browserify@1.0.0"
@@ -96,6 +98,13 @@ System.config({
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
+    "npm:angular-carousel@1.0.1": {
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:angular-jk-carousel@0.1.4": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:angular-material-sidemenu@1.0.2": {
       "angular": "npm:angular@1.5.6",
       "angular-animate": "npm:angular-animate@1.5.6",
@@ -103,7 +112,7 @@ System.config({
       "angular-material": "npm:angular-material@1.0.9"
     },
     "npm:angular-material@1.0.9": {
-      "angular": "github:angular/bower-angular@1.5.6",
+      "angular": "github:angular/bower-angular@1.5.7",
       "angular-animate": "github:angular/bower-angular-animate@1.5.6",
       "angular-aria": "github:angular/bower-angular-aria@1.5.6",
       "angular-messages": "github:angular/bower-angular-messages@1.5.6",
@@ -122,10 +131,9 @@ System.config({
       "minimalistic-assert": "npm:minimalistic-assert@1.0.0",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
-    "npm:assert@1.4.0": {
+    "npm:assert@1.4.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "buffer-shims": "npm:buffer-shims@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "npm:util@0.10.3"
     },
@@ -178,9 +186,6 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "parse-asn1": "npm:parse-asn1@5.0.0",
       "stream": "github:jspm/nodelibs-stream@0.1.0"
-    },
-    "npm:buffer-shims@1.0.0": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:buffer-xor@1.0.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -324,8 +329,10 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
-    "npm:process@0.11.3": {
-      "assert": "github:jspm/nodelibs-assert@0.1.0"
+    "npm:process@0.11.5": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
     "npm:public-encrypt@4.0.0": {
       "bn.js": "npm:bn.js@4.11.3",

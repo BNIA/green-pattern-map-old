@@ -26,7 +26,8 @@ let dependencies = [
   'ngRoute',
   'landingPage',
   'mapPage',
-  'angularUtils.directives.dirDisqus'
+  'angularUtils.directives.dirDisqus',
+  'jkAngularCarousel'
 ];
 
 let app = angular.module('app', dependencies);

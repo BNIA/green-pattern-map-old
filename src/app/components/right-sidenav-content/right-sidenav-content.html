@@ -51,7 +51,7 @@
     </div>
     <div ng-if="$ctrl.selected.type =='layer'">
       <!---<p>{{$ctrl.selected.properties}}</p>---->
-<img ng-src="../../../assets/img/map.jpg"  style="width:304px;height:228px;"/>
+<img ng-src="../../../assets/img/map.jpg"  style="width:95%;height:228px; margin-left:10px; margin-right:10px; padding-top:10px"/>
 
 
     <md-button class="md-raised md-primary">Add picture +</md-button>
@@ -79,8 +79,11 @@
 </md-list-item>
 
       </md-list>
+<div style="margin-left:10px; margin-right:10px">
+
 
       <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
+      </div>
       <!-- <md-list>
         <md-radio-group>
         <md-list-item ng-repeat="o in $ctrl.selected['opt']" layouy="row">

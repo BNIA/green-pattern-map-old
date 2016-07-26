@@ -9,7 +9,12 @@ export default class AppController {
     this.$mdMedia = $mdMedia;
     this.optionsService = optionsService;
     this.layersService = layersService;
-
+    this.test = [
+      {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"},
+      {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"},
+      {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"},
+      {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"}
+    ]
     this.disqusConfig = {
       disqus_shortname: 'greenpatternmap',
       disqus_identifier: '2583577',
