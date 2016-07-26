@@ -19,7 +19,7 @@ System.config({
     "angular-aria": "github:angular/bower-angular-aria@1.5.6",
     "angular-carousel": "npm:angular-carousel@1.0.1",
     "angular-css": "npm:angular-css@1.0.8",
-    "angular-jk-carousel": "npm:angular-jk-carousel@0.1.4",
+    "angular-jk-carousel": "npm:angular-jk-carousel@0.1.5",
     "angular-material": "github:angular/bower-material@1.0.9",
     "angular-material-sidemenu": "npm:angular-material-sidemenu@1.0.2",
     "angular-messages": "github:angular/bower-angular-messages@1.5.6",
@@ -102,7 +102,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:angular-jk-carousel@0.1.4": {
+    "npm:angular-jk-carousel@0.1.5": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:angular-material-sidemenu@1.0.2": {
