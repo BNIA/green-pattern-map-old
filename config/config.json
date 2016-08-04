@@ -1,9 +1,9 @@
 {
 	"connection":{
 		"host":"127.0.0.1",
-		"user":"poco",
+		"user":"mwisser",
 		"port":5432,
 		"database":"green-pattern-map",
-		"password":"Seldon12"
+		"password":"WSzx6481Y0"
 	}
 }

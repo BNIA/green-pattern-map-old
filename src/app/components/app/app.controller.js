@@ -10,10 +10,10 @@ export default class AppController {
     this.optionsService = optionsService;
     this.layersService = layersService;
     this.test = [
+      {src: 'http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png'},
       {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"},
       {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"},
-      {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"},
-      {src: "http://orig12.deviantart.net/8670/f/2016/152/b/6/placeholder_1_by_sketchymouse-da4nvhb.png"}
+      {src: "../../../assets/img/map.jpg"}
     ]
     this.disqusConfig = {
       disqus_shortname: 'greenpatternmap',
@@ -22,6 +22,7 @@ export default class AppController {
     };
 
     this.disqusUrlBase = 'https://greenpatternmap.disqus.com/layers/';
+
 
     // Assign local variables
     this.title = 'Green Pattern Map';
